@@ -34,9 +34,9 @@ namespace GitBlackJack
                     dealer.GetCardToDealer();
 
                     // player Bet
-                    int bet;
+                    
                     Console.WriteLine("How mutch you wanna bet?");
-
+                    int bet = player.Bet();
 
                     player.GetCard(dealer.GiveCard());
                     player.GetCard(dealer.GiveCard());
@@ -60,9 +60,9 @@ namespace GitBlackJack
 
                     int WIN = Rules.TheWinner(StaticMethods.CountValue(player.ShowPlayerHand()), StaticMethods.CountValue(dealer.ShowDealerHand()));
                     if (WIN == 1) { Console.WriteLine("player win"); }//player win 
-                    else if (WIN == -1) { Console.WriteLine("Dealer win"); } //Dealer win
-                    else if (WIN == 0 && player.ShowPlayerHand) { }//Draw
-
+                    else if (WIN == -1) { Console.WriteLine("Dealer win"); } //Dealer win                   
+                    else if (WIN == 0 && player.numberOfCards()<5) { }//dealerwin
+                    else { }//dealerwin
                 }
 
 
