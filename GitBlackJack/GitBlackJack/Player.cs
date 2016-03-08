@@ -14,6 +14,7 @@ namespace GitBlackJack
         {
             this.balance = balance;
 
+
         }
         public void GetCard()
         {
