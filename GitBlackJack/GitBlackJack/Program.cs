@@ -58,10 +58,11 @@ namespace GitBlackJack
 
 
 
-                    if (Rules.TheWinner(StaticMethods.CountValue(player.ShowPlayerHand()), StaticMethods.CountValue(dealer.ShowDealerHand())))
-                    { Console.WriteLine("player win"); }//player win 
-                    else { Console.WriteLine("Dealer win"); } //Dealer win
-                    Console.ReadLine();
+                    int WIN = Rules.TheWinner(StaticMethods.CountValue(player.ShowPlayerHand()), StaticMethods.CountValue(dealer.ShowDealerHand()));
+                    if (WIN == 1) { Console.WriteLine("player win"); }//player win 
+                    else if (WIN == -1) { Console.WriteLine("Dealer win"); } //Dealer win
+                    else if (WIN == 0 && player.ShowPlayerHand) { }//Draw
+
                 }
 
 
