@@ -14,6 +14,7 @@ namespace GitBlackJack
         public Player(int balance)
         {
             this.balance = balance;
+            this.PlayerHand = new List<Card>();
         }
 
         public void GetCard(Card newCard)

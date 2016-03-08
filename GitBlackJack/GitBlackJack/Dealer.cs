@@ -31,7 +31,8 @@ namespace GitBlackJack
             Random random = new Random();
             Card cardHolder = new Card();
 
-            foreach (var item in ActiveDeck)
+            foreach (var item 
+                in ActiveDeck)
             {
                 int PointCardX = random.Next(ActiveDeck.Count);
                 int PointCardY = random.Next(ActiveDeck.Count);
