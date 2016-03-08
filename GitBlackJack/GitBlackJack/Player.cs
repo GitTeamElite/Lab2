@@ -22,7 +22,6 @@ namespace GitBlackJack
             PlayerHand.Add(newCard);
         }
         
-
         public bool Pass()
         {
             return true;
