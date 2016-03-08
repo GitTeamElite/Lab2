@@ -24,5 +24,9 @@ namespace GitBlackJack
             int TotalValue = StaticMethods.CountValue(CardList);
             Console.WriteLine("Total value of the cards: "+TotalValue);
         }
+        public static void LOGG()
+        {
+            Console.WriteLine( "BBB    L  );
+        }
     }
 }
