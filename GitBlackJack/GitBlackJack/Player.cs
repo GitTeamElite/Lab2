@@ -27,10 +27,12 @@ namespace GitBlackJack
             return true;
         }
 
-        public void Bet()
+        public int Bet()
         {
             int bet;
             int.TryParse(Console.ReadLine(),out bet);
+
+            return bet;
 
         }
 
