@@ -10,7 +10,8 @@ namespace GitBlackJack
     {
         static void Main(string[] args)
         {
-            
+            Dealer dealer = new Dealer(1000);
+
         }
     }
 }

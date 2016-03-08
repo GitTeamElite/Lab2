@@ -10,7 +10,7 @@ namespace GitBlackJack
     {
         List<Card> DeckOfCard;
 
-        Deck()
+       public Deck()
         {
             this.DeckOfCard = new List<Card>();
             {

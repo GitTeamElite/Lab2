@@ -12,7 +12,7 @@ namespace GitBlackJack
 
         public int Balance { get; set; }
 
-        Dealer(int balance)
+      public Dealer(int balance)
         {
             this.Balance = balance;
             this.ActiveDeck = new List<Card>();
