@@ -31,12 +31,12 @@ namespace GitBlackJack
 
             foreach (var item in ActiveDeck)
             {
-                int PointCard = random.Next(ActiveDeck.Count);
-                int pointcard = random.Next(ActiveDeck.Count);
+                int PointCardX = random.Next(ActiveDeck.Count);
+                int PointCardY = random.Next(ActiveDeck.Count);
 
-                cardHolder = ActiveDeck[PointCard];
-                ActiveDeck.RemoveAt(PointCard);
-                ActiveDeck.Add(cardHolder);
+                cardHolder = ActiveDeck[PointCardX];
+                ActiveDeck[PointCardX] = ActiveDeck[PointCardY];
+                ActiveDeck[PointCardY] = cardHolder;
             }
         }
         public Card GiveCard()
