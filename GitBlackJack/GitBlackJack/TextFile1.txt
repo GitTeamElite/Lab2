@@ -20,7 +20,7 @@ Class Dealer:
 		metod- ChuffleActiveDeck
 		metod- GiveCard
 		metod- GetCard (DealerHand)
-
+		metod- ShowHand 
 
 Class Player:
 		list<Card> PlayerHand
@@ -30,6 +30,7 @@ Class Player:
 		metod- NextCard
 		metod- Pass
 		metod- Bet
+		metod- ShowHand
 
 Class GamePresentation:
 

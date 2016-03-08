@@ -58,7 +58,10 @@ namespace GitBlackJack
 
             DealerHand.Add(card);
         }
-
+        public List<Card> ShowDealerHand()
+        {
+            return DealerHand;
+        }
 
     }
 }

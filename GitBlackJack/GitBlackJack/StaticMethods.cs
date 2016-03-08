@@ -19,5 +19,14 @@ namespace GitBlackJack
 
             return Ytype;
         }
+        public static int CountValue(List<Card> CardList)
+        {
+            int totalValue = 0;
+            foreach (var item in CardList)
+            {
+                totalValue += item._Value;
+            }
+            return totalValue;
+        }
     }
 }
