@@ -25,12 +25,22 @@ namespace GitBlackJack
         //metod- bool Playervalue > Dealervalue = PlayerBet*2
         //metod- Gameover    if balance = 0
 
-
+        /// <summary>
+        /// Check if player can get another card
+        /// </summary>
+        /// <param name="totalValueCar"></param>
+        /// <returns></returns>
         public static bool PlayCard(int totalValueCar)
         {
-            if (totalValueCar > 0 && totalValueCar < 17){return true;}
-            else{return false;}
+            if (totalValueCar > 0 && totalValueCar < 17) { return true; }
+            else { return false; }
         }
+
+        /// <summary>
+        /// Check if Black Jack
+        /// </summary>
+        /// <param name="totalvaluecard"></param>
+        /// <returns></returns>
         public static bool BlackJack(int totalvaluecard)
         {
             bool check = false;
@@ -38,14 +48,29 @@ namespace GitBlackJack
             if (totalvaluecard == 21) { check = true; }
             return check;
         }
-        public static bool TheWinner(int playerValue, int dealerValue)
-        {
-           
-            bool check = false; // Om true Player wins, om false dealer wins
 
-            if (playerValue < 22 && playerValue < 22)
-            {if (playerValue > dealerValue) { check = true; }}
-            return check;
+        /// <summary>
+        /// Compare total amount of points and return who is the winner
+        /// </summary>
+        /// <param name="playerValue"></param>
+        /// <param name="dealerValue"></param>
+        /// <returns></returns>
+        public static int TheWinner(int playerValue, int dealerValue)
+        {
+
+            int compare = playerValue.CompareTo(dealerValue); // returns 1, 0, -1
+
+
+            if (compare == 1)
+            {
+                return compare; 
+            }
+            else if (compare == 0)
+            {
+                return compare;
+            }
+            else
+                return compare;
         }
     }
 }
