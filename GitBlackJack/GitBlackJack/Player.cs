@@ -29,6 +29,7 @@ namespace GitBlackJack
 
         public int Bet()
         {
+            GamePresentation.LOGG();
             Console.WriteLine("How mutch you wanna bet?");
             int bet = 0;
             do

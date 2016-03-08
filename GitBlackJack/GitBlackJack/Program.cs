@@ -30,6 +30,7 @@ namespace GitBlackJack
                 
                 while (true)  //TurnStarts
                 {
+                    Console.Clear();
                     int bet = player.Bet();
 
                     Console.Clear();
@@ -41,7 +42,7 @@ namespace GitBlackJack
                     int DealerValue = StaticMethods.CountValue(dealer.ShowDealerHand());
                     int playerValue = StaticMethods.CountValue(player.ShowPlayerHand());
 
-                    StaticMethods.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
+                    GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
 
                     //ask player for new card
                     bool go = true;
@@ -55,7 +56,7 @@ namespace GitBlackJack
                             case 'y':
                                 player.GetCard(dealer.GiveCard());
                              
-                                StaticMethods.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
+                                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
                                 
                                 break;
                             case 'n':
@@ -69,10 +70,10 @@ namespace GitBlackJack
 
                     while (Rules.GiveDealerCard(StaticMethods.CountValue(dealer.ShowDealerHand())))
                     {
-                        StaticMethods.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
+                        GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
                         dealer.GetCardToDealer();
 
-                        if (!Rules.Over21(StaticMethods.CountValue(dealer.ShowDealerHand()))) {    } // player win
+                        if (!Rules.Over21(StaticMethods.CountValue(dealer.ShowDealerHand()))) { Console.WriteLine("Player win");  } 
                     }
 
 

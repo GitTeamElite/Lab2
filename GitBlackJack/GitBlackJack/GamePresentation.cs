@@ -48,5 +48,19 @@ namespace GitBlackJack
 
 
         }
+        public static void PrintGame(List<Card> Player, List<Card> Dealer, int bet, int PlayerBalance)
+        {
+            Console.Clear();
+            LOGG();
+            Console.WriteLine("        D e a l e r   H a n d");
+            GamePresentation.PrintCardHand(Dealer);
+            GamePresentation.PrintTotalValue(Dealer);
+            Console.WriteLine("\n");
+            Console.WriteLine("        P l a y e r   H a n d");
+            Console.WriteLine("        $$ " + PlayerBalance + " $$ Bet :" + bet + " $$");
+            GamePresentation.PrintCardHand(Player);
+            GamePresentation.PrintTotalValue(Player);
+
+        }
     }
 }
