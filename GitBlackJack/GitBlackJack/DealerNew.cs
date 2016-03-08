@@ -9,5 +9,6 @@ namespace GitBlackJack
     class DealerNew
     {
         string Hola = "Hola";
+        //hola 2
     }
 }
