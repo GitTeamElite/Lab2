@@ -26,7 +26,7 @@ namespace GitBlackJack
         }
         public static void LOGG()
         {
-            Console.WriteLine( "BBB    L  );
+            Console.WriteLine( "BBB    L " );
         }
     }
 }
