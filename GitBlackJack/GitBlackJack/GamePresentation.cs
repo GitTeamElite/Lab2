@@ -10,13 +10,17 @@ namespace GitBlackJack
     {
         public static void PrintCardHand(List<Card> CardList)
         {
+            Console.WriteLine("---------------------------------------");
+            int CardNr = 1;
             foreach (var item in CardList)
             {
-                Console.WriteLine("Card-"+ item._Value+" "+item._Type);
+                Console.WriteLine("Card nr:"+CardNr+"    "+ item._Type+" "+item._Value);
+                CardNr++;
             }
         }
         public static void PrintTotalValue(List<Card> CardList)
         {
+            Console.WriteLine("---------------------------------------");
             int TotalValue = StaticMethods.CountValue(CardList);
             Console.WriteLine("Total value of the cards: "+TotalValue);
         }
