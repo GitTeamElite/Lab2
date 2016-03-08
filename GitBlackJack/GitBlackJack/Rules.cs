@@ -48,6 +48,8 @@ namespace GitBlackJack
             if (totalvaluecard == 21) { check = true; }
             return check;
         }
+        //public static 
+
 
         /// <summary>
         /// Compare total amount of points and return who is the winner
@@ -71,6 +73,7 @@ namespace GitBlackJack
             }
             else
                 return compare;
+
         }
     }
 }
