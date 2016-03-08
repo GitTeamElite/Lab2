@@ -40,10 +40,12 @@ namespace GitBlackJack
 
                     GamePresentation.PrintCardHand(dealer.ShowDealerHand());
                     GamePresentation.PrintTotalValue(dealer.ShowDealerHand());
-
+                    Console.WriteLine("\n");
                     GamePresentation.PrintCardHand(player.ShowPlayerHand());
                     GamePresentation.PrintTotalValue(player.ShowPlayerHand());
 
+
+                    Console.ReadLine();
                 }
 
 
