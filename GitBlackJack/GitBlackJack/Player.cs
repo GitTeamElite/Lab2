@@ -10,7 +10,7 @@ namespace GitBlackJack
     {
         public int balance { get; set; }
 
-        Player(int balance)
+        public Player(int balance)
         {
             this.balance = balance;
 
