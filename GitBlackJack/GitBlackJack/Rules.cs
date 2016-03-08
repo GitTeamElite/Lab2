@@ -22,7 +22,7 @@ namespace GitBlackJack
         /// <returns></returns>
         public static bool GiveDealerCard(int totalValueCar)
         {
-            if (totalValueCar > 0 && totalValueCar < 17) { return true; }
+            if (totalValueCar < 17) { return true; }
             else { return false; }
         }
 
@@ -66,6 +66,14 @@ namespace GitBlackJack
 
             return compare;
                 
+        }
+        public static void Loose(int totalvaluecard)
+        {
+            if (Over21(totalvaluecard) == false)
+            {
+                Console.WriteLine("You have lost");
+            }
+
         }
     }
 }
