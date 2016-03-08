@@ -28,17 +28,8 @@ namespace GitBlackJack
 
         public static bool PlayCard(int totalValueCar)
         {
-            if (totalValueCar > 0 && totalValueCar < 17)
-            {
-
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
-
+            if (totalValueCar > 0 && totalValueCar < 17){return true;}
+            else{return false;}
         }
         public static bool BlackJack(int totalvaluecard)
         {
@@ -49,13 +40,11 @@ namespace GitBlackJack
         }
         public static bool TheWinner(int playerValue, int dealerValue)
         {
-            bool check = true;
+           
+            bool check = true; // Om true Player wins, om false dealer wins
 
             if (playerValue < 21 && playerValue < 21)
-            {
-                if (playerValue > dealerValue) { check = false; }
-
-            }
+            {if (playerValue > dealerValue) { check = false; }}
             return check;
         }
     }
