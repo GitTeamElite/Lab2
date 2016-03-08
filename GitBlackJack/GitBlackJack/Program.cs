@@ -16,8 +16,8 @@ namespace GitBlackJack
             Player player = new Player(100);
 
 
-            while(!quit)
-                {
+            while (!quit)
+            {
 
                 var x = 0;
                 while (x < 2) // Give Dealer 2 deck of cards and shuffle them
@@ -26,9 +26,8 @@ namespace GitBlackJack
                     dealer.ShuffleActiveDeck();
                     x++;
                 }
-                 
-                //TurnStarts
-                while (true)
+
+                while (true)  //TurnStarts
                 {
                     dealer.GetCardToDealer();
                     dealer.GetCardToDealer();
@@ -36,7 +35,12 @@ namespace GitBlackJack
                     player.GetCard(dealer.GiveCard());
                     player.GetCard(dealer.GiveCard());
 
-                    StaticMethods.CountValue(dealer.SHowDealerHand());
+                    while (true)
+                    {
+                        int DealerValue = StaticMethods.CountValue(dealer.ShowDealerHand());
+                        int playerValue = StaticMethods.CountValue(player.ShowPlayerHand());
+                        if (DealerValue < 17) { dealer.GetCardToDealer(); }
+                    }
                 }
 
 
