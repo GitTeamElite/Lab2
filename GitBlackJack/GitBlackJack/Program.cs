@@ -30,6 +30,7 @@ namespace GitBlackJack
 
                 while (true)  //TurnStarts
                 {
+                    Console.Clear();
                     dealer.GetCardToDealer();
 
                     player.GetCard(dealer.GiveCard());
@@ -38,9 +39,11 @@ namespace GitBlackJack
                     int DealerValue = StaticMethods.CountValue(dealer.ShowDealerHand());
                     int playerValue = StaticMethods.CountValue(player.ShowPlayerHand());
 
+                    Console.WriteLine("Dealer Hand");
                     GamePresentation.PrintCardHand(dealer.ShowDealerHand());
                     GamePresentation.PrintTotalValue(dealer.ShowDealerHand());
                     Console.WriteLine("\n");
+                    Console.WriteLine("Player Hand");
                     GamePresentation.PrintCardHand(player.ShowPlayerHand());
                     GamePresentation.PrintTotalValue(player.ShowPlayerHand());
 

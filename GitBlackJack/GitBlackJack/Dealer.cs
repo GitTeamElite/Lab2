@@ -13,7 +13,7 @@ namespace GitBlackJack
 
         public int Balance { get; set; }
 
-        public Dealer(int balance)
+      public Dealer(int balance)
         {
             this.Balance = balance;
             this.ActiveDeck = new List<Card>();
@@ -31,7 +31,7 @@ namespace GitBlackJack
             Random random = new Random();
             Card cardHolder = new Card();
 
-            for (int x = 0; x < ActiveDeck.Count; x++)
+            for (int x =0;x<1000;x++)
             {
                 int PointCardX = random.Next(ActiveDeck.Count-1);
                 int PointCardY = random.Next(ActiveDeck.Count-1);
@@ -49,7 +49,7 @@ namespace GitBlackJack
 
             return card;
 
-        }
+        } 
         public void GetCardToDealer()
         {
             Card card = new Card();
