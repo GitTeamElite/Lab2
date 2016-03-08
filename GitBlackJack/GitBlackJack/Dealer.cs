@@ -9,6 +9,7 @@ namespace GitBlackJack
     class Dealer
     {
         List<Card> ActiveDeck;
+        List<Card> DealerHand;
 
         public int Balance { get; set; }
 
@@ -16,6 +17,7 @@ namespace GitBlackJack
         {
             this.Balance = balance;
             this.ActiveDeck = new List<Card>();
+            this.DealerHand = new List<Card>();
         }
         public void GetDeck(List<Card> deck)
         {
@@ -48,6 +50,15 @@ namespace GitBlackJack
             return card;
 
         } 
+        public void GetCardToDealer()
+        {
+            Card card = new Card();
+            card = ActiveDeck[0];
+            ActiveDeck.RemoveAt(0);
+
+            DealerHand.Add(card);
+        }
+
 
     }
 }

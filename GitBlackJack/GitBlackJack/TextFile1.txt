@@ -26,7 +26,7 @@ Class Player:
 
 		metod- GetCard
 		metod- NextCard
-		metod- Stay // byter namn från Pause till stay -shirzad
+		metod- pass
 		metod- Bet
 
 Class GamePresentation:
