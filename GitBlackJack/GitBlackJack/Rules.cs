@@ -30,7 +30,7 @@ namespace GitBlackJack
         /// </summary>
         /// <param name="totalValueCar"></param>
         /// <returns></returns>
-        public static bool PlayCard(int totalValueCar)
+        public static bool GiveDealerCard(int totalValueCar)
         {
             if (totalValueCar > 0 && totalValueCar < 17) { return true; }
             else { return false; }
@@ -48,7 +48,20 @@ namespace GitBlackJack
             if (totalvaluecard == 21) { check = true; }
             return check;
         }
-        //public static 
+
+        /// <summary>
+        /// Check if total cards points are over 21
+        /// </summary>
+        /// <param name="playerValue"></param>
+        /// <param name="dealerValue"></param>
+        /// <returns></returns>
+        public static bool Over21(int totalvaluecard)
+        {
+            if (totalvaluecard < 22 )
+                return true;
+            else
+                return false;
+        }
 
 
         /// <summary>
