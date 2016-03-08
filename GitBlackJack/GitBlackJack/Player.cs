@@ -32,12 +32,22 @@ namespace GitBlackJack
             int bet;
             int.TryParse(Console.ReadLine(),out bet);
 
-
         }
 
         public List<Card> ShowPlayerHand()
         {
             return PlayerHand;
+        }
+
+        public int numberOfCards()
+        {
+
+            int number = 0;
+            foreach (var item in PlayerHand)
+            {
+                number++;
+            }
+            return number;
         }
 
     }
