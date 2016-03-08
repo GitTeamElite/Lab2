@@ -19,6 +19,7 @@ namespace GitBlackJack
         public void GetCard(Card newCard)
         {
             PlayerHand.Add(newCard);
+
         }
 
         public void ShowHand()
