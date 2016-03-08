@@ -11,11 +11,10 @@ namespace GitBlackJack
         List<Card> ActiveDeck;
         List<Card> DealerHand;
 
-        public int Balance { get; set; }
-
-      public Dealer(int balance)
+       
+      public Dealer( )
         {
-            this.Balance = balance;
+           
             this.ActiveDeck = new List<Card>();
             this.DealerHand = new List<Card>();
         }
@@ -62,6 +61,9 @@ namespace GitBlackJack
         {
             return DealerHand;
         }
+        public void ClearHand()
+        {
 
+        }
     }
 }

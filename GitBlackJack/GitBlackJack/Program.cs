@@ -11,7 +11,7 @@ namespace GitBlackJack
         static void Main(string[] args)
         {
             bool quit = false;
-            Dealer dealer = new Dealer(1000);
+            Dealer dealer = new Dealer();
             Deck deck = new Deck();
             Player player = new Player(100);
 
@@ -65,10 +65,15 @@ namespace GitBlackJack
                             default:
                                 break;
                         }
-                        if (!Rules.Over21(StaticMethods.CountValue(player.ShowPlayerHand()))) { Console.WriteLine("Dealer win"); }
+                        if (!Rules.Over21(StaticMethods.CountValue(player.ShowPlayerHand())))
+                        {
+                            Console.WriteLine("Dealer win");
+                            player.balance -= bet;
+                        }
                     } while (go);
-                    bool gogo = true;
-                    while (gogo)
+
+                    go  = true;
+                    while (go)
                     {
                         GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
 
@@ -76,6 +81,7 @@ namespace GitBlackJack
                         if (!Rules.Over21(StaticMethods.CountValue(dealer.ShowDealerHand())))
                         {
                             Console.WriteLine("Player win");
+                            player.balance += bet;
                         }
 
                         if (StaticMethods.CountValue(dealer.ShowDealerHand()) < 17)
@@ -84,17 +90,17 @@ namespace GitBlackJack
                             Console.WriteLine("Press a key to see dealer next card");
                             Console.ReadKey();
                         }
-                        else { gogo = false; }
+                        else { go = false; }
                     }
 
 
 
 
                     int WIN = Rules.TheWinner(StaticMethods.CountValue(player.ShowPlayerHand()), StaticMethods.CountValue(dealer.ShowDealerHand()));
-                    if (WIN == 1) { Console.WriteLine("player win"); }
-                    else if (WIN == -1) { Console.WriteLine("Dealer win"); }
-                    else if (WIN == 0 && player.numberOfCards() < 5) { Console.WriteLine("Dealer win"); }
-                    else { Console.WriteLine("Dealer win"); }
+                    if (WIN == 1) { Console.WriteLine("player win"); player.balance += bet; }
+                    else if (WIN == -1) { Console.WriteLine("Dealer win"); player.balance -= bet; }
+                    else if (WIN == 0 && player.numberOfCards() < 5) { Console.WriteLine("Dealer win");player.balance -= bet; }
+                    else { Console.WriteLine("Dealer win"); player.balance -= bet; }
                     Console.ReadKey();
                 }
 

@@ -22,6 +22,8 @@ Class Dealer:
 		metod- GetCard (DealerHand)
 		metod- ShowHand 
 
+		metod- ClearHand
+
 Class Player:
 		list<Card> PlayerHand
 		int balance
@@ -30,6 +32,8 @@ Class Player:
 		metod- Pass
 		metod- Bet
 		metod- ShowHand
+
+		metod- ClearHand
 
 Class GamePresentation:
 
