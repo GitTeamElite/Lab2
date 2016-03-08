@@ -19,26 +19,17 @@ namespace GitBlackJack
         public void GetCard(Card newCard)
         {
             PlayerHand.Add(newCard);
-
         }
+        
 
-        public void ShowHand()
+        public bool Pass()
         {
-
-        }
-
-        public void NextCard()
-        {
-
-        }
-
-        public void Pass()
-        {
-
+            return true;
         }
 
         public void Bet()
         {
+            
 
         }
 

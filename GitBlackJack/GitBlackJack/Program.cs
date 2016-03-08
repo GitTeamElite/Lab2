@@ -27,20 +27,23 @@ namespace GitBlackJack
                     x++;
                 }
 
+
                 while (true)  //TurnStarts
                 {
                     dealer.GetCardToDealer();
-                    dealer.GetCardToDealer();
 
                     player.GetCard(dealer.GiveCard());
                     player.GetCard(dealer.GiveCard());
 
-                    while (true)
-                    {
-                        int DealerValue = StaticMethods.CountValue(dealer.ShowDealerHand());
-                        int playerValue = StaticMethods.CountValue(player.ShowPlayerHand());
-                        if (DealerValue < 17) { dealer.GetCardToDealer(); }
-                    }
+                    int DealerValue = StaticMethods.CountValue(dealer.ShowDealerHand());
+                    int playerValue = StaticMethods.CountValue(player.ShowPlayerHand());
+
+                    GamePresentation.PrintCardHand(dealer.ShowDealerHand());
+                    GamePresentation.PrintTotalValue(dealer.ShowDealerHand());
+
+                    GamePresentation.PrintCardHand(player.ShowPlayerHand());
+                    GamePresentation.PrintTotalValue(player.ShowPlayerHand());
+
                 }
 
 
