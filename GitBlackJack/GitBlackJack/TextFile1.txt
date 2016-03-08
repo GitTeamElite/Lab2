@@ -13,40 +13,27 @@ Class Deck:
 Class Dealer:
 
 		List<Card> ActiveDeck
-		list<Card> DealerHand
 		int balance
 
 		metod- get DeckOfCard
 		metod- ChuffleActiveDeck
 		metod- GiveCard
-		metod- GetCard (DealerHand)
-
+		metod- ShowCard
 
 Class Player:
-		list<Card> PlayerHand
+
 		int balance
 
 		metod- GetCard
 		metod- NextCard
-		metod- Pass
+		metod- pass
 		metod- Bet
 
 Class GamePresentation:
 
 		metod- PrintGame
-		metod- ShowCard
 
 Class StaticMethods:
 
 		metod- ERRORHANDLE
 		metod- GetType
-
-Class Rules:
-
-		metod- DealerValue bool   (<17)
-		metod- Value   bool  (>21)   PlayerValue>21= PlayerBalance -= PlayerBet; /// new round || dealerValue > 21 == Player Balance += bet*2; // new round;
-		metod- bool Playervalue > Dealervalue = PlayerBet*2
-
-
-		metod- Gameover    if balance = 0
-		
