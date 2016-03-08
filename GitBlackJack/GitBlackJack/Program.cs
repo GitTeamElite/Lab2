@@ -13,7 +13,7 @@ namespace GitBlackJack
             bool quit = false;
             Dealer dealer = new Dealer(1000);
             Deck deck = new Deck();
-            Player player = new Player();
+            Player player = new Player(100);
 
 
             while(!quit)
