@@ -34,7 +34,7 @@ namespace GitBlackJack
                     dealer.GetCardToDealer();
 
                     // player Bet
-                    GamePresentation.LOGG();
+                   
                     Console.WriteLine("How mutch you wanna bet?");
                     int bet = player.Bet();
 
