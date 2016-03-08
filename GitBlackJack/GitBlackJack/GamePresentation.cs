@@ -14,7 +14,7 @@ namespace GitBlackJack
             int CardNr = 1;
             foreach (var item in CardList)
             {
-                Console.WriteLine("Card nr:"+CardNr+"    "+ item._Type+" "+item._Value);
+                Console.WriteLine("Card nr:"+CardNr+"    "+ item._Color+" of "+item.Type+" - "+item._Value);
                 CardNr++;
             }
         }
@@ -23,6 +23,10 @@ namespace GitBlackJack
             Console.WriteLine("---------------------------------------");
             int TotalValue = StaticMethods.CountValue(CardList);
             Console.WriteLine("Total value of the cards: "+TotalValue);
+        }
+        public static void LOGG()
+        {
+            Console.WriteLine( "BBB    L  );
         }
     }
 }

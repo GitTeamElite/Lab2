@@ -27,15 +27,29 @@ namespace GitBlackJack
             return true;
         }
 
-        public void Bet()
+        public int Bet()
         {
-            
+            int bet;
+            int.TryParse(Console.ReadLine(),out bet);
+
+            return bet;
 
         }
 
         public List<Card> ShowPlayerHand()
         {
             return PlayerHand;
+        }
+
+        public int numberOfCards()
+        {
+
+            int number = 0;
+            foreach (var item in PlayerHand)
+            {
+                number++;
+            }
+            return number;
         }
 
     }
