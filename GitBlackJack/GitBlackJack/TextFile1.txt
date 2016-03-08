@@ -26,8 +26,7 @@ Class Player:
 		list<Card> PlayerHand
 		int balance
 
-		metod- GetCard
-		metod- NextCard
+		metod- GetCard		
 		metod- Pass
 		metod- Bet
 		metod- ShowHand
