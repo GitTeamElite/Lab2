@@ -43,7 +43,7 @@ namespace GitBlackJack
            
             bool check = true; // Om true Player wins, om false dealer wins
 
-            if (playerValue < 21 && playerValue < 21)
+            if (playerValue < 22 && playerValue < 22)
             {if (playerValue > dealerValue) { check = false; }}
             return check;
         }
