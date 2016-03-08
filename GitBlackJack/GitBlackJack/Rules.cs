@@ -41,10 +41,10 @@ namespace GitBlackJack
         public static bool TheWinner(int playerValue, int dealerValue)
         {
            
-            bool check = true; // Om true Player wins, om false dealer wins
+            bool check = false; // Om true Player wins, om false dealer wins
 
             if (playerValue < 22 && playerValue < 22)
-            {if (playerValue > dealerValue) { check = false; }}
+            {if (playerValue > dealerValue) { check = true; }}
             return check;
         }
     }
