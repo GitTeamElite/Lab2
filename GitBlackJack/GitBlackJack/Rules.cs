@@ -10,11 +10,19 @@ namespace GitBlackJack
     {
         private int totalValueCar { get; set; }
         private bool playAnotherCard { get; set; }
+        private bool winner { get; set; }
 
         public Rules()
         {
             playAnotherCard = false;
+            winner = false;
         }
+        //1. The one closest but not over 21 wins the round.
+        //2. Anyone over 21, are bust and loses the round.
+        //3. Equal value dealer wins if player less than 5 cards.
+        //4. Dealer must draw to 17.
+        //5. Face cards(i.e.Knights, Queens and Kings) have the value of 10.
+        //6. Ace has either value of 1 or 11
 
         //  Class Rules:
         //  metod- DealerValue bool   (<17)
@@ -27,7 +35,7 @@ namespace GitBlackJack
             totalValueCar += card._Value;
             return totalValueCar;
         }
-        public bool DealerValue()
+        public bool PlayCard()
         {
             if (totalValueCar < 17)
             {
@@ -40,7 +48,17 @@ namespace GitBlackJack
                 return playAnotherCard;
             }
         }
-        public bool SetBalance(play)
+        public bool Win (int totalvaluecard)
+        {
+            if(playAnotherCard == false)
+            {
+                if(totalvaluecard > 21) { winner = false; }
+                else if(totalvaluecard == 21) { winner = true;}
+                
+            }
+            return winner;
+        }
+        public void TheWinner(int playerValue, int dealerValue)
         {
 
         }
