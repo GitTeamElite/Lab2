@@ -8,5 +8,16 @@ namespace GitBlackJack
 {
     class Player
     {
+        public int balance { get; set; }
+
+        Player(int balance)
+        {
+            this.balance = balance;
+
+        }
+        public void GetCard()
+        {
+            
+        }
     }
 }
