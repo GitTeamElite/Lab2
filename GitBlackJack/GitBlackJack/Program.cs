@@ -44,10 +44,15 @@ namespace GitBlackJack
                     GamePresentation.PrintTotalValue(dealer.ShowDealerHand());
                     Console.WriteLine("\n");
                     Console.WriteLine("        P l a y e r   H a n d");
-                    Console.WriteLine("      $$ "+player.balance+" $$");
+                    Console.WriteLine("      $$ " + player.balance + " $$");
                     GamePresentation.PrintCardHand(player.ShowPlayerHand());
                     GamePresentation.PrintTotalValue(player.ShowPlayerHand());
-            
+
+
+
+                    if (Rules.TheWinner(StaticMethods.CountValue(player.ShowPlayerHand()), StaticMethods.CountValue(dealer.ShowDealerHand())))
+                    { Console.WriteLine("player win"); }//player win 
+                    else { Console.WriteLine("Dealer win"); } //Dealer win
                     Console.ReadLine();
                 }
 
