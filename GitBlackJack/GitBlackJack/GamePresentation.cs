@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GitBlackJack
 {
-    class GamePresentation
+   static class GamePresentation
     {
+        public static void ShowCard()
+        {
+
+        }
     }
 }

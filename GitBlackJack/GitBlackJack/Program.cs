@@ -10,14 +10,24 @@ namespace GitBlackJack
     {
         static void Main(string[] args)
         {
+            bool quit = false;
             Dealer dealer = new Dealer(1000);
             Deck deck = new Deck();
 
-            var x = 0;
-            while (x< 3)
-            {
-                dealer.GetDeck(deck.GiveDeck());
-                dealer.ShuffleActiveDeck();
+
+            while(!quit)
+                {
+
+                var x = 0;
+                while (x < 2) // Give Dealer 2 deck of cards and shuffle them
+                {
+                    dealer.GetDeck(deck.GiveDeck());
+                    dealer.ShuffleActiveDeck();
+                    x++;
+                }
+
+
+
             }
         }
     }
