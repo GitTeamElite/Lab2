@@ -1,0 +1,39 @@
+﻿Class Card:
+	           
+	   int Value
+	   string Type ///enum
+	
+Class Deck:
+
+		List<Card> DeckOfCard
+
+		metod- AddCards
+		metod- return List<Card> DeckOfCard
+
+Class Dealer:
+
+		List<Card> ActiveDeck
+		int balance
+
+		metod- get DeckOfCard
+		metod- ChuffleActiveDeck
+		metod- GiveCard
+		metod- ShowCard
+
+Class Player:
+
+		int balance
+
+		metod- GetCard
+		metod- NextCard
+		metod- Pass
+		metod- Bet
+
+Class GamePresentation:
+
+		metod- PrintGame
+
+Class StaticMethods:
+
+		metod- ERRORHANDLE
+		metod- GetType
