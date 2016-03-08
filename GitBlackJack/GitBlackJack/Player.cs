@@ -55,6 +55,9 @@ namespace GitBlackJack
             }
             return number;
         }
+        public void ClearHand()
+        {
 
+        }
     }
 }
