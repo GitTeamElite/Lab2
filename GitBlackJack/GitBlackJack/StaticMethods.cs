@@ -28,5 +28,23 @@ namespace GitBlackJack
             }
             return totalValue;
         }
+        public static string GetType(int x)
+        {
+            string type = "";
+            if (x == 0) { type = "Ace"; }
+            if (x == 1) { type = "Two"; }
+            if (x == 2) { type = "Three"; }
+            if (x == 3) { type = "Four"; }
+            if (x == 4) { type = "Five"; }
+            if (x == 5) { type = "Six"; }
+            if (x == 6) { type = "Seven"; }
+            if (x == 7) { type = "Eight"; }
+            if (x == 8) { type = "Nine"; }
+            if (x == 9) { type = "Ten"; }
+            if (x == 10) { type = "Knight"; }
+            if (x == 11) { type = "Queen"; }
+            if (x == 12) { type = "King"; }
+            return type;
+        }
     }
 }

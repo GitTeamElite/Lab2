@@ -14,11 +14,15 @@ namespace GitBlackJack
         {
             this.DeckOfCard = new List<Card>();
             {
+               
                 for(int y =0;y<4;y++)
                 {
                     for (int x =0;x<13;x++)
                     {
-                        DeckOfCard.Add(new Card(x + 1, StaticMethods.ReturnType(y)));
+                        string CardType = StaticMethods.GetType(x);
+
+                        if (x > 9) { DeckOfCard.Add(new Card(10, StaticMethods.ReturnType(y),CardType)); }
+                        else { DeckOfCard.Add(new Card(x + 1, StaticMethods.ReturnType(y),CardType)); }
                     }
                 }
             }

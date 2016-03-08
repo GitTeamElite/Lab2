@@ -33,6 +33,11 @@ namespace GitBlackJack
                     Console.Clear();
                     dealer.GetCardToDealer();
 
+                    // player Bet
+                    int bet;
+                    Console.WriteLine("How mutch you wanna bet?");
+
+
                     player.GetCard(dealer.GiveCard());
                     player.GetCard(dealer.GiveCard());
 
@@ -47,6 +52,9 @@ namespace GitBlackJack
                     Console.WriteLine("      $$ " + player.balance + " $$");
                     GamePresentation.PrintCardHand(player.ShowPlayerHand());
                     GamePresentation.PrintTotalValue(player.ShowPlayerHand());
+
+                    //ask player for new card
+                    Console.WriteLine("You want one more card?");
 
 
 
