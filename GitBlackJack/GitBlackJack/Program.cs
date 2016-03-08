@@ -39,11 +39,11 @@ namespace GitBlackJack
                     int DealerValue = StaticMethods.CountValue(dealer.ShowDealerHand());
                     int playerValue = StaticMethods.CountValue(player.ShowPlayerHand());
 
-                    Console.WriteLine("Dealer Hand");
+                    Console.WriteLine("        D e a l e r   H a n d");
                     GamePresentation.PrintCardHand(dealer.ShowDealerHand());
                     GamePresentation.PrintTotalValue(dealer.ShowDealerHand());
                     Console.WriteLine("\n");
-                    Console.WriteLine("Player Hand");
+                    Console.WriteLine("        P l a y e r   H a n d");
                     GamePresentation.PrintCardHand(player.ShowPlayerHand());
                     GamePresentation.PrintTotalValue(player.ShowPlayerHand());
 
