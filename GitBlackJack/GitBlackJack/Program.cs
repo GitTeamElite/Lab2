@@ -73,8 +73,17 @@ namespace GitBlackJack
                         GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
 
 
-                        if (!Rules.Over21(StaticMethods.CountValue(dealer.ShowDealerHand()))) { Console.WriteLine("Player win"); }
-                        if (StaticMethods.CountValue(dealer.ShowDealerHand()) < 17) { dealer.GetCardToDealer(); Console.WriteLine("Press a key to see dealer next card"); Console.ReadKey(); }
+                        if (!Rules.Over21(StaticMethods.CountValue(dealer.ShowDealerHand())))
+                        {
+                            Console.WriteLine("Player win");
+                        }
+
+                        if (StaticMethods.CountValue(dealer.ShowDealerHand()) < 17)
+                        {
+                            dealer.GetCardToDealer();
+                            Console.WriteLine("Press a key to see dealer next card");
+                            Console.ReadKey();
+                        }
                         else { gogo = false; }
                     }
 
