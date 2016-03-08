@@ -29,7 +29,9 @@ namespace GitBlackJack
 
         public void Bet()
         {
-            
+            int bet;
+            int.TryParse(Console.ReadLine(),out bet);
+
 
         }
 
