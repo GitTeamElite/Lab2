@@ -27,6 +27,7 @@ namespace GitBlackJack
                     x++;
                 }
 
+
                 while (true)  //TurnStarts
                 {
                     dealer.GetCardToDealer();
