@@ -27,16 +27,13 @@ namespace GitBlackJack
                     x++;
                 }
 
-
+                
                 while (true)  //TurnStarts
                 {
+                    int bet = player.Bet();
+
                     Console.Clear();
                     dealer.GetCardToDealer();
-
-                    // player Bet
-                    
-                    Console.WriteLine("How mutch you wanna bet?");
-                    int bet = player.Bet();
 
                     player.GetCard(dealer.GiveCard());
                     player.GetCard(dealer.GiveCard());
@@ -54,7 +51,38 @@ namespace GitBlackJack
                     GamePresentation.PrintTotalValue(player.ShowPlayerHand());
 
                     //ask player for new card
-                    Console.WriteLine("You want one more card?");
+                    bool go = true;
+                    do
+                    {
+                        Console.WriteLine("You want one more card? y/n");
+                        ConsoleKeyInfo key;
+                        key = Console.ReadKey(true);
+                        switch (key.KeyChar)
+                        {
+                            case 'y':
+                                player.GetCard(dealer.GiveCard());
+                                Console.Clear();
+
+                                Console.WriteLine("        D e a l e r   H a n d");
+                                GamePresentation.PrintCardHand(dealer.ShowDealerHand());
+                                GamePresentation.PrintTotalValue(dealer.ShowDealerHand());
+                                Console.WriteLine("\n");
+                                Console.WriteLine("        P l a y e r   H a n d");
+                                Console.WriteLine("          $$ " + player.balance + " $$");
+                                GamePresentation.PrintCardHand(player.ShowPlayerHand());
+                                GamePresentation.PrintTotalValue(player.ShowPlayerHand());
+
+                                break;
+                            case 'n':
+                                go = false;
+                                break;
+                            default:
+                                break;
+                        }
+                    } while (go);
+
+                    while()
+
 
 
 
