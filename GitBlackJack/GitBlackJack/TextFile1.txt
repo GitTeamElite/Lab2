@@ -50,3 +50,26 @@ Class Rules:
 
 		metod- Gameover    if balance = 0
 		
+
+---------------------------------------------------------------------------------------------------------------
+
+Make dealer
+make player
+make deck
+
+
+--Game start--
+
+give dealer deck / shuffle
+
+--round start--
+
+give dealer 1 card
+give player 2 card
+
+ask player for more card
+.....
+
+
+give dealer 1 card
+....

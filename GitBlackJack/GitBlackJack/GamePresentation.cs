@@ -14,7 +14,7 @@ namespace GitBlackJack
             int CardNr = 1;
             foreach (var item in CardList)
             {
-                Console.WriteLine("Card nr:"+CardNr+"    "+ item._Type+" "+item._Value);
+                Console.WriteLine("Card nr:"+CardNr+"    "+ item._Color+" of "+item.Type+" - "+item._Value);
                 CardNr++;
             }
         }
