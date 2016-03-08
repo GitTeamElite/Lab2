@@ -8,5 +8,6 @@ namespace GitBlackJack
 {
     class DealerNew
     {
+        string Hola = "Hola";
     }
 }
