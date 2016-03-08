@@ -13,6 +13,7 @@ namespace GitBlackJack
             bool quit = false;
             Dealer dealer = new Dealer(1000);
             Deck deck = new Deck();
+            Player player = new Player();
 
 
             while(!quit)
@@ -25,7 +26,16 @@ namespace GitBlackJack
                     dealer.ShuffleActiveDeck();
                     x++;
                 }
+                 
+                //GameStarts
+                while (true)
+                {
+                    dealer.GetCardToDealer();
+                    dealer.GetCardToDealer();
 
+                    
+
+                }
 
 
             }
