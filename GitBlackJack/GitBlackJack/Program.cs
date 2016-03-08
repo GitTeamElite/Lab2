@@ -27,7 +27,7 @@ namespace GitBlackJack
                     x++;
                 }
 
-                
+
                 while (true)  //TurnStarts
                 {
                     Console.Clear();
@@ -55,9 +55,9 @@ namespace GitBlackJack
                         {
                             case 'y':
                                 player.GetCard(dealer.GiveCard());
-                             
+
                                 GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
-                                
+
                                 break;
                             case 'n':
                                 go = false;
@@ -65,15 +65,17 @@ namespace GitBlackJack
                             default:
                                 break;
                         }
-                        if (!Rules.Over21(StaticMethods.CountValue(player.ShowPlayerHand()))) { Console.WriteLine("Dealer win");  } 
+                        if (!Rules.Over21(StaticMethods.CountValue(player.ShowPlayerHand()))) { Console.WriteLine("Dealer win"); }
                     } while (go);
-
-                    while (Rules.GiveDealerCard(StaticMethods.CountValue(dealer.ShowDealerHand())))
+                    bool gogo = true;
+                    while (gogo)
                     {
                         GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
-                        dealer.GetCardToDealer();
 
-                        if (!Rules.Over21(StaticMethods.CountValue(dealer.ShowDealerHand()))) { Console.WriteLine("Player win");  } 
+
+                        if (!Rules.Over21(StaticMethods.CountValue(dealer.ShowDealerHand()))) { Console.WriteLine("Player win"); }
+                        if (StaticMethods.CountValue(dealer.ShowDealerHand()) < 17) { dealer.GetCardToDealer(); Console.WriteLine("Press a key to see dealer next card"); Console.ReadKey(); }
+                        else { gogo = false; }
                     }
 
 
@@ -81,9 +83,10 @@ namespace GitBlackJack
 
                     int WIN = Rules.TheWinner(StaticMethods.CountValue(player.ShowPlayerHand()), StaticMethods.CountValue(dealer.ShowDealerHand()));
                     if (WIN == 1) { Console.WriteLine("player win"); }
-                    else if (WIN == -1) { Console.WriteLine("Dealer win"); }                    
+                    else if (WIN == -1) { Console.WriteLine("Dealer win"); }
                     else if (WIN == 0 && player.numberOfCards() < 5) { Console.WriteLine("Dealer win"); }
                     else { Console.WriteLine("Dealer win"); }
+                    Console.ReadKey();
                 }
 
 

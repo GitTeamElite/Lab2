@@ -27,16 +27,6 @@ namespace GitBlackJack
         public static void LOGG()
         {
 
-            /*
-            Console.WriteLine("BBBBBBBBB     LLL               AAAA             CCCCC    KKK        JJJ    AAA    CCC    KKK ");
-            Console.WriteLine("BBB   BBBB    LLL              AAAAAA          CCC    C   KKK        JJJ    AAA    CCC    KKK ");
-            Console.WriteLine("BBB BBBBB     LLL             AAA  AAA       CCC          KKK        JJJ    AAA    CCC    KKK ");
-            Console.WriteLine("BBBBBBBB      LLL            AAA    AAA     CC            KKK        JJJ    AAA    CCC    KKK ");
-            Console.WriteLine("BBB BBBBB     LLL           AAAAAAAAAAAA    CC            KKK        JJJ    AAA    CCC    KKK ");
-            Console.WriteLine("BBB   BBBB    LLL          AAA        AAA    CCC          KKK        JJJ    AAA    CCC    KKK ");
-            Console.WriteLine("BBB BBBBB     LLL         AAA          AAA     CCC        KKK        JJJ    AAA    CCC    KKK ");
-            Console.WriteLine("BBBBBBBBB     LLLLLLLLL  AAA            AAA       CCC     KKK        JJJ    AAA    CCC    KKK ");
-            */
 
             Console.WriteLine(".------..-------..------..------..------.     .-------..------..------..------.");
             Console.WriteLine("| B    || L     || A    || C    || K    |     | J     || A    || C    || K    |");
@@ -60,7 +50,7 @@ namespace GitBlackJack
             Console.WriteLine("        $$ " + PlayerBalance + " $$ Bet :" + bet + " $$");
             GamePresentation.PrintCardHand(Player);
             GamePresentation.PrintTotalValue(Player);
-
+            Console.WriteLine("\n---------------------------------------");
         }
     }
 }

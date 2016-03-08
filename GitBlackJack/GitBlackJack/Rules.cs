@@ -69,10 +69,8 @@ namespace GitBlackJack
         }
         public static void Loose(int totalvaluecard)
         {
-            if (Over21(totalvaluecard) == false)
-            {
-                Console.WriteLine("You have lost");
-            }
+          
+            
 
         }
     }
