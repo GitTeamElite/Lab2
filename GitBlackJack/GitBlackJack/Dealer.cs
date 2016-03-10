@@ -57,9 +57,9 @@ namespace GitBlackJack
             }
         }
         /// <summary>
-        /// 
+        /// Gives a card from Dealers Active deck and removes it from deck
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Card</returns>
         public Card GiveCard()
         {
             Card card = new Card();
@@ -69,6 +69,9 @@ namespace GitBlackJack
             return card;
 
         } 
+        /// <summary>
+        /// Dealer give card to him self and removes it from active deck
+        /// </summary>
         public void GetCardToDealer()
         {
             Card card = new Card();
@@ -77,14 +80,25 @@ namespace GitBlackJack
 
             DealerHand.Add(card);
         }
+        /// <summary>
+        /// Gives Dealers cards on hand
+        /// </summary>
+        /// <returns>List with cards</returns>
         public List<Card> ShowDealerHand()
         {
             return DealerHand;
         }
+        /// <summary>
+        /// Removes cards from hand
+        /// </summary>
         public void ClearHand()
         {
             DealerHand.RemoveRange(0, DealerHand.Count);
         }
+        /// <summary>
+        /// Returns dealers Active deck
+        /// </summary>
+        /// <returns></returns>
         public List<Card> GiveActiveDeck()
         {
             return ActiveDeck;
