@@ -10,7 +10,7 @@ namespace GitBlackJack
     {
         List<Card> DeckOfCard;
 
-        public Deck()
+        public Deck() // Make a full deck with all cards sorted 1-13 for each color
         {
             this.DeckOfCard = new List<Card>();
             {

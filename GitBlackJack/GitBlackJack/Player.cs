@@ -16,7 +16,10 @@ namespace GitBlackJack
             this.balance = balance;
             this.PlayerHand = new List<Card>();
         }
-
+        /// <summary>
+        /// Adds a card to player hand
+        /// </summary>
+        /// <param name="newCard"></param>
         public void GetCard(Card newCard)
         {
             PlayerHand.Add(newCard);
@@ -26,7 +29,10 @@ namespace GitBlackJack
         {
             return true;
         }
-
+        /// <summary>
+        /// Asks for a bet from user- and returns it
+        /// </summary>
+        /// <returns>int bet</returns>
         public int Bet()
         {
             GamePresentation.LOGG();
@@ -41,12 +47,19 @@ namespace GitBlackJack
             return bet;
 
         }
-
+        /// <summary>
+        /// Retuns palyers cards on hand
+        /// </summary>
+        /// <returns></returns>
         public List<Card> ShowPlayerHand()
         {
             return PlayerHand;
         }
 
+        /// <summary>
+        /// Counts the number of cards there is in the list
+        /// </summary>
+        /// <returns>int</returns>
         public int numberOfCards()
         {
 
@@ -57,6 +70,9 @@ namespace GitBlackJack
             }
             return number;
         }
+        /// <summary>
+        /// Removing cards from player hand
+        /// </summary>
         public void ClearHand()
         {
             PlayerHand.RemoveRange(0, PlayerHand.Count);
