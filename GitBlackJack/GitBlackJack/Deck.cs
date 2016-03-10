@@ -29,6 +29,10 @@ namespace GitBlackJack
                 }
             }
         }
+        /// <summary>
+        /// Returns a sorted full deck
+        /// </summary>
+        /// <returns></returns>
         public List<Card> GiveDeck()
         {
             return DeckOfCard;

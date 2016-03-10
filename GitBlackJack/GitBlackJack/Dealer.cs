@@ -38,6 +38,9 @@ namespace GitBlackJack
                 ActiveDeck.Add(item);
             }
         }
+        /// <summary>
+        /// Shuffles Active deck 10000 times
+        /// </summary>
         public void ShuffleActiveDeck()
         {
             Random random = new Random();
@@ -53,6 +56,10 @@ namespace GitBlackJack
                 ActiveDeck[PointCardY] = cardHolder;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Card GiveCard()
         {
             Card card = new Card();
