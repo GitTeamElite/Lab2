@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace GitBlackJack
 {
-   public class GameLogics
+    public class GameLogics
     {
         bool go;
         Deck deck = new Deck();
         Player player = new Player(100);
         Dealer dealer = new Dealer();
-       public GameLogics()
+        public GameLogics()
         { }
         /// <summary>
         /// Progess of the game - From start to end;
@@ -48,9 +48,9 @@ namespace GitBlackJack
             dealer.ClearHand(); // Removing cards from previous round
             player.ClearHand();
             Console.Clear();
-            
+
             int bet = player.Bet(); // Player set bet
-            
+
             Console.Clear();
 
             dealer.GetCardToDealer();
@@ -65,8 +65,8 @@ namespace GitBlackJack
 
             //ask player for new card
             bool go = true;
-            bool done;
-            do
+            bool lose = true;
+            while (go || !Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand())))
             {
                 Console.WriteLine("You want one more card? y/n");
                 ConsoleKeyInfo key;
@@ -85,77 +85,57 @@ namespace GitBlackJack
                     default:
                         break;
                 }
-                if (!Rules.Over21(StaticMethods.CountValue(player.ShowPlayerHand())))
-                {
-                    Console.WriteLine("Dealer win");
-                    player.balance -= bet;
-                    Rules.Loose(player.balance); 
-                    RunGame();
-                }
-            } while (go);
-
-            go = true;
-            while (go)
+            }
+            if (Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand())))
             {
-                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance); 
-                if (StaticMethods.CountValue(dealer.ShowDealerHand()) < 17)
-                {
-                    dealer.GetCardToDealer();
-                   
-                    Console.WriteLine("Press a key to see dealer next card");
-                    Console.ReadKey();
-                    GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
-                    if (!Rules.Over21(StaticMethods.CountValue(dealer.ShowDealerHand())))
-                    {
-                        
-                        Console.WriteLine("Player win");
-                        player.balance += bet;
-                        Rules.Loose(player.balance);
-                        RunGame();
-                    }
 
+                {
+                    go = true;
+                    while (go)
+                    {
+                        GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
+
+                        if (StaticMethods.CountValue(dealer.ShowDealerHand()) < 17)
+                        {
+                            dealer.GetCardToDealer();
+
+                            Console.WriteLine("Press a key to see dealer next card");
+                            Console.ReadKey();
+                            GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
+                            if (Rules.NotOver21(StaticMethods.CountValue(dealer.ShowDealerHand())))
+                            {
+                                lose = false;
+                            }
+                        }
+                        else
+                        {
+                            go = false;
+                        }
+                    }
+                }
+                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
+                int WIN = Rules.TheWinner(StaticMethods.CountValue(player.ShowPlayerHand()), StaticMethods.CountValue(dealer.ShowDealerHand()));
+                if (WIN == 1 || lose == false)
+                {
+                    Console.WriteLine("player win");
+                    player.balance += bet;
+                    Rules.Loose(player.balance);
+                    RunGame();
                 }
                 else
                 {
-                    
-                    go = false;
+                    Console.WriteLine("Dealer win");
+                    player.balance -= bet;
+                    Rules.Loose(player.balance);
+                    RunGame();
                 }
+                Console.ReadKey();
             }
-
-
-
-             
-            int WIN = Rules.TheWinner(StaticMethods.CountValue(player.ShowPlayerHand()), StaticMethods.CountValue(dealer.ShowDealerHand()));
-            if (WIN == 1) 
-            {
-                Console.WriteLine("player win");
-                player.balance += bet;
-                Rules.Loose(player.balance); 
-                RunGame(); }
-            else if (WIN == -1)
-            {
-                Console.WriteLine("Dealer win");
-                player.balance -= bet;
-                Rules.Loose(player.balance);
-                RunGame();
-            }
-            else if (WIN == 0 && player.numberOfCards() < 5)
-            {
-                Console.WriteLine("Dealer win");
-                player.balance -= bet;
-                Rules.Loose(player.balance);
-                RunGame();
-            }
-            else
-            {
-                Console.WriteLine("Dealer win");
-                player.balance -= bet;
-                Rules.Loose(player.balance);
-                RunGame();
-            }
-            Console.ReadKey();
 
         }
-
     }
+
 }
+
+
+

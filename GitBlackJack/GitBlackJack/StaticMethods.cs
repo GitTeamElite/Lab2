@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 namespace GitBlackJack
 {
     class StaticMethods
-    {
+    {/// <summary>
+    /// Changes returns a type depended on int y
+    /// </summary>
+    /// <param name="y"></param>
+    /// <returns></returns>
         public static string ReturnType(int y)
         {
             string Ytype = "";
@@ -19,6 +23,11 @@ namespace GitBlackJack
 
             return Ytype;
         }
+        /// <summary>
+        /// Counts all cards value and return total value
+        /// </summary>
+        /// <param name="CardList"></param>
+        /// <returns></returns>
         public static int CountValue(List<Card> CardList)
         {
             int totalValue = 0;
@@ -26,12 +35,16 @@ namespace GitBlackJack
             {
                 
                 totalValue += item._Value;
-                if ( item.Type == "Ace") { item._AceValue = 10 + totalValue; }
+                //if ( item.Type == "Ace") { item._AceValue = 10 + totalValue; }
            
             }
             return totalValue;
         }
-       
+        /// <summary>
+        /// Changes returns a type depended on int x
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
         public static string GetType(int x)
         {
             string type = "";

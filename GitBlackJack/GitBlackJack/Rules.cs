@@ -45,7 +45,7 @@ namespace GitBlackJack
         /// <param name="playerValue"></param>
         /// <param name="dealerValue"></param>
         /// <returns></returns>
-        public static bool Over21(int totalvaluecard)
+        public static bool NotOver21(int totalvaluecard)
         {
             if (totalvaluecard < 22 )
                 return true;
@@ -67,7 +67,7 @@ namespace GitBlackJack
             return compare;
                 
         }
-        public static void Loose(int balance)
+        public static bool Loose(int balance)
         {
             if (balance < 1) { Console.WriteLine("You are out of cash.... GAMVEOVER");Console.ReadKey(); Environment.Exit(-1); }
             Console.WriteLine("Press ESC to exit or press other key for next round");
@@ -76,11 +76,11 @@ namespace GitBlackJack
             switch(key.Key)
             {
                 case ConsoleKey.Escape:
-                    Environment.Exit(-1);
+                    return false;
                     break; 
                 default:
+                    return true;
                     break;
-                    
             }
         }
     }
