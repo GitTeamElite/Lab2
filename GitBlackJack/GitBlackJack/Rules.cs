@@ -67,11 +67,21 @@ namespace GitBlackJack
             return compare;
                 
         }
-        public static void Loose(int totalvaluecard)
+        public static void Loose(int balance)
         {
-          
-            
-
+            if (balance < 1) { Console.WriteLine("You are out of cash.... GAMVEOVER");Console.ReadKey(); Environment.Exit(-1); }
+            Console.WriteLine("Press ESC to exit or press other key for next round");
+            ConsoleKeyInfo key;
+            key = Console.ReadKey(true);
+            switch(key.Key)
+            {
+                case ConsoleKey.Escape:
+                    Environment.Exit(-1);
+                    break; 
+                default:
+                    break;
+                    
+            }
         }
     }
 }

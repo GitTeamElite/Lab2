@@ -24,10 +24,14 @@ namespace GitBlackJack
             int totalValue = 0;
             foreach (var item in CardList)
             {
+                
                 totalValue += item._Value;
+                if ( item.Type == "Ace") { item._AceValue = 10 + totalValue; }
+           
             }
             return totalValue;
         }
+       
         public static string GetType(int x)
         {
             string type = "";

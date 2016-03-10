@@ -21,7 +21,7 @@ namespace GitBlackJack
         {
             PlayerHand.Add(newCard);
         }
-        
+
         public bool Pass()
         {
             return true;
@@ -30,12 +30,14 @@ namespace GitBlackJack
         public int Bet()
         {
             GamePresentation.LOGG();
-            Console.WriteLine("How mutch you wanna bet?");
-            int bet = 0;
+            Console.WriteLine($"How mutch you wanna bet? ---- Balance = {balance}");
+            int bet = 1;
             do
             {
+                if (bet > balance) { Console.WriteLine("You dont have so mutch $$ Cash $$ ;( "); }
+                if (bet < 1) { Console.WriteLine("Seroius? you can do better! try again..."); }             
                 int.TryParse(Console.ReadLine(), out bet);
-            } while (bet > balance);
+            } while (bet > balance || bet <1);
             return bet;
 
         }
@@ -57,7 +59,7 @@ namespace GitBlackJack
         }
         public void ClearHand()
         {
-
+            PlayerHand.RemoveRange(0, PlayerHand.Count);
         }
     }
 }

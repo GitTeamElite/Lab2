@@ -18,7 +18,20 @@ namespace GitBlackJack
             this.ActiveDeck = new List<Card>();
             this.DealerHand = new List<Card>();
         }
-        public void GetDeck(List<Card> deck)
+        /// <summary>
+        /// Count the value from cards sended in
+        /// </summary>
+        /// <returns>int total value</returns>
+        public int CountCardsInActiveDeck()
+        {
+            int count = ActiveDeck.Count;
+            return count;
+        }
+        /// <summary>
+        /// Sends a sorted deck with 53 cards
+        /// </summary>
+        /// <param name="deck"></param>
+        public void PutNewDeckToActiveDeck(List<Card> deck)
         {
             foreach (var item in deck)
             {
@@ -30,7 +43,7 @@ namespace GitBlackJack
             Random random = new Random();
             Card cardHolder = new Card();
 
-            for (int x =0;x<1000;x++)
+            for (int x =0;x<10000;x++)
             {
                 int PointCardX = random.Next(ActiveDeck.Count-1);
                 int PointCardY = random.Next(ActiveDeck.Count-1);
@@ -63,7 +76,11 @@ namespace GitBlackJack
         }
         public void ClearHand()
         {
-
+            DealerHand.RemoveRange(0, DealerHand.Count);
+        }
+        public List<Card> GiveActiveDeck()
+        {
+            return ActiveDeck;
         }
     }
 }

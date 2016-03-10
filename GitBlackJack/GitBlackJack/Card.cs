@@ -17,12 +17,14 @@ namespace GitBlackJack
         }
 
         public int _Value { get; set; }
+        public int _AceValue { get; set; }
         public string _Color { get; set; }
-       public Card(int value,string color,string type)
+       public Card(int value,int aceValue,string color,string type)
         {
             this._Color = color;
             this._Value = value;
             this._Type = type;
+            this._AceValue = aceValue;
         }
         public Card()
         { }

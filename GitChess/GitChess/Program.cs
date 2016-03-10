@@ -10,6 +10,10 @@ namespace GitChess
     {
         static void Main(string[] args)
         {
+            TheGame theGame = new TheGame();
+
+            theGame.StartGame();
+
         }
     }
 }
