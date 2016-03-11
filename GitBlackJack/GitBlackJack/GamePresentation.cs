@@ -18,7 +18,7 @@ namespace GitBlackJack
             int CardNr = 1;
             foreach (var item in CardList)
             {
-                if (item.Type == "Ace") { Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value + item._AceValue + "\n"); }
+                if (item.Type == "Ace") { Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value +" or "+ item._AceValue + "\n"); }
                 else { Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value + "\n"); }
 
                 CardNr++;
@@ -32,10 +32,16 @@ namespace GitBlackJack
         {
 
             int TotalValue = StaticMethods.CountValue(CardList);
-
+            int TotalAceValue = StaticMethods.CountAceValue(CardList);
             Console.WriteLine("---------------------------------------");
-
-            Console.Write("Total value of the cards: " + TotalValue);
+            if (TotalAceValue == TotalValue)
+            {
+                Console.Write("Total value of the cards: " + TotalValue);
+            }
+            else
+            {
+                Console.Write("Total value of the cards: " + TotalValue + " or " + TotalAceValue);
+            }
 
         }
         /// <summary>
