@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitBlackJack
 {
-    class Dealer
+   public class Dealer
     {
         List<Card> ActiveDeck;
         List<Card> DealerHand;
@@ -54,7 +54,7 @@ namespace GitBlackJack
             }
         }
 
-        internal void DealerGetCards()
+        internal void DealerGetAllHisCards()
         {
             while (StaticMethods.CountValue(ShowDealerHand()) < 17 || StaticMethods.CountAceValue(ShowDealerHand())> 17)
             {

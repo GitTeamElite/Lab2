@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitBlackJack
 {
-    class Player
+   public class Player
     {
         List<Card> PlayerHand;
         public int balance { get; set; }

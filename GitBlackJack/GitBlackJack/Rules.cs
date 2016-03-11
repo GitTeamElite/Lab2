@@ -60,11 +60,11 @@ namespace GitBlackJack
         /// <param name="playerValue"></param>
         /// <param name="dealerValue"></param>
         /// <returns></returns>
-        public static int TheWinner(int playerValue, int dealerValue)
+        public static bool PlayerWin(int playerValue, int dealerValue)
         {
             int compare = playerValue.CompareTo(dealerValue); // returns 1, 0, -1
-
-            return compare;
+            if (compare== 1) { return true; }
+            else { return false; }
                 
         }
         public static bool Loose(int balance)
@@ -81,6 +81,11 @@ namespace GitBlackJack
                     return true;
                   
             }
+        }
+        public static void WinManager(bool Win,int bet,Player player)
+        {
+            if (Win) { player.balance += bet; }
+            else { player.balance -= bet; }
         }
     }
 }

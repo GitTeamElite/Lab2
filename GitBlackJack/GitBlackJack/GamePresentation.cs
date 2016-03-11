@@ -106,5 +106,19 @@ namespace GitBlackJack
                 Console.Clear();
             }
         }
+        public static void EndMsg(bool win)
+        {
+            if (win) { Console.WriteLine("Player WIN!!!"); }
+            else { Console.WriteLine("Dealer WIN!!!"); }
+            Console.ReadKey();
+            Console.Clear();
+        }
+        public static void GameOver()
+        {
+            Console.WriteLine("You are out of cash. . . GAMEOVER casino WIN!!");
+            Console.ReadKey();
+            Console.Clear();
+        }
+    
     }
 }
