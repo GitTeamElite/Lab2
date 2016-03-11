@@ -86,10 +86,10 @@ namespace GitBlackJack
         /// <returns>Card</returns>
         public Card GiveCard()
         {
-            int TopCard = ActiveDeck.Count-1;
+           
             Card card = new Card();
-            card = ActiveDeck[TopCard];
-            ActiveDeck.RemoveAt(TopCard);
+            card = ActiveDeck[0];
+            ActiveDeck.RemoveAt(0);
             return card;
         } 
         /// <summary>

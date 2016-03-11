@@ -37,8 +37,7 @@ namespace GitChess
                         {
                             Console.BackgroundColor = ConsoleColor.DarkGray;
                         }
-                    }  
-                                                 
+                    }                                                   
                         if (board[x, y]._ImBlack == true) { Console.ForegroundColor = ConsoleColor.Black; Console.Write(board[x,y]._MyVisualLook); Console.ForegroundColor = ConsoleColor.White; }
                         else if (board[x, y]._ImBlack == false) { Console.ForegroundColor = ConsoleColor.Red; Console.Write(board[x,y]._MyVisualLook); Console.ForegroundColor = ConsoleColor.White; }
                 }

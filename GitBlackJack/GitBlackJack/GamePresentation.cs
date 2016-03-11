@@ -42,7 +42,6 @@ namespace GitBlackJack
             {
                 Console.Write("Total value of the cards: " + TotalValue + " or " + TotalAceValue);
             }
-
         }
         /// <summary>
         /// Prints BLACK JACK loggotype
