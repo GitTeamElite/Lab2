@@ -54,11 +54,13 @@ namespace GitBlackJack
             }
         }
 
-        internal void DealerGetAllHisCards()
+        internal void DealerGetAllHisCards(Player player,Dealer dealer,int bet )
         {
             while (StaticMethods.CountValue(ShowDealerHand()) < 17 && StaticMethods.CountAceValue(ShowDealerHand())< 17)
             {
               GetCardToDealer();
+                GamePresentation.PressForNextCard();
+                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
             }
         }
 

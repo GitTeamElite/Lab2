@@ -60,6 +60,15 @@ namespace GitBlackJack
 
 
         }
+
+        internal static void PressForNextCard()
+        {
+            Console.WriteLine("Press a key to see next card");
+            Console.ReadKey();
+            Console.Clear();
+         
+        }
+
         /// <summary>
         /// Prints both hands
         /// </summary>
