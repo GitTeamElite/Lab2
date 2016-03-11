@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace GitBlackJack
 {
-   public class Player
+    public class Player
     {
-       public List<Card> PlayerHand;
-       public List<Card> SplittHand;
+        public List<Card> PlayerHand;
+        public List<Card> SplittHand;
         public int balance { get; set; }
 
         public Player(int balance)
@@ -43,9 +43,9 @@ namespace GitBlackJack
             do
             {
                 if (bet > balance) { Console.WriteLine("You dont have so mutch $$ Cash $$ ;( "); }
-                if (bet < 1) { Console.WriteLine("Seroius? you can do better! try again..."); }             
+                if (bet < 1) { Console.WriteLine("Seroius? you can do better! try again..."); }
                 int.TryParse(Console.ReadLine(), out bet);
-            } while (bet > balance || bet <1);
+            } while (bet > balance || bet < 1);
             return bet;
 
         }
@@ -79,7 +79,7 @@ namespace GitBlackJack
         {
             PlayerHand.RemoveRange(0, PlayerHand.Count);
         }
-        public void HitMe(Player player,Dealer dealer,int bet,bool splitt)
+        public void HitMe(Player player, Dealer dealer, int bet, bool splitt)
         {
             GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, splitt, player);
             bool go = true;
@@ -103,55 +103,61 @@ namespace GitBlackJack
                         break;
                 }
             }
-           
+
         }
-        public void HitMeSplitt(Player player, Dealer dealer, int bet,bool splitt)
+        public void HitMeSplitt(Player player, Dealer dealer, int bet, bool splitt)
         {
             GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, splitt, player);
             bool go1 = true;
             bool go2 = true;
             while (go1 == true && go2 == true)
             {
-                if (go1 && Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand())))
+                if (Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand())))
                 {
-                    Console.WriteLine("    --- Main Hand ---");
-                    Console.WriteLine("You want one more card? y/n");
-                    ConsoleKeyInfo key;
-                    key = Console.ReadKey(true);
-                    switch (key.KeyChar)
+                    if (go1)
                     {
-                        case 'y':
-                            player.GetCard(dealer.GiveCard());
+                        Console.WriteLine("    --- Main Hand ---");
+                        Console.WriteLine("You want one more card? y/n");
+                        ConsoleKeyInfo key;
+                        key = Console.ReadKey(true);
+                        switch (key.KeyChar)
+                        {
+                            case 'y':
+                                player.GetCard(dealer.GiveCard());
 
-                            GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, splitt, player);
+                                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, splitt, player);
 
-                            break;
-                        case 'n':
-                            go1 = false;
-                            break;
-                        default:
-                            break;
+                                break;
+                            case 'n':
+                                go1 = false;
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
-                if (go2 && Rules.NotOver21(StaticMethods.CountValue(player.SplittHand)))
+                if (Rules.NotOver21(StaticMethods.CountValue(player.SplittHand)))
                 {
-                    Console.WriteLine("    --- Split Hand ---");
-                    Console.WriteLine("You want one more card? y/n");
-                    ConsoleKeyInfo key;
-                    key = Console.ReadKey(true);
-                    switch (key.KeyChar)
+                    if (go2)
                     {
-                        case 'y':
-                            player.SplittHand.Add(dealer.GiveCard());
+                        Console.WriteLine("    --- Split Hand ---");
+                        Console.WriteLine("You want one more card? y/n");
+                        ConsoleKeyInfo key;
+                        key = Console.ReadKey(true);
+                        switch (key.KeyChar)
+                        {
+                            case 'y':
+                                player.SplittHand.Add(dealer.GiveCard());
 
-                            GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, splitt, player);
+                                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, splitt, player);
 
-                            break;
-                        case 'n':
-                            go2 = false;
-                            break;
-                        default:
-                            break;
+                                break;
+                            case 'n':
+                                go2 = false;
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
             }

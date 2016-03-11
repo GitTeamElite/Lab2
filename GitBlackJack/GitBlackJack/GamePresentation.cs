@@ -136,9 +136,9 @@ namespace GitBlackJack
         }
         public static bool AskSplitt(Dealer dealer,Player player)
         {
-     
-                Console.WriteLine("Do you wanna splitt your card?  y/n");
-                ConsoleKeyInfo key;
+
+            Console.ForegroundColor = ConsoleColor.Blue;   Console.WriteLine("Do you wanna splitt your card?  y/n"); Console.ForegroundColor = ConsoleColor.White;
+            ConsoleKeyInfo key;
                 key = Console.ReadKey(true);
                 switch(key.KeyChar)
                 {
