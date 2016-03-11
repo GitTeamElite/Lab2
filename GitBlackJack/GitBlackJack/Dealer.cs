@@ -27,6 +27,21 @@ namespace GitBlackJack
             int count = ActiveDeck.Count;
             return count;
         }
+
+        internal void CheckActiveDeck(Deck deck,Dealer dealer)
+        {
+            if (dealer.CountCardsInActiveDeck() < 53)   // Checking if dealer have more then 53 cards in deck
+            {
+                var x = 0;
+                while (x < 2) // Give Dealer 2 deck of cards and shuffle them
+                {
+                    dealer.PutNewDeckToActiveDeck(deck.GiveDeck());
+                    dealer.ShuffleActiveDeck();
+                    x++;
+                }
+            }
+        }
+
         /// <summary>
         /// Sends a sorted deck with 53 cards
         /// </summary>
@@ -38,6 +53,15 @@ namespace GitBlackJack
                 ActiveDeck.Add(item);
             }
         }
+
+        internal void DealerGetCards()
+        {
+            while (StaticMethods.CountValue(ShowDealerHand()) < 17 || StaticMethods.CountAceValue(ShowDealerHand())> 17)
+            {
+              GetCardToDealer();
+            }
+        }
+
         /// <summary>
         /// Shuffles Active deck 10000 times
         /// </summary>

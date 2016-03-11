@@ -22,8 +22,8 @@ namespace GitBlackJack
                         string CardType = StaticMethods.GetType(x);
 
                         if (x == 0) { DeckOfCard.Add(new Card(value: 1,aceValue : 11, color: StaticMethods.ReturnType(y), type: CardType)); }
-                        else if (x > 9) { DeckOfCard.Add(new Card(10, 0, StaticMethods.ReturnType(y), CardType)); }
-                        else { DeckOfCard.Add(new Card(x + 1, 0, StaticMethods.ReturnType(y), CardType)); }
+                        else if (x > 9) { DeckOfCard.Add(new Card(10, 10, StaticMethods.ReturnType(y), CardType)); }
+                        else { DeckOfCard.Add(new Card(x + 1, x+1, StaticMethods.ReturnType(y), CardType)); }
                         
                     }
                 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitBlackJack
 {
-    class Card
+   public class Card
     {
         private string _Type;
 

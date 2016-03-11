@@ -18,8 +18,8 @@ namespace GitBlackJack
             int CardNr = 1;
             foreach (var item in CardList)
             {
-              
-                  Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value + "\n"); 
+
+                Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value + "\n");
 
                 CardNr++;
             }
@@ -32,16 +32,11 @@ namespace GitBlackJack
         {
 
             int TotalValue = StaticMethods.CountValue(CardList);
-            int ValueOfAce = 0;
 
-            foreach (var item in CardList)
-            {
-                ValueOfAce = item._AceValue;
-            }
             Console.WriteLine("---------------------------------------");
 
             Console.Write("Total value of the cards: " + TotalValue);
-         
+
         }
         /// <summary>
         /// Prints BLACK JACK loggotype
@@ -88,14 +83,28 @@ namespace GitBlackJack
         public static void PrintADeck(List<Card> cardList)
         {
             int x = 1;
+         
             foreach (var item in cardList)
             {
-               
-                if (item._AceValue == 0) { Console.Write($"Card:{x} - {item._Value} - {item.Type} - {item._Color}"); }
-                else { Console.Write($"Card:{x} - {item._Value} - {item._AceValue} - {item.Type} - {item._Color}"); }
+                Console.Write($"Card:{x} - {item._Value} - {item.Type} - {item._Color}");              
                 Console.WriteLine("");
                 x++;
-            }         
+            }
+        }
+        public static void ControlCheck(Dealer dealer,Deck deck)
+        {
+            Console.WriteLine("write \"check\" if you wanna see the decks. . . ");
+          string check = Console.ReadLine();
+            if (check == "check")
+            {
+
+                Console.WriteLine("Sorted deck");
+                GamePresentation.PrintADeck(deck.GiveDeck());
+                Console.WriteLine("\n\nDealer Deck");
+                GamePresentation.PrintADeck(dealer.GiveActiveDeck());
+                Console.ReadKey();
+                Console.Clear();
+            }
         }
     }
 }

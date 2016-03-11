@@ -77,5 +77,31 @@ namespace GitBlackJack
         {
             PlayerHand.RemoveRange(0, PlayerHand.Count);
         }
+        public void HitMe(Player player,Dealer dealer,int bet)
+        {
+           
+            bool go = true;
+            while (go && Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand())))
+            {
+                Console.WriteLine("You want one more card? y/n");
+                ConsoleKeyInfo key;
+                key = Console.ReadKey(true);
+                switch (key.KeyChar)
+                {
+                    case 'y':
+                        player.GetCard(dealer.GiveCard());
+
+                        GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
+
+                        break;
+                    case 'n':
+                        go = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+           
+        }
     }
 }

@@ -10,9 +10,14 @@ namespace GitBlackJack
     {
         static void Main(string[] args)
         {
-           
-            GameLogics gamelogics = new GameLogics();
-            gamelogics.RunGame();        
+         
+            GameFlow gamelogics = new GameFlow();
+            bool playing = true;
+
+            while (playing)
+            {
+              playing = gamelogics.RunGame();
+            }
         }
     }
 }

@@ -41,6 +41,23 @@ namespace GitBlackJack
             return totalValue;
         }
         /// <summary>
+        /// Counts all cards value and return total Acevalue
+        /// </summary>
+        /// <param name="CardList"></param>
+        /// <returns></returns>
+        public static int CountAceValue(List<Card> CardList)
+        {
+            int totalValue = 0;
+            foreach (var item in CardList)
+            {
+
+                totalValue += item._AceValue;
+                //if ( item.Type == "Ace") { item._AceValue = 10 + totalValue; }
+
+            }
+            return totalValue;
+        }
+        /// <summary>
         /// Changes returns a type depended on int x
         /// </summary>
         /// <param name="x"></param>

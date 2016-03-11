@@ -52,7 +52,7 @@ namespace GitBlackJack
             else
                 return false;
         }
-
+       
 
         /// <summary>
         /// Compare total amount of points and return who is the winner
@@ -76,11 +76,10 @@ namespace GitBlackJack
             switch(key.Key)
             {
                 case ConsoleKey.Escape:
-                    return false;
-                    break; 
+                    return false;            
                 default:
                     return true;
-                    break;
+                  
             }
         }
     }
