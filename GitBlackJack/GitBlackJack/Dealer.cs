@@ -28,15 +28,15 @@ namespace GitBlackJack
             return count;
         }
 
-        internal void CheckActiveDeck(Deck deck,Dealer dealer)
+        internal void CheckActiveDeck(Deck deck)
         {
-            if (dealer.CountCardsInActiveDeck() < 53)   // Checking if dealer have more then 53 cards in deck
+            if (CountCardsInActiveDeck() < 53)   // Checking if dealer have more then 53 cards in deck
             {
                 var x = 0;
                 while (x < 2) // Give Dealer 2 deck of cards and shuffle them
                 {
-                    dealer.PutNewDeckToActiveDeck(deck.GiveDeck());
-                    dealer.ShuffleActiveDeck();
+                    PutNewDeckToActiveDeck(deck.GiveDeck());
+                    ShuffleActiveDeck();
                     x++;
                 }
             }
@@ -56,7 +56,7 @@ namespace GitBlackJack
 
         internal void DealerGetAllHisCards()
         {
-            while (StaticMethods.CountValue(ShowDealerHand()) < 17 || StaticMethods.CountAceValue(ShowDealerHand())> 17)
+            while (StaticMethods.CountValue(ShowDealerHand()) < 17 && StaticMethods.CountAceValue(ShowDealerHand())< 17)
             {
               GetCardToDealer();
             }
@@ -86,23 +86,18 @@ namespace GitBlackJack
         /// <returns>Card</returns>
         public Card GiveCard()
         {
+            int TopCard = ActiveDeck.Count-1;
             Card card = new Card();
-            card = ActiveDeck[0];
-            ActiveDeck.RemoveAt(0);
-
+            card = ActiveDeck[TopCard];
+            ActiveDeck.RemoveAt(TopCard);
             return card;
-
         } 
         /// <summary>
         /// Dealer give card to him self and removes it from active deck
         /// </summary>
         public void GetCardToDealer()
         {
-            Card card = new Card();
-            card = ActiveDeck[0];
-            ActiveDeck.RemoveAt(0);
-
-            DealerHand.Add(card);
+            DealerHand.Add(GiveCard());
         }
         /// <summary>
         /// Gives Dealers cards on hand

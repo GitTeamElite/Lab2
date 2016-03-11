@@ -10,7 +10,7 @@ namespace GitBlackJack
     {
         static void Main(string[] args)
         {
-         
+       
             GameFlow gamelogics = new GameFlow();
             bool playing = true;
 

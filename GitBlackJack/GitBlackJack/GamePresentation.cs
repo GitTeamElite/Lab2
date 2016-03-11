@@ -18,8 +18,8 @@ namespace GitBlackJack
             int CardNr = 1;
             foreach (var item in CardList)
             {
-
-                Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value + "\n");
+                if (item.Type == "Ace") { Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value + item._AceValue + "\n"); }
+                else { Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value + "\n"); }
 
                 CardNr++;
             }
@@ -102,9 +102,9 @@ namespace GitBlackJack
                 GamePresentation.PrintADeck(deck.GiveDeck());
                 Console.WriteLine("\n\nDealer Deck");
                 GamePresentation.PrintADeck(dealer.GiveActiveDeck());
-                Console.ReadKey();
-                Console.Clear();
-            }
+                Console.ReadKey();  
+            }      
+            Console.Clear();
         }
         public static void EndMsg(bool win)
         {
