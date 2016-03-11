@@ -18,7 +18,7 @@ namespace GitBlackJack
             int CardNr = 1;
             foreach (var item in CardList)
             {
-                if (item.Type == "Ace") { Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value +" or "+ item._AceValue + "\n"); }
+                if (item.Type == "Ace") { Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value + " or " + item._AceValue + "\n"); }
                 else { Console.Write("Card nr:" + CardNr + "    " + item._Color + " of " + item.Type + " - " + item._Value + "\n"); }
 
                 CardNr++;
@@ -66,7 +66,7 @@ namespace GitBlackJack
             Console.WriteLine("Press a key to see next card");
             Console.ReadKey();
             Console.Clear();
-         
+
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace GitBlackJack
         /// <param name="Dealer"></param>
         /// <param name="bet"></param>
         /// <param name="PlayerBalance"></param>
-        public static void PrintGame(List<Card> Player, List<Card> Dealer, int bet, int PlayerBalance)
+        public static void PrintGame(List<Card> PlayerList, List<Card> Dealer, int bet, int PlayerBalance,bool Splitt,Player player)
         {
             Console.Clear();
             LOGG();
@@ -86,10 +86,19 @@ namespace GitBlackJack
             Console.WriteLine("\n");
             Console.WriteLine("        P l a y e r   H a n d");
             Console.WriteLine("        $$ " + PlayerBalance + " $$ Bet :" + bet + " $$");
-            GamePresentation.PrintCardHand(Player);
-            GamePresentation.PrintTotalValue(Player);
-            Console.WriteLine("\n---------------------------------------");
+            GamePresentation.PrintCardHand(PlayerList);
+            GamePresentation.PrintTotalValue(PlayerList);
+            Console.Write("\n");
+            if (Splitt)
+            {
+                Console.WriteLine("\n\n        S p l i t t   H a n d");            
+                GamePresentation.PrintCardHand(player.SplittHand);
+                GamePresentation.PrintTotalValue(player.SplittHand);
+            }
+            Console.WriteLine("\n\n");
+           
         }
+
         /// <summary>
         /// Prints a list with all cards
         /// </summary>
@@ -97,35 +106,86 @@ namespace GitBlackJack
         public static void PrintADeck(List<Card> cardList)
         {
             int x = 1;
-         
+
             foreach (var item in cardList)
             {
-                Console.Write($"Card:{x} - {item._Value} - {item.Type} - {item._Color}");              
+                if (item.Type == "Ace") { Console.Write($"Card:{x} - {item._Value} or {item._AceValue} - {item.Type} - {item._Color}"); }
+                else
+                {
+                    Console.Write($"Card:{x} - {item._Value} - {item.Type} - {item._Color}");
+                }
                 Console.WriteLine("");
                 x++;
             }
         }
-        public static void ControlCheck(Dealer dealer,Deck deck)
+        public static void ControlCheck(Dealer dealer, Deck deck)
         {
-            Console.WriteLine("write \"check\" if you wanna see the decks. . . ");
-          string check = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Write \"check\" if you wanna see the decks. . .\nOr press anny key to continue to game. ");
+            string check = Console.ReadLine();
             if (check == "check")
             {
 
-                Console.WriteLine("Sorted deck");
+                Console.WriteLine("Sorted Basic deck");
                 GamePresentation.PrintADeck(deck.GiveDeck());
-                Console.WriteLine("\n\nDealer Deck");
+                Console.WriteLine("\n\nDealer playing Deck");
                 GamePresentation.PrintADeck(dealer.GiveActiveDeck());
-                Console.ReadKey();  
-            }      
+                Console.ReadKey();
+            }
             Console.Clear();
         }
-        public static void EndMsg(bool win)
+        public static bool AskSplitt(Dealer dealer,Player player)
         {
-            if (win) { Console.WriteLine("Player WIN!!!"); }
-            else { Console.WriteLine("Dealer WIN!!!"); }
-            Console.ReadKey();
+     
+                Console.WriteLine("Do you wanna splitt your card?  y/n");
+                ConsoleKeyInfo key;
+                key = Console.ReadKey(true);
+                switch(key.KeyChar)
+                {
+                    case 'y':
+                    return true;                     
+                    case 'n':
+                    return false;                     
+                    default:
+                    return false;                     
+                }
+            
+        }
+        public static void EndMsg(List<Card> PlayerList, List<Card> Dealer, int bet, int PlayerBalance, bool Splitt, Player player,bool win,bool winSplit)
+        {
             Console.Clear();
+            LOGG();
+            if (!win) { Console.ForegroundColor = ConsoleColor.Yellow; }
+            Console.Write("        D e a l e r   H a n d");    
+            Console.WriteLine();
+            GamePresentation.PrintCardHand(Dealer);
+            GamePresentation.PrintTotalValue(Dealer);
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("\n");
+
+            if (win) { Console.ForegroundColor = ConsoleColor.Yellow; }
+            Console.Write("        P l a y e r   H a n d");  
+            Console.WriteLine();
+            Console.WriteLine("        $$ " + PlayerBalance + " $$ Bet :" + bet + " $$");
+            GamePresentation.PrintCardHand(PlayerList);
+            GamePresentation.PrintTotalValue(PlayerList);
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.Write("\n\n");
+
+            
+            if (Splitt)
+            {
+                if (winSplit) { Console.ForegroundColor = ConsoleColor.Yellow; }
+                Console.Write("\n\n        S p l i t t   H a n d"); 
+                Console.WriteLine();
+                GamePresentation.PrintCardHand(player.SplittHand);
+                GamePresentation.PrintTotalValue(player.SplittHand);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+           
+            Console.ReadKey();
         }
         public static void GameOver()
         {
@@ -133,6 +193,6 @@ namespace GitBlackJack
             Console.ReadKey();
             Console.Clear();
         }
-    
+
     }
 }

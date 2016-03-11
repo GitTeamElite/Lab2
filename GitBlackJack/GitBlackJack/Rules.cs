@@ -82,10 +82,26 @@ namespace GitBlackJack
                   
             }
         }
-        public static void WinManager(bool Win,int bet,Player player)
+        public static void WinManager(bool Win,bool WinSplit,int bet,Player player,bool split)
         {
+            if (split)
+            {
+                if (WinSplit) { player.balance += bet; }
+                else { player.balance -= bet; }
+            }
             if (Win) { player.balance += bet; }
             else { player.balance -= bet; }
+        }
+        public static bool SplittPosible(List<Card> Input,Player player,int bet)
+        {
+           if(Input[0]._Value == Input[1]._Value && bet *2 < player.balance )
+            {
+                return true;
+            }
+           else
+            {
+                return false;
+            }
         }
     }
 }

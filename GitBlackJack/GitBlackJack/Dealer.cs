@@ -54,13 +54,13 @@ namespace GitBlackJack
             }
         }
 
-        internal void DealerGetAllHisCards(Player player,Dealer dealer,int bet )
+        internal void DealerGetAllHisCards(Player player,Dealer dealer,int bet,bool Splitt )
         {
             while (StaticMethods.CountValue(ShowDealerHand()) < 17 && StaticMethods.CountAceValue(ShowDealerHand())< 17)
             {
               GetCardToDealer();
                 GamePresentation.PressForNextCard();
-                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance);
+                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance,Splitt,player);
             }
         }
 
@@ -123,6 +123,13 @@ namespace GitBlackJack
         public List<Card> GiveActiveDeck()
         {
             return ActiveDeck;
+        }
+
+        internal void SplittPlayerCards(Player player)
+        {
+            player.SplittHand.Add(player.PlayerHand[0]);
+            player.PlayerHand.RemoveAt(0);
+
         }
     }
 }
