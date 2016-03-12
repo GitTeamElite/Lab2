@@ -50,4 +50,10 @@ ChessBoard
 /////////// CLASS ///////////////////
 GamePrinter Static
 	
+/////////// CLASS ///////////////////	
+Logg
+	List<String> BlackLogg
+	List<String> WhiteLogg
 	
+	PrintLogg()
+	AddMoveToLogg()
