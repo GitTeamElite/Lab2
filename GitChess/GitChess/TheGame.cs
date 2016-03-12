@@ -13,16 +13,20 @@ namespace GitChess
         public void StartGame()
         {
             ChessBoard chessboard = new ChessBoard();
-            AI ai = new AI();
+            
             
             
             while (!ChackMate)
             {
               
+
                 Printer.PrintGame(chessboard.GetBoard());
                 Console.ReadKey();
 
 
+
+
+                // Changes turn to next player
                 if (BlacksTrun) { BlacksTrun = false; }
                 else { BlacksTrun = true; }
             }

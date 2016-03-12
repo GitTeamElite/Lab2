@@ -46,6 +46,7 @@
     <Compile Include="AI.cs" />
     <Compile Include="Bishop.cs" />
     <Compile Include="ChessBoard.cs" />
+    <Compile Include="Iplayer.cs" />
     <Compile Include="King.cs" />
     <Compile Include="Knight.cs" />
     <Compile Include="Moves.cs" />

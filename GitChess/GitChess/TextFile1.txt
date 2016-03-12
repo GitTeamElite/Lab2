@@ -8,7 +8,7 @@ Clear pieces moves lists
 
 white read pieces add to avalibepiece list
 
-try each  avilible piece: move true/false if true add to pice list with movePoints
+try each  avilible piece: move true/false if true add to Ai pieceList with movePoints
 	tryMove( check if specefied piece can move at all, check if piece is threten by black, check if picec can kill black - add points for move. )
 
 read avalibepiece list and pick the piece with highest movePoint

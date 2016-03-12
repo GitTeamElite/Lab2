@@ -22,5 +22,17 @@ namespace GitChess
 
             return ABC;
         }
+        //public static void CleanMoves(Piece[,] Board,List<Moves> PossibleMoves)
+        //{
+        //    for (int y = 0; y < 8; y++)
+        //    {
+        //        for (int x = 0; x < 8; x++)
+        //        {
+        //            Board[x, y].PossibleMoves.RemoveRange(0, PossibleMoves.Count - 1);
+        //        }
+        //    }
+
+        //}
     }
 }
+  

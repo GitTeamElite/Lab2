@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitChess
 {
-   public class Piece
+    public class Piece
     {
         public bool _ImBlack { get; set; }
         public bool _ImAlive { get; set; }
@@ -14,8 +14,9 @@ namespace GitChess
         public string _MyName { get; set; }
         public string _MyVisualLook { get; set; }
         List<Moves> PossibleMoves;
+     
 
-       public Piece(bool _ImBlack)
+        public Piece(bool _ImBlack)
         {
             this._ImBlack = _ImBlack;
             this._MyVisualLook = "   ";
@@ -29,13 +30,11 @@ namespace GitChess
 
             return true;
         }
-        public void AddMoveToMoveList(int x,int y)
+        public void AddMoveToMoveList(int x, int y)
         {
             this.PossibleMoves.Add(new Moves(x, y, 0));
         }
-        public void CleanMoves()
-        {
-            PossibleMoves.RemoveRange(0, PossibleMoves.Count-1);
-        }
+       
+
     }
 }
