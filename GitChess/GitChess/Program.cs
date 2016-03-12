@@ -13,7 +13,8 @@ namespace GitChess
             TheGame theGame = new TheGame();
 
             theGame.StartGame();
-
+            //Console.WriteLine("♔");
+            //Console.WriteLine("♕");
         }
     }
 }
