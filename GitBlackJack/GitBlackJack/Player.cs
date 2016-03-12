@@ -112,6 +112,8 @@ namespace GitBlackJack
             bool go2 = true;
             while (go1 == true && go2 == true)
             {
+                if (!Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand()))) { go1 = false; }
+
                 if (Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand())))
                 {
                     if (go1)
@@ -136,6 +138,8 @@ namespace GitBlackJack
                         }
                     }
                 }
+                if (!Rules.NotOver21(StaticMethods.CountValue(player.SplittHand))) { go2 = false; }
+
                 if (Rules.NotOver21(StaticMethods.CountValue(player.SplittHand)))
                 {
                     if (go2)
