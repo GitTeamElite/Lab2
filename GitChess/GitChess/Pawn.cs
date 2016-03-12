@@ -12,12 +12,20 @@ namespace GitChess
         {
             this._MyVisualLook = " P ";
         }
-        public int MovePawn(bool BlacksTurn)
+        public void MovePawn(bool BlacksTurn,Piece[,] Board,int x,int y,Piece piece)
         {
-          
-            if (BlacksTurn) { return 1; }
-            else  { return -1; }
+            int move = 0;
+            int modifyedMove = 0;
+            if (BlacksTurn) { move = 1; }
+            else  { move = -1; }
+
+            if (Board[x,y+move]._ImAlive == false)
+            {
+                modifyedMove = y + move;
+                Board[x, y].AddMoveToMoveList(x,modifyedMove);
+            }
             
         }
+        
     }
 }

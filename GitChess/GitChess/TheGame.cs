@@ -18,6 +18,7 @@ namespace GitChess
             
             while (!ChackMate)
             {
+              
                 Printer.PrintGame(chessboard.GetBoard());
                 Console.ReadKey();
 

@@ -1,4 +1,6 @@
-﻿Class Card:
+﻿Todo:   Clean split hand!, Make dealer take more card even if ace is over 21! ,
+
+Class Card:
 	           
 	   int Value
 	   string Type ///enum
