@@ -8,8 +8,13 @@ namespace GitChess
 {
     interface Iplayer
     {
-        List<Piece>
 
-         MovePiece();
+        List<Piece> IplayPieceList();
+        List<Move> IplayMoveList();
+            
+
+        void MovePiece();
+        void CheckThretenPieces();
+        void CheckAvilibleMoves();
     }
 }

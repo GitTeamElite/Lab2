@@ -19,8 +19,7 @@ black turn
 -------------Turn end--------------------
 
 /////////// CLASS ///////////////////
-Class Piece
-	List <Moves> AvilibleMoves 
+Class Piece 
 	bool _ImBlack 
     bool _ImAlive 
     int _MyValue 
@@ -28,8 +27,6 @@ Class Piece
     string _MyVisualLook 
 
 	CheckMove()
-	AddMoveToMoveList()
-	CLearMoveList()
 
 /////////// CLASS ///////////////////
 Moves
@@ -40,8 +37,11 @@ Moves
 /////////// CLASS ///////////////////
 Player/Ai
 	List<Piece> MyPieces
+	List<Moves> AvilibleMoves
+	List<Piece> ThretenPieces
 
 	MovePiece()
+
 
 /////////// CLASS ///////////////////
 ChessBoard

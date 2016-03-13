@@ -10,6 +10,7 @@ namespace GitChess
     {
         bool ChackMate = false;
         bool BlacksTrun = false;
+        Iplayer Iplay;
         public void StartGame()
         {
             ChessBoard chessboard = new ChessBoard();
@@ -22,6 +23,13 @@ namespace GitChess
 
                 Printer.PrintGame(chessboard.GetBoard());
                 Console.ReadKey();
+
+               
+                Iplay.CheckAvilibleMoves();
+                Iplay.CheckThretenPieces();
+
+                Iplay.MovePiece();
+                // Add possible moves to AI
 
 
 

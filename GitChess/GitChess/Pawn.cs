@@ -12,18 +12,24 @@ namespace GitChess
         {
             this._MyVisualLook = " P ";
         }
-        public void MovePawn(bool BlacksTurn,Piece[,] Board,int x,int y,Piece piece)
+        public override bool CheckMove(bool BlacksTurn,Piece[,] Board,int x, int y )
         {
-            int move = 0;
-            int modifyedMove = 0;
-            if (BlacksTurn) { move = 1; }
-            else  { move = -1; }
+       if (base.CheckMove(BlacksTurn,Board,x,y)) { return false; }
 
-            if (Board[x,y+move]._ImAlive == false)
-            {
-                modifyedMove = y + move;
-                Board[x, y].AddMoveToMoveList(x,modifyedMove);
-            }
+            bool BlackIsEnemy; if (BlacksTurn) { BlackIsEnemy = false; } else { BlackIsEnemy = true; }
+            int MyMove = 0;
+         
+            if (BlacksTurn == Board[x,y]._ImBlack)  if(BlacksTurn) { MyMove = 1; } else { MyMove = -1; }
+            else { if (BlacksTurn) { MyMove = -1; } else { MyMove = 1; } }
+
+
+
+            if (Board[x+1,y+MyMove]._ImBlack == BlackIsEnemy && Board[x + 1, y + MyMove]._ImAlive == true ||
+                Board[x - 1, y + MyMove]._ImBlack == BlackIsEnemy && Board[x - 1, y + MyMove]._ImAlive == true)
+            { return true; }
+            if (Board[x,y+MyMove]._ImAlive == false) { return true;   }
+
+            return false;
             
         }
         
