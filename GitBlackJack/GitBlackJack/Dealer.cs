@@ -58,12 +58,15 @@ namespace GitBlackJack
         {
             bool gogo = true;
             while (gogo)
-            {            
+            {
                 if (StaticMethods.CountValue(ShowDealerHand()) > 16)
                 { gogo = false; }
+                else if (StaticMethods.CountAceValue(ShowDealerHand()) > 16 && StaticMethods.CountAceValue(ShowDealerHand()) < 22 && 
+                                          StaticMethods.CountAceValue(ShowDealerHand())> StaticMethods.CountValue(player.PlayerHand))
+                { gogo = false; }
                 else if (StaticMethods.CountValue(ShowDealerHand()) > 16 && StaticMethods.CountAceValue(ShowDealerHand()) > 16)
-                { gogo = false; }       
-                    
+                { gogo = false; }
+
                 else
                 {
                     GetCardToDealer();

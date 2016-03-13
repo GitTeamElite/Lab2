@@ -99,6 +99,12 @@ namespace GitBlackJack
            
         }
 
+        internal static void ToLittleCashToSplitt()
+        {
+            Console.WriteLine("You dont afford to splitt your cards. . .\nPress a key to continue . . .");
+            Console.ReadKey();
+        }
+
         /// <summary>
         /// Prints a list with all cards
         /// </summary>

@@ -1,4 +1,4 @@
-﻿Todo:   Make dealer take more card even if ace is over 21! ,
+﻿Todo:   Make it possible to use 2 ace in same hand in different values -- Example: One as 1 and one as 11
 
 Class Card:
 	           

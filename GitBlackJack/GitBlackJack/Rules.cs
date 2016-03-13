@@ -47,12 +47,12 @@ namespace GitBlackJack
         /// <returns></returns>
         public static bool NotOver21(int totalvaluecard)
         {
-            if (totalvaluecard < 22 )
+            if (totalvaluecard < 22)
                 return true;
             else
                 return false;
         }
-       
+
 
         /// <summary>
         /// Compare total amount of points and return who is the winner
@@ -63,26 +63,26 @@ namespace GitBlackJack
         public static bool PlayerWin(int playerValue, int dealerValue)
         {
             int compare = playerValue.CompareTo(dealerValue); // returns 1, 0, -1
-            if (compare== 1) { return true; }
+            if (compare == 1) { return true; }
             else { return false; }
-                
+
         }
         public static bool Loose(int balance)
         {
-            if (balance < 1) { Console.WriteLine("You are out of cash.... GAMVEOVER");Console.ReadKey(); Environment.Exit(-1); }
+            if (balance < 1) { Console.WriteLine("You are out of cash.... GAMVEOVER"); Console.ReadKey(); Environment.Exit(-1); }
             Console.WriteLine("Press ESC to exit or press other key for next round");
             ConsoleKeyInfo key;
             key = Console.ReadKey(true);
-            switch(key.Key)
+            switch (key.Key)
             {
                 case ConsoleKey.Escape:
-                    return false;            
+                    return false;
                 default:
                     return true;
-                  
+
             }
         }
-        public static void WinManager(bool Win,bool WinSplit,int bet,Player player,bool split)
+        public static void WinManager(bool Win, bool WinSplit, int bet, Player player, bool split)
         {
             if (split)
             {
@@ -92,13 +92,17 @@ namespace GitBlackJack
             if (Win) { player.balance += bet; }
             else { player.balance -= bet; }
         }
-        public static bool SplittPosible(List<Card> Input,Player player,int bet)
+        public static bool SplittPosible(List<Card> Input, Player player, int bet)
         {
-           if(Input[0]._Value == Input[1]._Value && bet *2 < player.balance )
+            if (Input[0]._Value == Input[1]._Value && bet * 2 > player.balance)
+            {
+                GamePresentation.ToLittleCashToSplitt();
+                return false; }
+            if (Input[0]._Value == Input[1]._Value && bet * 2 < player.balance)
             {
                 return true;
             }
-           else
+            else
             {
                 return false;
             }
