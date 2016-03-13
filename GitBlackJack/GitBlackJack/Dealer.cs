@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace GitBlackJack
 {
-   public class Dealer
+    public class Dealer
     {
         List<Card> ActiveDeck;
         List<Card> DealerHand;
 
-       
-      public Dealer( )
+
+        public Dealer()
         {
-           
+
             this.ActiveDeck = new List<Card>();
             this.DealerHand = new List<Card>();
         }
@@ -54,13 +54,23 @@ namespace GitBlackJack
             }
         }
 
-        internal void DealerGetAllHisCards(Player player,Dealer dealer,int bet,bool Splitt )
+        internal void DealerGetAllHisCards(Player player, Dealer dealer, int bet, bool Splitt)
         {
-            while (StaticMethods.CountValue(ShowDealerHand()) < 17 && StaticMethods.CountAceValue(ShowDealerHand())< 17)
+            bool gogo = true;
+            while (gogo)
             {
-              GetCardToDealer();
+                //StaticMethods.CountValue(ShowDealerHand()) < 17 || StaticMethods.CountValue(ShowDealerHand()) > 22  && StaticMethods.CountAceValue(ShowDealerHand())< 17
+
+
+                if (StaticMethods.CountAceValue(ShowDealerHand()) > 17 && StaticMethods.CountAceValue(ShowDealerHand()) < 22)
+                { gogo = false; }
+                else if (StaticMethods.CountValue(ShowDealerHand()) > 17 && StaticMethods.CountValue(ShowDealerHand()) < 22 && StaticMethods.CountAceValue(ShowDealerHand()) > 22)
+                { gogo = false; }
+                else if (StaticMethods.CountValue(ShowDealerHand()) < 22 && StaticMethods.CountAceValue(ShowDealerHand()) < 22)
+                { gogo = false; }
+
                 GamePresentation.PressForNextCard();
-                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance,Splitt,player);
+                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, Splitt, player);
             }
         }
 
@@ -72,10 +82,10 @@ namespace GitBlackJack
             Random random = new Random();
             Card cardHolder = new Card();
 
-            for (int x =0;x<10000;x++)
+            for (int x = 0; x < 10000; x++)
             {
-                int PointCardX = random.Next(ActiveDeck.Count-1);
-                int PointCardY = random.Next(ActiveDeck.Count-1);
+                int PointCardX = random.Next(ActiveDeck.Count - 1);
+                int PointCardY = random.Next(ActiveDeck.Count - 1);
 
                 cardHolder = ActiveDeck[PointCardX];
                 ActiveDeck[PointCardX] = ActiveDeck[PointCardY];
@@ -88,12 +98,12 @@ namespace GitBlackJack
         /// <returns>Card</returns>
         public Card GiveCard()
         {
-           
+
             Card card = new Card();
             card = ActiveDeck[0];
             ActiveDeck.RemoveAt(0);
             return card;
-        } 
+        }
         /// <summary>
         /// Dealer give card to him self and removes it from active deck
         /// </summary>

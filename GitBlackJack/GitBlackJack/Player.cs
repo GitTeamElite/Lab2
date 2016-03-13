@@ -78,6 +78,7 @@ namespace GitBlackJack
         public void ClearHand()
         {
             PlayerHand.RemoveRange(0, PlayerHand.Count);
+            SplittHand.RemoveRange(0, SplittHand.Count);
         }
         public void HitMe(Player player, Dealer dealer, int bet, bool splitt)
         {
