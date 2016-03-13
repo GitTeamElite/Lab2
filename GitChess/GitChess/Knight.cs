@@ -14,6 +14,7 @@ namespace GitChess
         }
         public override bool CheckMove( int x, int y)
         {
+            //+2x +1y || +2x -1y || -2x +1y || -2x -1y || +2y +1x || +2y -1x || -2y +1x || -2y -1x
 
 
             return true;

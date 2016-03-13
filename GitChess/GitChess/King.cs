@@ -14,7 +14,7 @@ namespace GitChess
         }
         public override bool CheckMove(bool BlacksTurn, Piece[,] Board, int x, int y)
         {
-
+            // 1 move on all spots around
 
             return true;
         }
