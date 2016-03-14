@@ -10,6 +10,7 @@ namespace GitChess
     {
         public static void PrintGame(Piece[,] board)
         {
+            Console.WriteLine();
             Console.WriteLine("    1  2  3  4  5  6  7  8");
             Console.Write(" A ");
             for (int x = 0; x < 8; x++)

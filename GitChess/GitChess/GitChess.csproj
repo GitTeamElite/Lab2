@@ -58,6 +58,7 @@
     <Compile Include="Queen.cs" />
     <Compile Include="Rook.cs" />
     <Compile Include="StaticMethods.cs" />
+    <Compile Include="TestPlayer.cs" />
     <Compile Include="TheGame.cs" />
   </ItemGroup>
   <ItemGroup>

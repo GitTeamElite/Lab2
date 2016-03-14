@@ -39,6 +39,19 @@ namespace GitChess
         //    }
 
         //}
+        public static int TranslateLetters(string letter)
+        {
+            if(letter == "a") { return 0; }
+            if (letter == "b") { return 1; }
+            if (letter == "c") { return 2; }
+            if (letter == "d") { return 3; }
+            if (letter == "e") { return 4; }
+            if (letter == "f") { return 5; }
+            if (letter == "g") { return 6; }
+            if (letter == "h") { return 7; }
+
+            else return -1;
+        }
     }
 }
   
