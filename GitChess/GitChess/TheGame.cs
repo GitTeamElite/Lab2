@@ -45,13 +45,26 @@ namespace GitChess
 
 
                 int Xmove = int.Parse(Console.ReadLine());
-                int Ymove = int.Parse(Console.ReadLine());
+                int Ymove = 0;
+                try
+                {
+                    Ymove = StaticMethods.TranslateLetters(Console.ReadLine());
+                }
+                catch
+                {
+
+                }
+                
 
                 foreach (var item in chessboard.GetBoard())
                 {
                     item.CheckMove( BlacksTurn,  BlackIsEnemy, chessboard.GetBoard(),  x,  y,  Xmove,  Ymove);
                 }
 
+                foreach (var item in chessboard.GetBoard())
+                {
+                    item.PrintMoveList();
+                }
                 //////////////////////////////////////////////////////////////////////////////////////////////////
                 //------------------------------------ TEST TEST TEST ------------------------------------------//
                 //////////////////////////////////////////////////////////////////////////////////////////////////
