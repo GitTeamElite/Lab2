@@ -38,7 +38,7 @@ namespace GitBlackJack
         public int Bet()
         {
             GamePresentation.LOGG();
-            Console.WriteLine($"How mutch you wanna bet? ---- Balance = {balance}");
+            Console.WriteLine($"How much you wanna bet? ---- Balance = {balance}");
             int bet = 1;
             do
             {
@@ -111,14 +111,12 @@ namespace GitBlackJack
             GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, splitt, player);
             bool go1 = true;
             bool go2 = true;
-            while (go1 == true && go2 == true)
+            while (go1 == true || go2 == true)
             {
                 if (!Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand()))) { go1 = false; }
 
-                if (Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand())))
-                {
-                    if (go1)
-                    {
+                if (Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand()))&& go1)
+                {               
                         Console.WriteLine("    --- Main Hand ---");
                         Console.WriteLine("You want one more card? y/n");
                         ConsoleKeyInfo key;
@@ -135,16 +133,13 @@ namespace GitBlackJack
                                 go1 = false;
                                 break;
                             default:
-                                break;
-                        }
+                                break;                      
                     }
                 }
                 if (!Rules.NotOver21(StaticMethods.CountValue(player.SplittHand))) { go2 = false; }
 
-                if (Rules.NotOver21(StaticMethods.CountValue(player.SplittHand)))
+                if (Rules.NotOver21(StaticMethods.CountValue(player.SplittHand )) && go2)
                 {
-                    if (go2)
-                    {
                         Console.WriteLine("    --- Split Hand ---");
                         Console.WriteLine("You want one more card? y/n");
                         ConsoleKeyInfo key;
@@ -163,7 +158,7 @@ namespace GitBlackJack
                             default:
                                 break;
                         }
-                    }
+                    
                 }
             }
         }

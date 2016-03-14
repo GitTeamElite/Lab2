@@ -62,8 +62,8 @@ namespace GitBlackJack
         /// <returns></returns>
         public static bool PlayerWin(int playerValue, int dealerValue)
         {
-            int compare = playerValue.CompareTo(dealerValue); // returns 1, 0, -1
-            if (compare == 1) { return true; }
+
+            if (playerValue > dealerValue) { return true; }
             else { return false; }
 
         }
@@ -89,6 +89,7 @@ namespace GitBlackJack
                 if (WinSplit) { player.balance += bet; }
                 else { player.balance -= bet; }
             }
+
             if (Win) { player.balance += bet; }
             else { player.balance -= bet; }
         }
@@ -97,7 +98,8 @@ namespace GitBlackJack
             if (Input[0]._Value == Input[1]._Value && bet * 2 > player.balance)
             {
                 GamePresentation.ToLittleCashToSplitt();
-                return false; }
+                return false;
+            }
             if (Input[0]._Value == Input[1]._Value && bet * 2 < player.balance)
             {
                 return true;

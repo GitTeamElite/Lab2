@@ -31,6 +31,8 @@ namespace GitBlackJack
             int SplitAceValue = 0;
             bool winSplit = false;
             bool split = false;
+            bool IWantSplit = false;
+
             dealer.CheckActiveDeck(deck);
             GamePresentation.LOGG();
             GamePresentation.ControlCheck(dealer, deck);
@@ -43,10 +45,19 @@ namespace GitBlackJack
             dealer.GetCardToDealer(); // Give cards to dealer and player
             player.GetCard(dealer.GiveCard());
             player.GetCard(dealer.GiveCard());
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //////int y = 1;   ///////////////////////////////////////////// TRY SPLITT /////////////////////////////////////////////////////
+            //////int x = 1;  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //////string CardType = StaticMethods.GetType(x);  //////////////////////////////////////////////////////////////////////////////
+            //////player.GetCard(new Card(value: 10, aceValue: 10, color: StaticMethods.ReturnType(y), type: CardType));/////////////////////
+            //////player.GetCard(new Card(value: 10, aceValue: 10, color: StaticMethods.ReturnType(y), type: CardType));/////////////////////
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
             GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, split, player);
           
             split = Rules.SplittPosible(player.ShowPlayerHand(),player,bet);
-            bool IWantSplit = false;
+            
             if (split) { IWantSplit = GamePresentation.AskSplitt(dealer, player); }
             if (IWantSplit)
             {
