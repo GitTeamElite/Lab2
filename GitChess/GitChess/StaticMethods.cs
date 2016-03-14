@@ -22,6 +22,11 @@ namespace GitChess
 
             return ABC;
         }
+
+        internal static bool HowIsEnemy(bool BlacksTurn)
+        {
+            if (BlacksTurn) {return false; } else {return true; } // Check wath color your enemy is
+        }
         //public static void CleanMoves(Piece[,] Board,List<Moves> PossibleMoves)
         //{
         //    for (int y = 0; y < 8; y++)

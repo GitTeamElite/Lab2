@@ -12,11 +12,11 @@ namespace GitChess
         {
             this._MyVisualLook = " P ";
         }
-        public override bool CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY,int MovingX,int MovingY)
+        public override bool CheckMove(bool BlacksTurn,bool BlackIsEnemy,Piece[,] Board, int CurrentX, int CurrentY,int MovingX,int MovingY)
         {
-            if (!base.CheckMove(BlacksTurn, Board, CurrentX, CurrentY,MovingX,MovingY)) { return false; } // Checking base rules
+            if (!base.CheckMove(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY,MovingX,MovingY)) { return false; } // Checking base rules
 
-            bool BlackIsEnemy; if (BlacksTurn) { BlackIsEnemy = false; } else { BlackIsEnemy = true; } // Check wath color your enemy is
+         
             int MyMove = 0;
 
             if (BlacksTurn == Board[CurrentX, CurrentY]._ImBlack)  // if blacks turn Pawn can move +1, white 1+

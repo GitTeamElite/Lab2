@@ -23,7 +23,7 @@ namespace GitChess
             this.AvilibleMoves = new List<Move>();    
         }
 
-        public virtual bool CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
+        public virtual bool CheckMove(bool BlacksTurn,bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
             if (MovingX < 0 || MovingX > 7 || MovingY < 0 || MovingY > 7) { return false; }
 

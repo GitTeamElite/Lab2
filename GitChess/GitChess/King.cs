@@ -12,13 +12,17 @@ namespace GitChess
         {
             this._MyVisualLook = " K ";
         }
-        public override bool CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY) // Checking base move rules         
+        public override bool CheckMove(bool BlacksTurn,bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY) // Checking base move rules         
         {
             // 1 move on all spots around
 
-      if (CurrentX == MovingX +1 &&  CurrentY == MovingY) { if (Board[MovingX,MovingY]._ImAlive == false) { // Lägg till att han kan ta moståndare också!       } }
+            if (CurrentX == MovingX + 1 && CurrentY == MovingY)
+            {
+                if (Board[MovingX, MovingY]._ImAlive == false)
+                { // Lägg till att han kan ta moståndare också!       } }
 
-
+                }
+            }
 
             return true;
         }

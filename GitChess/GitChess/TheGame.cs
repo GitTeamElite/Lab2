@@ -9,14 +9,14 @@ namespace GitChess
     public class TheGame
     {
         bool ChackMate = false;
-        bool BlacksTrun = false;
+        bool BlacksTurn = false;
         Iplayer Iplay;
         public void StartGame()
         {
             ChessBoard chessboard = new ChessBoard();
-            
-            
-            
+
+            bool BlackIsEnemy = StaticMethods.HowIsEnemy(BlacksTurn); // Check wath color your enemy is
+
             while (!ChackMate)
             {
               
@@ -35,8 +35,8 @@ namespace GitChess
 
 
                 // Changes turn to next player
-                if (BlacksTrun) { BlacksTrun = false; }
-                else { BlacksTrun = true; }
+                if (BlacksTurn) { BlacksTurn = false; }
+                else { BlacksTurn = true; }
             }
         }
     }
