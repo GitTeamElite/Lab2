@@ -24,36 +24,16 @@ namespace GitChess
 
 
                 Printer.PrintGame(chessboard.GetBoard());
-                Console.ReadKey();
+        
                 //////////////////////////////////////////////////////////////////////////////////////////////////
                 //------------------------------------ TEST TEST TEST ------------------------------------------//
                 //////////////////////////////////////////////////////////////////////////////////////////////////
+            
                 if (BlacksTurn) { Console.WriteLine("Blacks turn"); } else { Console.WriteLine("Whites turn"); }
-                int y = 0;
-                Console.WriteLine("Move a piece! ENTER y then x");
-                try
-                {
-                     y = StaticMethods.TranslateLetters(Console.ReadLine());
-                }
-                catch
-                {
-
-                }
                 int x = 0;
-                   x= int.Parse(Console.ReadLine());
-
-
-
-                int Xmove = int.Parse(Console.ReadLine());
-                int Ymove = 0;
-                try
-                {
-                    Ymove = StaticMethods.TranslateLetters(Console.ReadLine());
-                }
-                catch
-                {
-
-                }
+                int y = 0;
+                int Xmove = 1;
+                int Ymove = 1;
                 
 
                 foreach (var item in chessboard.GetBoard())
@@ -65,6 +45,7 @@ namespace GitChess
                 {
                     item.PrintMoveList();
                 }
+                Console.ReadKey();
                 //////////////////////////////////////////////////////////////////////////////////////////////////
                 //------------------------------------ TEST TEST TEST ------------------------------------------//
                 //////////////////////////////////////////////////////////////////////////////////////////////////

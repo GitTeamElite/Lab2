@@ -3,7 +3,7 @@
 TODO //Player.CheckAvilibleMoves();
      //Player.MovePiece();
 
-Hampus:
+Hampus: Fix Pieces move list!
 Shirzad:
 
 Game Flow

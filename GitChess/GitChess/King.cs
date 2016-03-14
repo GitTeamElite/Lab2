@@ -17,30 +17,29 @@ namespace GitChess
         {
             if (!base.CheckMove(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY, MovingX, MovingY)) { return false; }
 
-            if (MovingX == CurrentX + 1 && MovingY == CurrentY ||      //Check move x+1, y
-                MovingX == CurrentX - 1 && MovingY == CurrentY ||      //Check move x-1, y
-                MovingX == CurrentX && MovingY == CurrentY + 1 ||      //Check move x, y+1
-                MovingX == CurrentX && MovingY == CurrentY - 1 ||      //Check move x, y-1
-                MovingX == CurrentX + 1 && MovingY == CurrentY + 1 ||  //Check move x+1, y+1
-                MovingX == CurrentX - 1 && MovingY == CurrentY - 1 ||  //Check move x-1, y-1
-                MovingX == CurrentX + 1 && MovingY == CurrentY - 1 ||  //Check move x+1, y-1
-                MovingX == CurrentX - 1 && MovingY == CurrentY + 1)    //Check move x-1, y+1
-            {
-                if (Board[MovingX, MovingY]._ImAlive == false)
-                {
-                    AvilibleMoves.Add(new Move(MovingX, MovingY, 0));
-                    return true;             
-                }
-                if (Board[MovingX, MovingY]._ImBlack != BlackIsEnemy)
-                {
-                    AvilibleMoves.Add(new Move(MovingX, MovingY, 0));
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }         
+            if (Board[CurrentX + 1, CurrentY]._ImAlive == false) { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY, 0)); return true; }     //Check move x+1, y
+
+            if (Board[CurrentX - 1, CurrentY]._ImAlive == false || Board[CurrentX - 1, CurrentY]._ImBlack != BlackIsEnemy)
+            { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY, 0)); return true; }  //Check move x-1, y
+
+            if (Board[CurrentX, CurrentY + 1]._ImAlive == false || Board[CurrentX, CurrentY + 1]._ImBlack != BlackIsEnemy)
+            { AvilibleMoves.Add(new Move(CurrentX, CurrentY + 1, 0)); return true; }   //Check move x, y+1
+
+            if (Board[CurrentX, CurrentY - 1]._ImAlive == false|| Board[CurrentX, CurrentY - 1]._ImBlack != BlackIsEnemy)
+            { AvilibleMoves.Add(new Move(CurrentX, CurrentY - 1, 0)); return true; }   //Check move x, y-1
+
+            if (Board[CurrentX + 1, CurrentY + 1]._ImAlive == false|| Board[CurrentX + 1, CurrentY + 1]._ImBlack!=BlackIsEnemy)
+            { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + 1, 0)); return true; }   //Check move x+1, y+1
+
+            if (Board[CurrentX - 1, CurrentY - 1]._ImAlive == false|| Board[CurrentX - 1, CurrentY - 1]._ImBlack!=BlackIsEnemy)
+            { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY - 1, 0)); return true; }  //Check move x-1, y-1
+
+            if (Board[CurrentX + 1, CurrentY - 1]._ImAlive == false|| Board[CurrentX + 1, CurrentY - 1]._ImBlack!=BlackIsEnemy)
+            { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY - 1, 0)); return true; }   //Check move x+1, y-1
+
+            if (Board[CurrentX - 1, CurrentY + 1]._ImAlive == false|| Board[CurrentX - 1, CurrentY + 1]._ImBlack!=BlackIsEnemy)
+            { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY + 1, 0)); return true; }     //Check move x-1, y+1
+
             else
             {
                 return false;

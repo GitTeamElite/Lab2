@@ -9,12 +9,12 @@ namespace GitChess
     public class Piece
     {
         public bool _ImBlack { get; set; }
-        public bool _ImAlive { get; set; }
-        public int _MyValue { get; set; }
+        public bool _ImAlive { get; set; } 
         public string _MyName { get; set; }
         public string _MyVisualLook { get; set; }
         public int Points { get; set; }
-
+        public int Xposition { get; set; } //
+        public int Yposition { get; set; }//
         public List<Move> AvilibleMoves;
 
         public Piece(bool _ImBlack)
@@ -28,7 +28,7 @@ namespace GitChess
 
         public virtual bool CheckMove(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
-            if (MovingX < 0 || MovingX > 7 || MovingY < 0 || MovingY > 7) { return false; }
+            if (CurrentX < 0 || CurrentX > 7 || CurrentY < 0 || CurrentY > 7) { return false; }
 
 
             return true;
