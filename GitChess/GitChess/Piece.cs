@@ -30,7 +30,10 @@ namespace GitChess
 
             return true;
         }
-       
+       public void AddMove(int x,int y,int points)
+        {
+            AvilibleMoves.Add(new Move(x, y,points));
+        }
        
 
     }
