@@ -9,7 +9,7 @@ namespace GitChess
     public class Piece
     {
         public bool _ImBlack { get; set; }
-        public bool _ImAlive { get; set; } 
+        public bool _ImAlive { get; set; }
         public string _MyName { get; set; }
         public string _MyVisualLook { get; set; }
         public int Points { get; set; }
@@ -37,26 +37,26 @@ namespace GitChess
         {
             return Points;
         }
-        public void AddMoveToList(int x,int y )
+        public void AddMoveToList(int x, int y)
         {
             this.AvilibleMoves.Add(new Move(x, y, this.Points));
         }
         public bool MoveStraight(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
 
-            //-----------------------------------------------------------------------------------------------//
+            //-----------------------------------------------------------------------------------------------//Fixed
             if (CurrentX == MovingX && CurrentY < MovingY) // move Down
             {
                 int y = CurrentY;
                 while (y != MovingY)
                 {
-                    if (Board[CurrentX, y + 1] == Board[MovingX, MovingY])
+
+                    if (Board[CurrentX, y + 1]._ImAlive == false || Board[CurrentX, y + 1]._ImBlack == !BlacksTurn) { AddMoveToList(CurrentX, y + 1); }
+
+                    if (Board[CurrentX, y + 1]._ImAlive == true || Board[CurrentX, y + 1]._ImBlack == BlacksTurn)
                     {
-                        if (Board[CurrentX, y + 1]._ImAlive == false || Board[CurrentX, y + 1]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
-                    }
-                    if (Board[CurrentX, y + 1]._ImAlive == true)
-                    {
-                        return false;
+
+                        return true;
                     }
                     y++;
                 }
@@ -183,11 +183,11 @@ namespace GitChess
 
                 while (y < MovingY && x < MovingX)
                 {
-                    if (Board[x + 1, y-1] == Board[MovingX, MovingY])
+                    if (Board[x + 1, y - 1] == Board[MovingX, MovingY])
                     {
-                        if (Board[x + 1, y-1]._ImAlive == false || Board[x + 1, y-1]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
+                        if (Board[x + 1, y - 1]._ImAlive == false || Board[x + 1, y - 1]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
                     }
-                    if (Board[x + 1, y-1]._ImAlive == true)
+                    if (Board[x + 1, y - 1]._ImAlive == true)
                     {
                         return false;
                     }
@@ -210,5 +210,5 @@ namespace GitChess
             }
         }
     }
-   
+
 }
