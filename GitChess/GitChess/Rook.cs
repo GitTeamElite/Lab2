@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitChess
 {
-    class Rook:Piece
+    class Rook : Piece
     {
         public Rook(bool _ImBlack) : base(_ImBlack)
         {
@@ -14,9 +14,19 @@ namespace GitChess
         }
         public override bool CheckMove(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
-            // if (Board[x,y] == XMove
-
-            return true;
+            if (base.CheckMove(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY, MovingX, MovingY))
+            {
+                if (MoveStraight(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY, MovingX, MovingY))
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+            else
+            {
+                return true;
+            }
+        
         }
     }
 }

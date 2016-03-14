@@ -14,9 +14,18 @@ namespace GitChess
         }
         public override bool CheckMove(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
-
-
-            return true;
+            if (base.CheckMove(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY, MovingX, MovingY))
+            {
+                if (MoveStraight(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY, MovingX, MovingY))
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+            else
+            {
+                return true;
+            }       
         }
     }
 }
