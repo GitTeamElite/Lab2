@@ -20,11 +20,15 @@ namespace GitChess
                 {
                     return true;
                 }
+                else if (MoveDiagonaly(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY, MovingX, MovingY))
+                {
+                    return true;
+                }
                 else { return false; }
             }
             else
             {
-                return true;
+                return false;
             }       
         }
     }

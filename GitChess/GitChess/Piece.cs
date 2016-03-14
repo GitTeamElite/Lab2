@@ -26,7 +26,7 @@ namespace GitChess
             this.Points = 0;
         }
 
-        public virtual bool CheckMove(bool BlacksTurn,bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
+        public virtual bool CheckMove(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
             if (MovingX < 0 || MovingX > 7 || MovingY < 0 || MovingY > 7) { return false; }
 
@@ -37,9 +37,14 @@ namespace GitChess
         {
             return Points;
         }
+        public void AddMoveToList(int x,int y )
+        {
+            this.AvilibleMoves.Add(new Move(x, y, this.Points));
+        }
         public bool MoveStraight(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
 
+            //-----------------------------------------------------------------------------------------------//
             if (CurrentX == MovingX && CurrentY < MovingY) // move Down
             {
                 int y = CurrentY;
@@ -47,7 +52,7 @@ namespace GitChess
                 {
                     if (Board[CurrentX, y + 1] == Board[MovingX, MovingY])
                     {
-                        if (Board[CurrentX, y + 1]._ImAlive == false || Board[CurrentX, y + 1]._ImBlack == !BlackIsEnemy) { return true; }
+                        if (Board[CurrentX, y + 1]._ImAlive == false || Board[CurrentX, y + 1]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
                     }
                     if (Board[CurrentX, y + 1]._ImAlive == true)
                     {
@@ -57,14 +62,14 @@ namespace GitChess
                 }
             }
             //-----------------------------------------------------------------------------------------------//
-            if (CurrentX == MovingX && CurrentY > MovingY) // move Up
+            else if (CurrentX == MovingX && CurrentY > MovingY) // move Up
             {
                 int y = CurrentY;
                 while (y != MovingY)
                 {
                     if (Board[CurrentX, y - 1] == Board[MovingX, MovingY])
                     {
-                        if (Board[CurrentX, y - 1]._ImAlive == false || Board[CurrentX, y - 1]._ImBlack == !BlackIsEnemy) { return true; }
+                        if (Board[CurrentX, y - 1]._ImAlive == false || Board[CurrentX, y - 1]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
                     }
                     if (Board[CurrentX, y - 1]._ImAlive == true)
                     {
@@ -74,14 +79,14 @@ namespace GitChess
                 }
             }
             //-----------------------------------------------------------------------------------------------//
-            if (CurrentX < MovingX && CurrentY == MovingY) // move Right
+            else if (CurrentX < MovingX && CurrentY == MovingY) // move Right
             {
                 int x = CurrentX;
                 while (x != MovingY)
                 {
                     if (Board[x + 1, CurrentY] == Board[MovingX, MovingY])
                     {
-                        if (Board[x + 1, CurrentY]._ImAlive == false || Board[x + 1, CurrentY]._ImBlack == !BlackIsEnemy) { return true; }
+                        if (Board[x + 1, CurrentY]._ImAlive == false || Board[x + 1, CurrentY]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
                     }
                     if (Board[x + 1, CurrentY]._ImAlive == true)
                     {
@@ -91,14 +96,14 @@ namespace GitChess
                 }
             }
             //-----------------------------------------------------------------------------------------------//
-            if (CurrentX > MovingX && CurrentY == MovingY) // move Right
+            else if (CurrentX > MovingX && CurrentY == MovingY) // move Right
             {
                 int x = CurrentX;
                 while (x != MovingY)
                 {
                     if (Board[x - 1, CurrentY] == Board[MovingX, MovingY])
                     {
-                        if (Board[x - 1, CurrentY]._ImAlive == false || Board[x - 1, CurrentY]._ImBlack == !BlackIsEnemy) { return true; }
+                        if (Board[x - 1, CurrentY]._ImAlive == false || Board[x - 1, CurrentY]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
                     }
                     if (Board[x - 1, CurrentY]._ImAlive == true)
                     {
@@ -107,84 +112,92 @@ namespace GitChess
                     x--;
                 }
             }
-            //-----------------------------------------------------------------------------------------------//
 
             return false; ;
         }
+        //-----------------------------------    END    -------------------------------------------------//
+        //-----------------------------------------------------------------------------------------------//
+
+
         public bool MoveDiagonaly(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)   // UnderCOnstruction!!!!!! 
         {
-
-            if (CurrentX > MovingX && CurrentY < MovingY) // move Down/Left
+            int y = CurrentY;
+            int x = CurrentX;
+            //-----------------------------------------------------------------------------------------------//
+            if (CurrentX > MovingX && CurrentY < MovingY) //  Down y+1/Left x-1
             {
-                int y = CurrentY;
-                int x = CurrentX;
-                while (y != MovingY)
+
+                while (y < MovingY && x < MovingX)
                 {
-                    if (Board[CurrentX, y + 1] == Board[MovingX, MovingY])
+                    if (Board[x - 1, y + 1] == Board[MovingX, MovingY])
                     {
-                        if (Board[CurrentX, y + 1]._ImAlive == false || Board[CurrentX, y + 1]._ImBlack == !BlackIsEnemy) { return true; }
+                        if (Board[x - 1, y + 1]._ImAlive == false || Board[x - 1, y + 1]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
                     }
-                    if (Board[CurrentX, y + 1]._ImAlive == true)
+                    if (Board[x - 1, y + 1]._ImAlive == true)
                     {
                         return false;
                     }
                     y++;
-                }
-            }
-            //-----------------------------------------------------------------------------------------------//
-            if (CurrentX == MovingX && CurrentY > MovingY) // DownRight
-            {
-                int y = CurrentY;
-                while (y != MovingY)
-                {
-                    if (Board[CurrentX, y - 1] == Board[MovingX, MovingY])
-                    {
-                        if (Board[CurrentX, y - 1]._ImAlive == false || Board[CurrentX, y - 1]._ImBlack == !BlackIsEnemy) { return true; }
-                    }
-                    if (Board[CurrentX, y - 1]._ImAlive == true)
-                    {
-                        return false;
-                    }
-                    y--;
-                }
-            }
-            //-----------------------------------------------------------------------------------------------//
-            if (CurrentX < MovingX && CurrentY == MovingY) // move UpLeft
-            {
-                int x = CurrentX;
-                while (x != MovingY)
-                {
-                    if (Board[x + 1, CurrentY] == Board[MovingX, MovingY])
-                    {
-                        if (Board[x + 1, CurrentY]._ImAlive == false || Board[x + 1, CurrentY]._ImBlack == !BlackIsEnemy) { return true; }
-                    }
-                    if (Board[x + 1, CurrentY]._ImAlive == true)
-                    {
-                        return false;
-                    }
-                    x++;
-                }
-            }
-            //-----------------------------------------------------------------------------------------------//
-            if (CurrentX > MovingX && CurrentY == MovingY) // move UpRight
-            {
-                int x = CurrentX;
-                while (x != MovingY)
-                {
-                    if (Board[x - 1, CurrentY] == Board[MovingX, MovingY])
-                    {
-                        if (Board[x - 1, CurrentY]._ImAlive == false || Board[x - 1, CurrentY]._ImBlack == !BlackIsEnemy) { return true; }
-                    }
-                    if (Board[x - 1, CurrentY]._ImAlive == true)
-                    {
-                        return false;
-                    }
                     x--;
                 }
             }
             //-----------------------------------------------------------------------------------------------//
+            else if (CurrentX < MovingX && CurrentY < MovingY) // Down y+1 Right x+1
+            {
 
+                while (y < MovingY && x < MovingX)
+                {
+                    if (Board[x + 1, y + 1] == Board[MovingX, MovingY])
+                    {
+                        if (Board[x + 1, y + 1]._ImAlive == false || Board[x + 1, y + 1]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
+                    }
+                    if (Board[x + 1, y + 1]._ImAlive == true)
+                    {
+                        return false;
+                    }
+                    x++;
+                    y++;
+                }
+            }
+            //-----------------------------------------------------------------------------------------------//
+            else if (CurrentX > MovingX && CurrentY > MovingY) // move Up y-1 Left x-1
+            {
+
+                while (y < MovingY && x < MovingX)
+                {
+                    if (Board[x - 1, y - 1] == Board[MovingX, MovingY])
+                    {
+                        if (Board[x - 1, y - 1]._ImAlive == false || Board[x - 1, y - 1]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
+                    }
+                    if (Board[x - 1, y - 1]._ImAlive == true)
+                    {
+                        return false;
+                    }
+                    x--;
+                    y--;
+                }
+            }
+            //-----------------------------------------------------------------------------------------------//
+            else if (CurrentX > MovingX && CurrentY < MovingY) // move Up y-1 Right x+1
+            {
+
+                while (y < MovingY && x < MovingX)
+                {
+                    if (Board[x + 1, y-1] == Board[MovingX, MovingY])
+                    {
+                        if (Board[x + 1, y-1]._ImAlive == false || Board[x + 1, y-1]._ImBlack == !BlackIsEnemy) { AddMoveToList(MovingX, MovingY); return true; }
+                    }
+                    if (Board[x + 1, y-1]._ImAlive == true)
+                    {
+                        return false;
+                    }
+                    x++;
+                    y--;
+                }
+            }
             return false; ;
         }
+        //-----------------------------------    END    -------------------------------------------------//
+        //-----------------------------------------------------------------------------------------------//
     }
 }

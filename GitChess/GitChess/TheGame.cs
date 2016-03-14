@@ -11,6 +11,7 @@ namespace GitChess
         bool ChackMate = false;
         bool BlacksTurn = false;
         Iplayer Iplay;
+       
         public void StartGame()
         {
             ChessBoard chessboard = new ChessBoard();

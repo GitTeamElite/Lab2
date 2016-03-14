@@ -30,11 +30,13 @@ namespace GitChess
                 if (Board[MovingX, MovingY]._ImAlive == false)
                 {
                     AvilibleMoves.Add(new Move(MovingX, MovingY, 0));
+                    AddMoveToList(MovingX, MovingY);
                     return true;
                 }
                 if (Board[MovingX, MovingY]._ImBlack != BlackIsEnemy)
                 {
                     AvilibleMoves.Add(new Move(MovingX, MovingY, 0));
+                    AddMoveToList(MovingX, MovingY);
                     return true;
                 }
                 else
