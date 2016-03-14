@@ -25,8 +25,9 @@ namespace GitChess
                 Printer.PrintGame(chessboard.GetBoard());
                 Console.ReadKey();
 
-               
-                //Iplay.CheckAvilibleMoves();
+
+                //Player.CheckAvilibleMoves();
+                //Player.MovePiece();
                 //Iplay.CheckThretenPieces();
 
                 //Iplay.MovePiece();

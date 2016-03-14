@@ -1,4 +1,8 @@
-﻿Andres: Ai, bishop
+﻿Andres: Ai, bishop /player skapa som kan MovePiece
+
+TODO //Player.CheckAvilibleMoves();
+     //Player.MovePiece();
+
 Hampus:
 Shirzad:
 

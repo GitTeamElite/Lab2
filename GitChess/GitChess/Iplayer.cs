@@ -10,9 +10,9 @@ namespace GitChess
     {
 
         List<Piece> IplayPieceList();
-        List<Move> IplayMoveList();
+        
             
-
+        
         void MovePiece();
         void CheckThretenPieces();
         void CheckAvilibleMoves();

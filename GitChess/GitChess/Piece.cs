@@ -19,6 +19,7 @@ namespace GitChess
 
         public Piece(bool _ImBlack)
         {
+            this._ImAlive = false;
             this._ImBlack = _ImBlack;
             this._MyVisualLook = "   ";
             this.AvilibleMoves = new List<Move>();
