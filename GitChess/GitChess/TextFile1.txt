@@ -57,3 +57,7 @@ Logg
 	
 	PrintLogg()
 	AddMoveToLogg()
+
+/////////////////////////////////////
+
+test Hola
