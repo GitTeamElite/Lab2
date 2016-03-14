@@ -202,9 +202,11 @@ namespace GitChess
 
         public void PrintMoveList()
         {
+            int nr = 1;
             foreach (var item in AvilibleMoves)
             {
-                Console.WriteLine($"item.XMove");
+                Console.WriteLine($"Move {nr}: {item.XMove} {item.YMove}");
+                nr++;
             }
         }
     }
