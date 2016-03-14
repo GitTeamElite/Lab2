@@ -16,7 +16,7 @@ namespace GitChess
         {
             // 1 move on all spots around
 
-      
+      if (CurrentX == MovingX +1 &&  CurrentY == MovingY) { if (Board[MovingX,MovingY]._ImAlive == false) { // Lägg till att han kan ta moståndare också!       } }
 
 
 
