@@ -11,6 +11,7 @@ namespace GitChess
         bool ChackMate = false;
         bool BlacksTurn = false;
         Iplayer Iplay;
+         
         public void StartGame()
         {
             ChessBoard chessboard = new ChessBoard();
@@ -20,10 +21,40 @@ namespace GitChess
             while (!ChackMate)
             {
                 Console.Clear();
-              
+
 
                 Printer.PrintGame(chessboard.GetBoard());
                 Console.ReadKey();
+                //////////////////////////////////////////////////////////////////////////////////////////////////
+                //------------------------------------ TEST TEST TEST ------------------------------------------//
+                //////////////////////////////////////////////////////////////////////////////////////////////////
+                if (BlacksTurn) { Console.WriteLine("Blacks turn"); } else { Console.WriteLine("Whites turn"); }
+                int y = 0;
+                Console.WriteLine("Move a piece! ENTER y then x");
+                try
+                {
+                     y = StaticMethods.TranslateLetters(Console.ReadLine());
+                }
+                catch
+                {
+
+                }
+                int x = 0;
+                   x= int.Parse(Console.ReadLine());
+
+
+
+                int Xmove = int.Parse(Console.ReadLine());
+                int Ymove = int.Parse(Console.ReadLine());
+
+                foreach (var item in chessboard.GetBoard())
+                {
+                    item.CheckMove( BlacksTurn,  BlackIsEnemy, chessboard.GetBoard(),  x,  y,  Xmove,  Ymove);
+                }
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////
+                //------------------------------------ TEST TEST TEST ------------------------------------------//
+                //////////////////////////////////////////////////////////////////////////////////////////////////
 
 
                 //Player.CheckAvilibleMoves();

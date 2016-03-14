@@ -24,16 +24,15 @@ namespace GitChess
                 if (BlacksTurn) { MyMove = 1; }
                 else { MyMove = -1; }
 
-
-            if (Board[CurrentX + 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX + 1, CurrentY + MyMove]._ImAlive == true || //\___Takes a enmey 
-                Board[CurrentX - 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX - 1, CurrentY + MyMove]._ImAlive == true)   ///
-            { return true; }
-
-            if (Board[CurrentX, CurrentY + MyMove]._ImAlive == false) { return true; } // just moves forward
-            if (CurrentY == 3 && BlacksTurn && Board[CurrentX, CurrentY]._ImAlive == false) { return true; } //\____ moves forward 2 steps from start position
-            if (CurrentY == 4 && !BlacksTurn && Board[CurrentX, CurrentY]._ImAlive == false) { return true; } // 
-
-
+            if (Board[CurrentX + 1, CurrentY + MyMove] == Board[MovingX, MovingY] || Board[CurrentX - 1, CurrentY + MyMove] == Board[MovingX, MovingY])
+            {
+                if (Board[CurrentX + 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX + 1, CurrentY + MyMove]._ImAlive == true || //\___Takes a enmey 
+                    Board[CurrentX - 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX - 1, CurrentY + MyMove]._ImAlive == true)   ///
+                { AddMoveToList(MovingX, MovingY); return true; }
+            }
+                if (Board[CurrentX, CurrentY + MyMove]._ImAlive == false && Board[CurrentX, CurrentY + MyMove] == Board[MovingX,MovingY]) { AddMoveToList(MovingX, MovingY); return true; } // just moves forward
+                if (MovingY == 3 && BlacksTurn && Board[CurrentX, CurrentY]._ImAlive == false ) { AddMoveToList(MovingX, MovingY); return true; } //\____ moves forward 2 steps from start position
+                if (MovingY == 4 && !BlacksTurn && Board[CurrentX, CurrentY]._ImAlive == false) { AddMoveToList(MovingX, MovingY); return true; } //           
 
             return false;
 

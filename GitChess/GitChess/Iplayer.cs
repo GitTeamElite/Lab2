@@ -11,8 +11,8 @@ namespace GitChess
 
         List<Piece> IplayPieceList();
         
-            
-        
+
+
         void MovePiece();
         void CheckThretenPieces();
         void CheckAvilibleMoves();
