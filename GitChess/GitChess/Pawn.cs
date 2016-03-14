@@ -12,26 +12,30 @@ namespace GitChess
         {
             this._MyVisualLook = " P ";
         }
-        public override bool CheckMove(bool BlacksTurn,Piece[,] Board,int x, int y )
+        public override bool CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY,int MovingX,int MovingY)
         {
-       if (base.CheckMove(BlacksTurn,Board,x,y)) { return false; }
+            if (!base.CheckMove(BlacksTurn, Board, CurrentX, CurrentY,MovingX,MovingY)) { return false; } // Checking base rules
 
-            bool BlackIsEnemy; if (BlacksTurn) { BlackIsEnemy = false; } else { BlackIsEnemy = true; }
+            bool BlackIsEnemy; if (BlacksTurn) { BlackIsEnemy = false; } else { BlackIsEnemy = true; } // Check wath color your enemy is
             int MyMove = 0;
-         
-            if (BlacksTurn == Board[x,y]._ImBlack)  if(BlacksTurn) { MyMove = 1; } else { MyMove = -1; }
-            else { if (BlacksTurn) { MyMove = -1; } else { MyMove = 1; } }
+
+            if (BlacksTurn == Board[CurrentX, CurrentY]._ImBlack)  // if blacks turn Pawn can move +1, white 1+
+                if (BlacksTurn) { MyMove = 1; }
+                else { MyMove = -1; }
 
 
-
-            if (Board[x+1,y+MyMove]._ImBlack == BlackIsEnemy && Board[x + 1, y + MyMove]._ImAlive == true ||
-                Board[x - 1, y + MyMove]._ImBlack == BlackIsEnemy && Board[x - 1, y + MyMove]._ImAlive == true)
+            if (Board[CurrentX + 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX + 1, CurrentY + MyMove]._ImAlive == true || //\___Takes a enmey 
+                Board[CurrentX - 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX - 1, CurrentY + MyMove]._ImAlive == true)   ///
             { return true; }
-            if (Board[x,y+MyMove]._ImAlive == false) { return true;   }
+            if (Board[CurrentX, CurrentY + MyMove]._ImAlive == false) { return true; } // just moves forward
+            if (CurrentY == 3 && BlacksTurn && Board[CurrentX, CurrentY]._ImAlive == false) { return true; } //\____ moves forward 2 steps from start position
+            if (CurrentY == 4 && !BlacksTurn && Board[CurrentX, CurrentY]._ImAlive == false) { return true; } // 
+
+
 
             return false;
-            
+
         }
-        
+
     }
 }

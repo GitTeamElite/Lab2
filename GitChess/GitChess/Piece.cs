@@ -13,18 +13,19 @@ namespace GitChess
         public int _MyValue { get; set; }
         public string _MyName { get; set; }
         public string _MyVisualLook { get; set; }
-  
-     
+
+        public List<Move> AvilibleMoves;
 
         public Piece(bool _ImBlack)
         {
             this._ImBlack = _ImBlack;
-            this._MyVisualLook = "   ";      
+            this._MyVisualLook = "   ";
+            this.AvilibleMoves = new List<Move>();    
         }
 
-        public virtual bool CheckMove(bool BlacksTurn, Piece[,] Board, int x, int y)
+        public virtual bool CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
-            if (x < 0 || x > 7 || y < 0 || y > 7) { return false; }
+            if (MovingX < 0 || MovingX > 7 || MovingY < 0 || MovingY > 7) { return false; }
 
 
             return true;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitChess
 {
-    class Move
+   public  class Move
     {
         public int XMove;
         public int YMove;
