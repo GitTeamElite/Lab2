@@ -19,16 +19,17 @@ namespace GitChess
 
             while (!ChackMate)
             {
+                Console.Clear();
               
 
                 Printer.PrintGame(chessboard.GetBoard());
                 Console.ReadKey();
 
                
-                Iplay.CheckAvilibleMoves();
-                Iplay.CheckThretenPieces();
+                //Iplay.CheckAvilibleMoves();
+                //Iplay.CheckThretenPieces();
 
-                Iplay.MovePiece();
+                //Iplay.MovePiece();
                 // Add possible moves to AI
 
 

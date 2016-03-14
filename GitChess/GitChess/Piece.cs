@@ -13,6 +13,7 @@ namespace GitChess
         public int _MyValue { get; set; }
         public string _MyName { get; set; }
         public string _MyVisualLook { get; set; }
+        public int Points { get; set; }
 
         public List<Move> AvilibleMoves;
 
@@ -20,7 +21,8 @@ namespace GitChess
         {
             this._ImBlack = _ImBlack;
             this._MyVisualLook = "   ";
-            this.AvilibleMoves = new List<Move>();    
+            this.AvilibleMoves = new List<Move>();
+            this.Points = 0;
         }
 
         public virtual bool CheckMove(bool BlacksTurn,bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
@@ -30,11 +32,9 @@ namespace GitChess
 
             return true;
         }
-       public void AddMove(int x,int y,int points)
+        public int PiecePoint()
         {
-            AvilibleMoves.Add(new Move(x, y,points));
+            return Points;
         }
-       
-
     }
 }

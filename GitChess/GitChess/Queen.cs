@@ -12,7 +12,7 @@ namespace GitChess
         {
             this._MyVisualLook = " Q ";
         }
-        public override bool CheckMove( int x, int y)
+        public override bool CheckMove(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
 
 
