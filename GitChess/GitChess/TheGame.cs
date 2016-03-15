@@ -36,10 +36,10 @@ namespace GitChess
                 int Ymove = 1;
                 
 
-                foreach (var item in chessboard.GetBoard())
-                {
-                    item.CheckMove( BlacksTurn,  BlackIsEnemy, chessboard.GetBoard(),  x,  y,  Xmove,  Ymove);
-                }
+                //foreach (var item in chessboard.GetBoard())
+                //{
+                //    item.CheckMove( BlacksTurn,  BlackIsEnemy, chessboard.GetBoard(),  x,  y,  Xmove,  Ymove);
+                //}
 
                 foreach (var item in chessboard.GetBoard())
                 {

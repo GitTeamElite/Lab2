@@ -6,35 +6,59 @@ using System.Threading.Tasks;
 
 namespace GitChess
 {
-    class Pawn : Piece
+    class Pawn : Piece // Done
     {
         public Pawn(bool _ImBlack) : base(_ImBlack)
         {
             this._MyVisualLook = " P ";
             this.Points = 1;
         }
-        public override bool CheckMove(bool BlacksTurn,bool BlackIsEnemy,Piece[,] Board, int CurrentX, int CurrentY,int MovingX,int MovingY)
+        public void CheckMove(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
-            if (!base.CheckMove(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY,MovingX,MovingY)) { return false; } // Checking base rules
-
-         
             int MyMove = 0;
 
-            if (BlacksTurn == Board[CurrentX, CurrentY]._ImBlack)  // if blacks turn Pawn can move +1, white -1
-                if (BlacksTurn) { MyMove = 1; }
-                else { MyMove = -1; }
-
-            if (Board[CurrentX + 1, CurrentY + MyMove] == Board[MovingX, MovingY] || Board[CurrentX - 1, CurrentY + MyMove] == Board[MovingX, MovingY])
+          
+            if (Board[CurrentX, CurrentY]._ImBlack == true) /// Black Pieces
             {
-                if (Board[CurrentX + 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX + 1, CurrentY + MyMove]._ImAlive == true || //\___Takes a enmey 
-                    Board[CurrentX - 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX - 1, CurrentY + MyMove]._ImAlive == true)   ///
-                { AddMoveToList(MovingX, MovingY); return true; }
+                MyMove = 1;
+                if (Board[CurrentX + 1, CurrentY + MyMove]._ImBlack != BlacksTurn && Board[CurrentX + 1, CurrentY + MyMove]._ImAlive == true) //Takes a enmey 
+                {
+                    this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + MyMove));
+                }
+                if (Board[CurrentX - 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX - 1, CurrentY + MyMove]._ImAlive == true)   //Takes a enmey 
+                {
+                    this.AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY + MyMove));
+                }
+                if (Board[CurrentX, CurrentY + MyMove]._ImAlive == false)                  // just moves forward
+                    this.AvilibleMoves.Add(new Move(CurrentX, CurrentY + MyMove));
             }
-                if (Board[CurrentX, CurrentY + MyMove]._ImAlive == false && Board[CurrentX, CurrentY + MyMove] == Board[MovingX,MovingY]) { AddMoveToList(MovingX, MovingY); return true; } // just moves forward
-                if (MovingY == 3 && BlacksTurn && Board[CurrentX, CurrentY]._ImAlive == false ) { AddMoveToList(MovingX, MovingY); return true; } //\____ moves forward 2 steps from start position
-                if (MovingY == 4 && !BlacksTurn && Board[CurrentX, CurrentY]._ImAlive == false) { AddMoveToList(MovingX, MovingY); return true; } //           
 
-            return false;
+            if (Board[CurrentX, CurrentY]._ImBlack == false)  // White pieces
+            {
+                MyMove = -1;
+                if (Board[CurrentX + 1, CurrentY + MyMove]._ImBlack != BlacksTurn && Board[CurrentX + 1, CurrentY + MyMove]._ImAlive == true) //Takes a enmey 
+                {
+                    this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + MyMove));
+                }
+                if (Board[CurrentX - 1, CurrentY + MyMove]._ImBlack == BlackIsEnemy && Board[CurrentX - 1, CurrentY + MyMove]._ImAlive == true)   //Takes a enmey 
+                {
+                    this.AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY + MyMove));
+                }
+                if (Board[CurrentX, CurrentY + MyMove]._ImAlive == false)                  // just moves forward
+                    this.AvilibleMoves.Add(new Move(CurrentX, CurrentY + MyMove));
+            }
+
+
+            if (BlacksTurn && CurrentY == 1 && Board[CurrentX, CurrentY + 2]._ImAlive == false)  // Black can move 2 step from start poss
+            {
+                this.AvilibleMoves.Add(new Move(CurrentX, CurrentY + 2));
+            }
+            if (!BlacksTurn && CurrentY == 6 && Board[CurrentX, CurrentY - 2]._ImAlive == false) //  White can move 2 step from start poss
+            {
+                this.AvilibleMoves.Add(new Move(CurrentX, CurrentY - 2));
+            }
+
+
 
         }
 
