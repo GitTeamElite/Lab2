@@ -12,16 +12,11 @@ namespace GitChess
         {
             this._MyVisualLook = " Q ";
         }
-        public void CheckMove(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
+        public override void CheckMove(bool BlacksTurn , Piece[,] Board, int CurrentX, int CurrentY  )
         {
-
-
-            MoveStraight(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY, MovingX, MovingY);
-
-            MoveDiagonaly(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY, MovingX, MovingY);
-              
-            
-           
+            MoveStraight(BlacksTurn, Board, CurrentX, CurrentY );
+            MoveDiagonaly(BlacksTurn, Board, CurrentX, CurrentY);
+        
         }
     }
 }

@@ -26,13 +26,10 @@ namespace GitChess
             this.Points = 0;
         }
 
-        //public virtual bool CheckMove(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
-        //{
-        //    if (CurrentX < 0 || CurrentX > 7 || CurrentY < 0 || CurrentY > 7) { return false; }
+        public virtual void CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
+        {
 
-
-        //    return true;
-        //}
+        }
         public int PiecePoint()
         {
             return Points;
@@ -41,7 +38,7 @@ namespace GitChess
         {
             AvilibleMoves.Add(new Move(x, y));
         }
-        public void MoveStraight(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
+        public void MoveStraight(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
             int y = CurrentY;
             int x = CurrentX;
@@ -94,7 +91,7 @@ namespace GitChess
         }
         //-----------------------------------    END    -------------------------------------------------//
         //-----------------------------------------------------------------------------------------------//
-        public void MoveDiagonaly(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)   // UnderCOnstruction!!!!!! 
+        public void MoveDiagonaly(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
             int y = CurrentY;
             int x = CurrentX;
@@ -116,7 +113,7 @@ namespace GitChess
             while (y < 7 && x < 7) // Down y+1 Right x+1 *
             {
 
-                if (Board[x + 1, y + 1]._ImAlive == false || Board[x + 1, y + 1]._ImBlack == !BlackIsEnemy) { AddMoveToList(x + 1, y + 1); }
+                if (Board[x + 1, y + 1]._ImAlive == false || Board[x + 1, y + 1]._ImBlack != BlacksTurn) { AddMoveToList(x + 1, y + 1); }
 
                 if (Board[x + 1, y + 1]._ImAlive == true && Board[x + 1, y + 1]._ImBlack == BlacksTurn)
                 {
@@ -138,10 +135,8 @@ namespace GitChess
             //-----------------------------------------------------------------------------------------------//     
             while (y > 0 && x < 7) // move Up y-1 Right x+1 *
             {
-                if (Board[x + 1, y - 1] == Board[MovingX, MovingY])
-                {
-                    if (Board[x + 1, y - 1]._ImAlive == false || Board[x + 1, y - 1]._ImBlack != BlacksTurn) { AddMoveToList(x + 1, y - 1); }
-                }
+                if (Board[x + 1, y - 1]._ImAlive == false || Board[x + 1, y - 1]._ImBlack != BlacksTurn) { AddMoveToList(x + 1, y - 1); }
+
                 if (Board[x + 1, y - 1]._ImAlive == true && Board[x + 1, y - 1]._ImBlack == BlacksTurn)
                 {
                     return;
@@ -157,9 +152,21 @@ namespace GitChess
             int nr = 1;
             foreach (var item in AvilibleMoves)
             {
-                Console.WriteLine($"Move {nr}: {item.XMove} {item.YMove}");
+                Console.WriteLine($"Move {nr}: {item.XMove + 1} - {item.YMove + 1};");
                 nr++;
             }
+        }
+        public void ClearMoveList()
+        {
+            AvilibleMoves.RemoveRange(0, AvilibleMoves.Count);
+        }
+        public bool CheckMoveTry(int x, int y)
+        {
+            foreach (var item in AvilibleMoves)
+            {
+                if (item.YMove == y && item.XMove == x) { return true; }
+            }
+            return false;
         }
     }
 

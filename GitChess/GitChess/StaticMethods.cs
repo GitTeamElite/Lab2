@@ -12,13 +12,13 @@ namespace GitChess
         {
             y += 1;
             string ABC = "   ";
-            if (y == 1) { ABC = " B "; }
-            if (y == 2) { ABC = " C "; }
-            if (y == 3) { ABC = " D "; }
-            if (y == 4) { ABC = " E "; }
-            if (y == 5) { ABC = " F "; }
-            if (y == 6) { ABC = " G "; }
-            if (y == 7) { ABC = " H "; }
+            if (y == 1) { ABC = " y2 "; }
+            if (y == 2) { ABC = " y3 "; }
+            if (y == 3) { ABC = " y4 "; }
+            if (y == 4) { ABC = " y5 "; }
+            if (y == 5) { ABC = " y6 "; }
+            if (y == 6) { ABC = " y7 "; }
+            if (y == 7) { ABC = " y8 "; }
 
             return ABC;
         }
@@ -41,14 +41,14 @@ namespace GitChess
         //}
         public static int TranslateLetters(string letter)
         {
-            if(letter == "a") { return 0; }
-            if (letter == "b") { return 1; }
-            if (letter == "c") { return 2; }
-            if (letter == "d") { return 3; }
-            if (letter == "e") { return 4; }
-            if (letter == "f") { return 5; }
-            if (letter == "g") { return 6; }
-            if (letter == "h") { return 7; }
+            if(letter == "1") { return 0; }
+            if (letter == "2") { return 1; }
+            if (letter == "3") { return 2; }
+            if (letter == "4") { return 3; }
+            if (letter == "5") { return 4; }
+            if (letter == "6") { return 5; }
+            if (letter == "7") { return 6; }
+            if (letter == "8") { return 7; }
 
             else return -1;
         }

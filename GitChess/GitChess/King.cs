@@ -13,31 +13,48 @@ namespace GitChess
             this._MyVisualLook = " K ";
             this.Points = 10;
         }
-        public void  CheckMove(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY) // Checking base move rules         
-        { 
-            if (Board[CurrentX + 1, CurrentY]._ImAlive == false || Board[CurrentX + 1, CurrentY]._ImBlack != BlackIsEnemy) //Check move x+1, y
-            { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY));   }    
+        public override void CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY) // Checking base move rules         
+        {
+            if (CurrentX > 7)
+            {
+                if (Board[CurrentX + 1, CurrentY]._ImAlive == false || Board[CurrentX + 1, CurrentY]._ImBlack != BlacksTurn) //Check move x+1, y
+                { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY)); }
+            }
+            if (CurrentX > 0)
+            {
+                if (Board[CurrentX - 1, CurrentY]._ImAlive == false || Board[CurrentX - 1, CurrentY]._ImBlack != BlacksTurn) //Check move x-1, y
+                { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY)); }
+            }
+            if (CurrentY < 7)
+            {
+                if (Board[CurrentX, CurrentY + 1]._ImAlive == false || Board[CurrentX, CurrentY + 1]._ImBlack != BlacksTurn) //Check move x, y+1
+                { AvilibleMoves.Add(new Move(CurrentX, CurrentY + 1)); }
+            }
+            if (CurrentY > 0)
+            {
+                if (Board[CurrentX, CurrentY - 1]._ImAlive == false || Board[CurrentX, CurrentY - 1]._ImBlack != BlacksTurn)   //Check move x, y-1
+                { AvilibleMoves.Add(new Move(CurrentX, CurrentY - 1)); }
 
-            if (Board[CurrentX - 1, CurrentY]._ImAlive == false || Board[CurrentX - 1, CurrentY]._ImBlack != BlackIsEnemy) //Check move x-1, y
-            { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY));  }  
+            }
+            if (CurrentX > 0 && CurrentY > 0)
+            {
+                if (Board[CurrentX - 1, CurrentY - 1]._ImAlive == false || Board[CurrentX - 1, CurrentY - 1]._ImBlack != BlacksTurn)//Check move x-1, y-1
+                { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY - 1)); }
 
-            if (Board[CurrentX, CurrentY + 1]._ImAlive == false || Board[CurrentX, CurrentY + 1]._ImBlack != BlackIsEnemy) //Check move x, y+1
-            { AvilibleMoves.Add(new Move(CurrentX, CurrentY + 1)); }  
+            }
+            if (CurrentX < 7 && CurrentY > 0)
+            {
+                if (Board[CurrentX + 1, CurrentY - 1]._ImAlive == false || Board[CurrentX + 1, CurrentY - 1]._ImBlack != BlacksTurn)//Check move x+1, y-1
+                {
+                }
+                AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY - 1));
+            }
 
-            if (Board[CurrentX, CurrentY - 1]._ImAlive == false|| Board[CurrentX, CurrentY - 1]._ImBlack != BlackIsEnemy)   //Check move x, y-1
-            { AvilibleMoves.Add(new Move(CurrentX, CurrentY - 1));  }
-
-            if (Board[CurrentX + 1, CurrentY + 1]._ImAlive == false|| Board[CurrentX + 1, CurrentY + 1]._ImBlack!=BlackIsEnemy) //Check move x+1, y+1
-            { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + 1));  }  
-
-            if (Board[CurrentX - 1, CurrentY - 1]._ImAlive == false|| Board[CurrentX - 1, CurrentY - 1]._ImBlack!=BlackIsEnemy)//Check move x-1, y-1
-            { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY - 1));  }  
-
-            if (Board[CurrentX + 1, CurrentY - 1]._ImAlive == false|| Board[CurrentX + 1, CurrentY - 1]._ImBlack!=BlackIsEnemy)//Check move x+1, y-1
-            { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY - 1));  }   
-
-            if (Board[CurrentX - 1, CurrentY + 1]._ImAlive == false|| Board[CurrentX - 1, CurrentY + 1]._ImBlack!=BlackIsEnemy) //Check move x-1, y+1
-            { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY + 1));  }    
+            if (CurrentX > 0 && CurrentY < 7)
+            {
+                if (Board[CurrentX - 1, CurrentY + 1]._ImAlive == false || Board[CurrentX - 1, CurrentY + 1]._ImBlack != BlacksTurn) //Check move x-1, y+1
+                { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY + 1)); }
+            }
         }
 
     }
