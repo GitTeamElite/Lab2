@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 14.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2016-03-09T10:06:36" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2016-03-09T10:06:36" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2016-03-09T10:06:36" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-09T10:06:36" Importance="Diagnostic" Text="ProjectPath = ..\ModelingLab2CHessLib\ModelingLab2CHessLib.csproj" />
+  <Message Timestamp="2016-03-09T10:06:36" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-09T10:06:36" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-09T10:06:36" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-09T10:06:36" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-09T10:06:36" Importance="Medium" Text="ModelingLab2CHess's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ModelingLab2CHess::ChessBoard' -  (Class), 'ModelingLab2CHess::StaticMethods' -  (Class), 'ModelingLab2CHess::TheGame' -  (Class), 'ModelingLab2CHess::Piece' -  (Class), 'ModelingLab2CHess::Pawn :Piece' -  (Class), 'ModelingLab2CHess::Rooks:Piece' -  (Class), 'ModelingLab2CHess::Knight:Piece' -  (Class), 'ModelingLab2CHess::Bishop:Piece' -  (Class), 'ModelingLab2CHess::Queen:Piece' -  (Class), 'ModelingLab2CHess::King:Piece' -  (Class) " />
+  <Message Timestamp="2016-03-09T10:06:37" Importance="Medium" Text="'ModelingLab2CHess::ChessBoard' -  (Class) : success (file replaced) - C:\Users\Hampus Lundgren\Documents\GitHub\Lab2\Lab2\GitChess\ModelingLab2CHessLib\GeneratedCode\ChessBoard.cs" />
+  <Message Timestamp="2016-03-09T10:06:37" Importance="Medium" Text="'ModelingLab2CHess::StaticMethods' -  (Class) : success (file replaced) - C:\Users\Hampus Lundgren\Documents\GitHub\Lab2\Lab2\GitChess\ModelingLab2CHessLib\GeneratedCode\StaticMethods.cs" />
+  <Message Timestamp="2016-03-09T10:06:37" Importance="Medium" Text="'ModelingLab2CHess::TheGame' -  (Class) : success (file replaced) - C:\Users\Hampus Lundgren\Documents\GitHub\Lab2\Lab2\GitChess\ModelingLab2CHessLib\GeneratedCode\TheGame.cs" />
+  <Message Timestamp="2016-03-09T10:06:37" Importance="Medium" Text="'ModelingLab2CHess::Piece' -  (Class) : success (file replaced) - C:\Users\Hampus Lundgren\Documents\GitHub\Lab2\Lab2\GitChess\ModelingLab2CHessLib\GeneratedCode\Piece.cs" />
+  <Message Timestamp="2016-03-09T10:06:37" Importance="Diagnostic" Text="'ModelingLab2CHess::Pawn :Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:37" Importance="Diagnostic" Text="'ModelingLab2CHess::Rooks:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:37" Importance="Diagnostic" Text="'ModelingLab2CHess::Knight:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:37" Importance="Diagnostic" Text="'ModelingLab2CHess::Bishop:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::Queen:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::King:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="ProjectPath = ..\ModelingLab2CHessLib\ModelingLab2CHessLib.csproj" />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Medium" Text="ModelingLab2CHess's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ModelingLab2CHess::ChessBoard' -  (Class), 'ModelingLab2CHess::StaticMethods' -  (Class), 'ModelingLab2CHess::TheGame' -  (Class), 'ModelingLab2CHess::Piece' -  (Class), 'ModelingLab2CHess::Pawn :Piece' -  (Class), 'ModelingLab2CHess::Rooks:Piece' -  (Class), 'ModelingLab2CHess::Knight:Piece' -  (Class), 'ModelingLab2CHess::Bishop:Piece' -  (Class), 'ModelingLab2CHess::Queen:Piece' -  (Class), 'ModelingLab2CHess::King:Piece' -  (Class) " />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::ChessBoard' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::StaticMethods' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::TheGame' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::Pawn :Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::Rooks:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::Knight:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::Bishop:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::Queen:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="Diagnostic" Text="'ModelingLab2CHess::King:Piece' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-09T10:06:38" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
