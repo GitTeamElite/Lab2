@@ -84,7 +84,7 @@ namespace GitChess
 
                             if (Board[a, b].CheckMoveTry(x, y))
                             {
-                                Board[x, y] = Board[a, b];
+                                Board[y, x ] = Board[a, b]; //test now
                                 Board[a, b] = new Piece(true);
                                 Board[a, b]._ImAlive = false;
                                 PieceMoved = true;
@@ -114,7 +114,7 @@ namespace GitChess
 
                             if (Board[a, b].CheckMoveTry(x, y))
                             {
-                                Board[x, y] = Board[a, b];                        
+                                Board[x, y] = Board[a, b];    //check if fail is here                    
                                 Board[a, b] = new Piece(true);
                                 Board[a, b]._ImAlive = false;
                                 PieceMoved = true;

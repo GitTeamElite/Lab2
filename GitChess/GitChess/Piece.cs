@@ -33,7 +33,7 @@ namespace GitChess
     
         public void AddMoveToList(int x, int y)
         {
-            AvilibleMoves.Add(new Move(x, y));
+            AvilibleMoves.Add(new Move(x, y)); //check
         }
         public void MoveStraight(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
