@@ -161,7 +161,7 @@ namespace GitChess
         {
             foreach (var item in AvilibleMoves)
             {
-                if (item.YMove == x && item.XMove == y) { return true; }
+                if (item.XMove == x && item.YMove == y) { return true; }
             }
             return false;
         }

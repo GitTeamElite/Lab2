@@ -91,8 +91,8 @@ namespace GitChess
 
 
                 // Changes turn to next player
-                if (BlacksTurn) { BlacksTurn = false; } //Maybe change variable... a bit confusing 
-                else { BlacksTurn = true; }
+                //if (BlacksTurn) { BlacksTurn = false; } //Maybe change variable... a bit confusing 
+                //else { BlacksTurn = true; }
             }
         }
     }

@@ -79,20 +79,23 @@ namespace GitChess
                             int x = 0;
                             Console.WriteLine("Test move to x");
                             int.TryParse(Console.ReadLine(), out x);
-
+                            x -= 1;
+                            y -= 1;
 
                             if (Board[a, b].CheckMoveTry(x, y))
                             {
                                 Board[x, y] = Board[a, b];
-                                Board[a, b] = null;
                                 Board[a, b] = new Piece(true);
                                 Board[a, b]._ImAlive = false;
                                 PieceMoved = true;
                             }
-                            else { Console.WriteLine("Cant move like that!"); }
+                            else { Console.WriteLine("Cant move like that!"); Console.ReadKey(); }
                         }
-                        Console.WriteLine("Not your piece!");
-                        Console.ReadKey();
+                        else
+                        {
+                            Console.WriteLine("Not your piece!");
+                            Console.ReadKey();
+                        }
                     }
                     else if (!BlacksTurn)
                     {
@@ -106,19 +109,24 @@ namespace GitChess
                             int x = 0;
                             Console.WriteLine("Test move to x");
                             int.TryParse(Console.ReadLine(), out x);
+                            y -= 1;
+                            x -= 1;
 
                             if (Board[a, b].CheckMoveTry(x, y))
                             {
-                                Board[x, y] = Board[a, b];
-                               
+                                Board[x, y] = Board[a, b];                        
                                 Board[a, b] = new Piece(true);
                                 Board[a, b]._ImAlive = false;
                                 PieceMoved = true;
                             }
-                            else { Console.WriteLine("Cant move like that!"); }
+                            else if(!Board[a, b].CheckMoveTry(x, y)) { Console.WriteLine("Cant move like that!"); Console.ReadKey(); }
                         }
-                        Console.WriteLine("Not your piece!");
-                        Console.ReadKey();
+                        else  
+                        {
+                            Console.WriteLine("Not your piece!");
+                            Console.ReadKey();
+                        }
+                        
                     }
                 }
                 else { Console.WriteLine("Wrong input!"); Console.ReadKey(); }
