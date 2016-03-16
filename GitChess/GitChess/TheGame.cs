@@ -11,41 +11,69 @@ namespace GitChess
         bool ChackMate = false;
         bool BlacksTurn = false;
         Iplayer Iplay;
-         
+        Player player = new Player();
         public void StartGame()
         {
             ChessBoard chessboard = new ChessBoard();
 
-            bool BlackIsEnemy = StaticMethods.HowIsEnemy(BlacksTurn); // Check wath color your enemy is
+         
 
             while (!ChackMate)
             {
-                Console.Clear();
-
-
-                Printer.PrintGame(chessboard.GetBoard());
+                for (int y = 0; y < 8; y++)
+                {
+                    for (int x = 0; x < 8; x++)
+                    {
+                        chessboard.Board[x, y].ClearMoveList();
+                    }
+                }
+            
         
                 //////////////////////////////////////////////////////////////////////////////////////////////////
                 //------------------------------------ TEST TEST TEST ------------------------------------------//
                 //////////////////////////////////////////////////////////////////////////////////////////////////
             
-                if (BlacksTurn) { Console.WriteLine("Blacks turn"); } else { Console.WriteLine("Whites turn"); }
-                int x = 0;
-                int y = 0;
-                int Xmove = 1;
-                int Ymove = 1;
-                
+               
 
-                foreach (var item in chessboard.GetBoard())
-                {
-                    item.CheckMove( BlacksTurn,  BlackIsEnemy, chessboard.GetBoard(),  x,  y,  Xmove,  Ymove);
-                }
 
-                foreach (var item in chessboard.GetBoard())
+
+                //foreach (var item in chessboard.GetBoard())
+                //{
+                //    item.CheckMove( BlacksTurn,  BlackIsEnemy, chessboard.GetBoard(),  x,  y,  Xmove,  Ymove);
+                //}
+              for(int y = 0; y < 8; y++)
                 {
-                    item.PrintMoveList();
+                    for (int x = 0; x < 8; x++)
+                    {
+                        chessboard.Board[x, y].CheckMove(BlacksTurn, chessboard.GetBoard(), x, y);
+                    }
                 }
-                Console.ReadKey();
+                //foreach (var item in chessboard.GetBoard())
+                //{
+                //    item.PrintMoveList();
+                //}
+                Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
+
+                player.Move(BlacksTurn, chessboard.Board);
+
+                #region Test Moves
+                //Console.WriteLine("Test move y");
+                //int a = 0;
+                //int.TryParse(Console.ReadLine(), out a);
+                //a -= 1;
+                //Console.WriteLine("Test move x");
+                //int b = 0;
+                //int.TryParse(Console.ReadLine(),out b);
+                //b -= 1;
+                //if (b > 0 && a > 0)
+                //{
+                //    chessboard.Board[a, b]._MyVisualLook = " + ";
+                //    Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
+                //    Console.WriteLine($"\ny:{a + 1} - x:{b + 1}");
+                //    chessboard.Board[a, b].PrintMoveList();
+                //    Console.ReadKey();
+                //} 
+                #endregion
                 //////////////////////////////////////////////////////////////////////////////////////////////////
                 //------------------------------------ TEST TEST TEST ------------------------------------------//
                 //////////////////////////////////////////////////////////////////////////////////////////////////

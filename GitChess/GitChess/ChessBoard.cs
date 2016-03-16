@@ -8,7 +8,7 @@ namespace GitChess
 {
     class ChessBoard
     {
-        Piece[,] Board;
+       public Piece[,] Board;
 
         public ChessBoard()
         {

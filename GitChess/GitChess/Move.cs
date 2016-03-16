@@ -10,13 +10,13 @@ namespace GitChess
     {
         public int XMove;
         public int YMove;
-        public int Points;
+       
 
-       public Move(int XMove,int YMove,int Points)
+       public Move(int XMove,int YMove )
         {
             this.XMove = XMove;
             this.YMove = YMove;
-            this.Points = Points;
+         
         }
     }
 }
