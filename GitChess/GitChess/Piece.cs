@@ -15,14 +15,14 @@ namespace GitChess
         public int Points { get; set; }
         public int Xposition { get; set; } //
         public int Yposition { get; set; }//
-        public List<Move> AvilibleMoves;
+        public List<Move> AvailableMoves;
 
         public Piece(bool _ImBlack)
         {
             this._ImAlive = false;
             this._ImBlack = _ImBlack;
             this._MyVisualLook = "   ";
-            this.AvilibleMoves = new List<Move>();
+            this.AvailableMoves = new List<Move>();
             this.Points = 0;
         }
 
@@ -39,7 +39,7 @@ namespace GitChess
         }
         public void AddMoveToList(int x, int y)
         {
-            this.AvilibleMoves.Add(new Move(x, y, this.Points));
+            this.AvailableMoves.Add(new Move(x, y, this.Points));
         }
         public bool MoveStraight(bool BlacksTurn, bool BlackIsEnemy, Piece[,] Board, int CurrentX, int CurrentY, int MovingX, int MovingY)
         {
@@ -203,7 +203,7 @@ namespace GitChess
         public void PrintMoveList()
         {
             int nr = 1;
-            foreach (var item in AvilibleMoves)
+            foreach (var item in AvailableMoves)
             {
                 Console.WriteLine($"Move {nr}: {item.XMove} {item.YMove}");
                 nr++;

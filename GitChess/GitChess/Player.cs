@@ -19,11 +19,13 @@ namespace GitChess
         }
 
         //Check if piece choosen is mine + Check legality of the movement ex: A2 --> A4 (Pawn)
-        public void MovePiece(int moveX, int moveY, Piece[,]chessBoard )
+        public void MovePiece(int InitialmvX, int initialmVY, int moveX, int moveY, Piece[,]chessBoard )
         {
-            int Xdärdenstår = 0;
-            int Ydärdenstår = 0;
-            foreach (var item in chessBoard[Xdärdenstår, Ydärdenstår].AvilibleMoves)//Xdärdenstår,Ydärdenstår introduced by the user in TheGame Class
+            //int Xdärdenstår = 0;
+            //int Ydärdenstår = 0;
+            Piece tmpForNextMove;
+
+            foreach (var item in chessBoard[InitialmvX, initialmVY].AvailableMoves)//Xdärdenstår,Ydärdenstår introduced by the user in TheGame Class
             {
                 if ((item.XMove == moveX) && (item.YMove == moveY))                
                     {

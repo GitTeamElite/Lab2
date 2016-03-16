@@ -17,16 +17,16 @@ namespace GitChess
         {
             if (!base.CheckMove(BlacksTurn, BlackIsEnemy, Board, CurrentX, CurrentY, MovingX, MovingY)) { return false; }
 
-            if (Board[CurrentX + 1, CurrentY]._ImAlive == false) { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY, 0)); return true; }     //Check move x+1, y
+            if (Board[CurrentX + 1, CurrentY]._ImAlive == false) { AvailableMoves.Add(new Move(CurrentX + 1, CurrentY, 0)); return true; }     //Check move x+1, y
 
             if (Board[CurrentX - 1, CurrentY]._ImAlive == false || Board[CurrentX - 1, CurrentY]._ImBlack != BlackIsEnemy)
-            { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY, 0)); return true; }  //Check move x-1, y
+            { AvailableMoves.Add(new Move(CurrentX - 1, CurrentY, 0)); return true; }  //Check move x-1, y
 
             if (Board[CurrentX, CurrentY + 1]._ImAlive == false || Board[CurrentX, CurrentY + 1]._ImBlack != BlackIsEnemy)
-            { AvilibleMoves.Add(new Move(CurrentX, CurrentY + 1, 0)); return true; }   //Check move x, y+1
+            { AvailableMoves.Add(new Move(CurrentX, CurrentY + 1, 0)); return true; }   //Check move x, y+1
 
             if (Board[CurrentX, CurrentY - 1]._ImAlive == false|| Board[CurrentX, CurrentY - 1]._ImBlack != BlackIsEnemy)
-            { AvilibleMoves.Add(new Move(CurrentX, CurrentY - 1, 0)); return true; }   //Check move x, y-1
+            { AvailableMoves.Add(new Move(CurrentX, CurrentY - 1, 0)); return true; }   //Check move x, y-1
 
             if (Board[CurrentX + 1, CurrentY + 1]._ImAlive == false|| Board[CurrentX + 1, CurrentY + 1]._ImBlack!=BlackIsEnemy)
             { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + 1, 0)); return true; }   //Check move x+1, y+1
