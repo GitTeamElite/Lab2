@@ -17,7 +17,7 @@ namespace GitChess
         public int Yposition { get; set; }
         public List<Move> AvilibleMoves;
 
-        public Piece(bool _ImBlack)
+        public Piece(bool _ImBlack )
         {
             this._ImAlive = false;
             this._ImBlack = _ImBlack;
@@ -30,10 +30,7 @@ namespace GitChess
         {
 
         }
-        public int PiecePoint()
-        {
-            return Points;
-        }
+    
         public void AddMoveToList(int x, int y)
         {
             AvilibleMoves.Add(new Move(x, y));

@@ -9,7 +9,7 @@ namespace GitChess
     public class TheGame
     {
         bool ChackMate = false;
-        bool BlacksTurn = false;
+        bool BlacksTurn = true;
         Iplayer Iplay;
         Player player = new Player();
         public void StartGame()
