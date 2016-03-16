@@ -8,7 +8,7 @@ namespace GitChess
 {
     class Knight : Piece // Done
     {
-        public Knight(bool _ImBlack) : base(_ImBlack) //s
+        public Knight(bool _ImBlack) : base(_ImBlack) //ss
         {
             this._MyVisualLook = " k ";
             this._ImAlive = true;
