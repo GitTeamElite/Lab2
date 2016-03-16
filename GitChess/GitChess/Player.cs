@@ -18,44 +18,14 @@ namespace GitChess
             this.IplayPieceList = new List<Piece>();
         }
 
-        //Check if piece choosen is mine + Check legality of the movement ex: A2 --> A4 (Pawn)
-        //public void MovePiece(int moveX, int moveY, Piece[,] chessBoard)
-        //{
-
-
-        //    int Xdärdenstår = 0;
-        //    int Ydärdenstår = 0;
-        //    foreach (var item in chessBoard[Xdärdenstår, Ydärdenstår].AvilibleMoves)//Xdärdenstår,Ydärdenstår introduced by the user in TheGame Class
-        //    {
-        //        if ((item.XMove == moveX) && (item.YMove == moveY))
-        //        {
-
-        //        }
-
-
-        //    }
-
-        //}
-        //public void CheckThretenPieces(Piece[,] chessBoard)
-        //{
-        //    for (int x = 0; x < chessBoard.Length; x++)
-        //    {
-        //        for (int y = 0; y < chessBoard.Length; y++)
-        //        {
-        //            if ( )
-        //        }
-        //    }
-
-        //}
+       
         public void CheckAvilibleMoves()
         {
 
         }
-        public void Move(bool BlacksTurn, Piece[,] Board)
-        {
-            bool PieceMoved = false;
-            while (!PieceMoved)
-            {
+        public bool Move(bool BlacksTurn, Piece[,] Board)
+        {        
+                Console.WriteLine("Choice a Piece to move!");
                 Console.WriteLine("Test pick y");
                 int a = 0;
                 int.TryParse(Console.ReadLine(), out a);
@@ -66,7 +36,7 @@ namespace GitChess
                 b -= 1;
 
             
-                if (a > -2 && b > -2)
+                if (a > -1 && b > -1 && a <  8 && b < 8)
                 {
                     if (BlacksTurn)
                     {
@@ -81,56 +51,28 @@ namespace GitChess
                             int.TryParse(Console.ReadLine(), out x);
                             x -= 1;
                             y -= 1;
-
-                            if (Board[a, b].CheckMoveTry(x, y))
+                            if (y > -1 && x > -1 && y < 8 && x < 8)
                             {
-                                Board[y, x ] = Board[a, b]; //test now
-                                Board[a, b] = new Piece(true);
-                                Board[a, b]._ImAlive = false;
-                                PieceMoved = true;
+                                if (Board[a, b].CheckMoveTry(y, x))
+                                {
+                                    Board[y, x] = Board[a, b]; //test now
+                                    Board[a, b] = new Piece(true);
+                                    Board[a, b]._ImAlive = false;                                 
+                                    return true;
+                                }
+                                else { Console.WriteLine("Cant move like that!"); Console.ReadKey(); }
                             }
-                            else { Console.WriteLine("Cant move like that!"); Console.ReadKey(); }
+                            else { Console.WriteLine("Wrong input!"); Console.ReadKey(); }
                         }
                         else
                         {
                             Console.WriteLine("Not your piece!");
                             Console.ReadKey();
                         }
-                    }
-                    else if (!BlacksTurn)
-                    {
-                        if (Board[a, b]._ImBlack = false && Board[a, b]._ImAlive)
-                        {
-                            Board[a, b].PrintMoveList();
-
-                            int y = 0;
-                            Console.WriteLine("Test move to y");
-                            int.TryParse(Console.ReadLine(), out y);
-                            int x = 0;
-                            Console.WriteLine("Test move to x");
-                            int.TryParse(Console.ReadLine(), out x);
-                            y -= 1;
-                            x -= 1;
-
-                            if (Board[a, b].CheckMoveTry(x, y))
-                            {
-                                Board[x, y] = Board[a, b];    //check if fail is here                    
-                                Board[a, b] = new Piece(true);
-                                Board[a, b]._ImAlive = false;
-                                PieceMoved = true;
-                            }
-                            else if(!Board[a, b].CheckMoveTry(x, y)) { Console.WriteLine("Cant move like that!"); Console.ReadKey(); }
-                        }
-                        else  
-                        {
-                            Console.WriteLine("Not your piece!");
-                            Console.ReadKey();
-                        }
-                        
-                    }
+                    }                 
                 }
                 else { Console.WriteLine("Wrong input!"); Console.ReadKey(); }
-            }
+                return false;
         }
     }
 }

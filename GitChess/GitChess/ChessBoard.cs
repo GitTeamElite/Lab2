@@ -20,12 +20,13 @@ namespace GitChess
                     this.Board[x, y] = new Piece(true);
                 }
             }
-            //int X = 0; while (X < 8)
-            //{
-            //    this.Board[1, X] = new Pawn(true);
-            //    this.Board[6, X] = new Pawn(false);
-            //    X++;
-            //}
+            //Pawns
+            int X = 0; while (X < 8)
+            {
+                this.Board[1, X] = new Pawn(true);
+                this.Board[6, X] = new Pawn(false);
+                X++;
+            }
             // Rocks
             this.Board[0, 0] = new Rook(true);
             this.Board[0, 7] = new Rook(true);

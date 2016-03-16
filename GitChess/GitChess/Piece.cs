@@ -42,7 +42,12 @@ namespace GitChess
             //-----------------------------------------------------------------------------------------------//
             while (y < 7) // Move down*
             {
-                if (Board[y + 1, CurrentX ]._ImAlive == false || Board[y + 1, CurrentX]._ImBlack != BlacksTurn && Board[y + 1, CurrentX]._ImAlive == true) { AddMoveToList(y + 1, CurrentX); }
+                if (Board[y + 1, CurrentX]._ImAlive == false) { AddMoveToList(y + 1, CurrentX); }
+                else if (BlacksTurn)
+                {
+                    if (!Board[y + 1,CurrentX]._ImBlack && Board[y + 1, CurrentX]._ImAlive) //--------------------------------- Working spot
+                    { AddMoveToList(y + 1, CurrentX); break; }
+                }
 
                 if (Board[y + 1, CurrentX]._ImAlive == true && Board[y + 1, CurrentX]._ImBlack == BlacksTurn)
                 {
@@ -110,7 +115,7 @@ namespace GitChess
             while (y < 7 && x < 7) // Down y+1 Right x+1 *
             {
 
-                if (Board[y + 1, x + 1 ]._ImAlive == false || Board[x + 1, y + 1]._ImBlack != BlacksTurn) { AddMoveToList(x + 1, y + 1); }
+                if (Board[y + 1, x + 1 ]._ImAlive == false || Board[x + 1, y + 1]._ImBlack != BlacksTurn) { AddMoveToList(y + 1, x + 1); }
 
                 if (Board[y + 1, x + 1]._ImAlive == true && Board[y + 1, x + 1]._ImBlack == BlacksTurn)
                 {
@@ -165,6 +170,7 @@ namespace GitChess
             }
             return false;
         }
+     
     }
 
 }

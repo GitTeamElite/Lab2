@@ -27,66 +27,39 @@ namespace GitChess
                         chessboard.Board[x, y].ClearMoveList();
                     }
                 }
-            
+
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////
+                //------------------------------------ TEST TEST TEST ------------------------------------------//
+                //////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                ////////////////////////////////////Fills Move List ////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                for (int y = 0; y < 8; y++)                                                                    /////
+                {                                                                                              /////
+                    for (int x = 0; x < 8; x++)                                                                /////
+                    {                                                                                          /////
+                        chessboard.Board[x, y].CheckMove(BlacksTurn, chessboard.GetBoard(), x, y);             /////
+                    }                                                                                          /////
+                } //////////////////////////////////////////////////////////////////////////////////////////////////
+              //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
+                bool PieceMoved = false;
+                while (!PieceMoved)
+                {
+                   
+
+                        Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
+                        PieceMoved = player.Move(BlacksTurn, chessboard.Board);
+                    
+                }
         
                 //////////////////////////////////////////////////////////////////////////////////////////////////
                 //------------------------------------ TEST TEST TEST ------------------------------------------//
                 //////////////////////////////////////////////////////////////////////////////////////////////////
-            
-               
-
-
-
-                //foreach (var item in chessboard.GetBoard())
-                //{
-                //    item.CheckMove( BlacksTurn,  BlackIsEnemy, chessboard.GetBoard(),  x,  y,  Xmove,  Ymove);
-                //}
-              for(int y = 0; y < 8; y++)
-                {
-                    for (int x = 0; x < 8; x++)
-                    {
-                        chessboard.Board[x, y].CheckMove(BlacksTurn, chessboard.GetBoard(), x, y);
-                    }
-                }
-                //foreach (var item in chessboard.GetBoard())
-                //{
-                //    item.PrintMoveList();
-                //}
-                //Console.ReadKey();
-                Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
-
-                player.Move(BlacksTurn, chessboard.Board);
-
-                #region Test Moves
-                //Console.WriteLine("Test move y");
-                //int a = 0;
-                //int.TryParse(Console.ReadLine(), out a);
-                //a -= 1;
-                //Console.WriteLine("Test move x");
-                //int b = 0;
-                //int.TryParse(Console.ReadLine(),out b);
-                //b -= 1;
-                //if (b > 0 && a > 0)
-                //{
-                //    chessboard.Board[a, b]._MyVisualLook = " + ";
-                //    Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
-                //    Console.WriteLine($"\ny:{a + 1} - x:{b + 1}");
-                //    chessboard.Board[a, b].PrintMoveList();
-                //    Console.ReadKey();
-                //} 
-                #endregion
-                //////////////////////////////////////////////////////////////////////////////////////////////////
-                //------------------------------------ TEST TEST TEST ------------------------------------------//
-                //////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-                //Player.CheckAvailableMoves();
-                //Player.MovePiece();
-                //Iplay.CheckThretenPieces();
-
-                //Iplay.MovePiece();
-                // Add possible moves to AI
-
 
 
 
