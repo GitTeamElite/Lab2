@@ -16,49 +16,49 @@ namespace GitChess
         }
         public override void CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY  )
         {
-            int MyMove = 0;
+           
 
 
             if (Board[CurrentX, CurrentY]._ImBlack == true && CurrentY < 7) /// Black Pieces
             {
-                MyMove = 1;
+              
                 if (CurrentY < 7)
                 {
-                    if (Board[CurrentX + 1, CurrentY + MyMove]._ImBlack != BlacksTurn && Board[CurrentX + 1, CurrentY + MyMove]._ImAlive == true) //Takes a enmey 
+                    if (Board[CurrentX + 1, CurrentY + 1]._ImBlack != BlacksTurn && Board[CurrentX + 1, CurrentY + 1]._ImAlive == true) //Takes a enmey 
                     {
-                        this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + MyMove));
+                        this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + 1));
                     }
                 }
                 if (CurrentY > 0)
                 {
-                    if (Board[CurrentX - 1, CurrentY + MyMove]._ImBlack != BlacksTurn && Board[CurrentX - 1, CurrentY + MyMove]._ImAlive == true)   //Takes a enmey 
+                    if (Board[CurrentX - 1, CurrentY + 1]._ImBlack != BlacksTurn && Board[CurrentX - 1, CurrentY + 1]._ImAlive == true)   //Takes a enmey 
                     {
-                        this.AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY + MyMove));
+                        this.AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY + 1));
                     }
                 }
-                if (Board[CurrentX, CurrentY + MyMove]._ImAlive == false)                  // just moves forward
-                    this.AvilibleMoves.Add(new Move(CurrentX, CurrentY + MyMove));
+                if (Board[CurrentX, CurrentY + 1]._ImAlive == false)                  // just moves forward
+                    this.AvilibleMoves.Add(new Move(CurrentX, CurrentY + 1));
             }
 
             if (Board[CurrentX, CurrentY]._ImBlack == false && CurrentY > 0)  // White pieces
             {
-                MyMove = -1;
+                
                 if (CurrentX < 7)
                 {
-                    if (Board[CurrentX + 1, CurrentY + MyMove]._ImBlack != BlacksTurn && Board[CurrentX + 1, CurrentY + MyMove]._ImAlive == true) //Takes a enmey 
+                    if (Board[CurrentX + 1, CurrentY - 1]._ImBlack != BlacksTurn && Board[CurrentX + 1, CurrentY - 1]._ImAlive == true) //Takes a enmey 
                     {
-                        this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + MyMove));
+                        this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY - 1));
                     }
                 }
                 if (CurrentX > 0)
                 {
-                    if (Board[CurrentX - 1, CurrentY + MyMove]._ImBlack != BlacksTurn && Board[CurrentX - 1, CurrentY + MyMove]._ImAlive == true)   //Takes a enmey 
+                    if (Board[CurrentX - 1, CurrentY - 1]._ImBlack != BlacksTurn && Board[CurrentX - 1, CurrentY - 1]._ImAlive == true)   //Takes a enmey 
                     {
-                        this.AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY + MyMove));
+                        this.AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY - 1));
                     }
                 }
-                if (Board[CurrentX, CurrentY + MyMove]._ImAlive == false)                  // just moves forward
-                    this.AvilibleMoves.Add(new Move(CurrentX, CurrentY + MyMove));
+                if (Board[CurrentX, CurrentY - 1]._ImAlive == false)                  // just moves forward
+                    this.AvilibleMoves.Add(new Move(CurrentX, CurrentY - 1));
             }
 
 
