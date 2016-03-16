@@ -79,7 +79,7 @@ namespace GitChess
                 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-                //Player.CheckAvilibleMoves();
+                //Player.CheckAvailableMoves();
                 //Player.MovePiece();
                 //Iplay.CheckThretenPieces();
 
@@ -90,7 +90,7 @@ namespace GitChess
 
 
                 // Changes turn to next player
-                if (BlacksTurn) { BlacksTurn = false; }
+                if (BlacksTurn) { BlacksTurn = false; } //Maybe change variable... a bit confusing 
                 else { BlacksTurn = true; }
             }
         }
