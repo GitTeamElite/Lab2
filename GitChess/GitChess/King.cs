@@ -13,49 +13,49 @@ namespace GitChess
             this._MyVisualLook = " K ";
             this._ImAlive = true;
         }
-        public override void CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY) // Checking base move rules         
+        public override void CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentY, int CUrrentX) // Checking base move rules         
         {
+            if (CUrrentX < 7)
+            {
+                if (Board[CurrentY, CUrrentX + 1]._ImAlive == false) //Check move x+1, y1 ----
+                { AvilibleMoves.Add(new Move(CurrentY, CUrrentX + 1)); }
+            }
             if (CurrentY < 7)
             {
-                if (Board[CurrentX, CurrentY + 1]._ImAlive == false) //Check move x, y+1 ----
-                { AvilibleMoves.Add(new Move(CurrentX, CurrentY + 1)); }
+                if (Board[CurrentY + 1, CUrrentX]._ImAlive == false ) //Check move x+1, y
+                { AvilibleMoves.Add(new Move(CurrentY + 1, CUrrentX)); }
             }
-            if (CurrentX > 7)
-            {
-                if (Board[CurrentX + 1, CurrentY]._ImAlive == false ) //Check move x+1, y
-                { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY)); }
-            }
-            if (CurrentX > 0)
-            {
-                if (Board[CurrentX - 1, CurrentY]._ImAlive == false ) //Check move x-1, y
-                { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY)); }
-            }          
             if (CurrentY > 0)
             {
-                if (Board[CurrentX, CurrentY - 1]._ImAlive == false)   //Check move x, y-1
-                { AvilibleMoves.Add(new Move(CurrentX, CurrentY - 1)); }
-            }
-            if (CurrentX > 0 && CurrentY > 0)
+                if (Board[CurrentY - 1, CUrrentX]._ImAlive == false ) //Check move x-1, y
+                { AvilibleMoves.Add(new Move(CurrentY - 1, CUrrentX)); }
+            }          
+            if (CUrrentX > 0)
             {
-                if (Board[CurrentX - 1, CurrentY - 1]._ImAlive == false)//Check move x-1, y-1
-                { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY - 1)); }
+                if (Board[CurrentY, CUrrentX - 1]._ImAlive == false)   //Check move x, y-1
+                { AvilibleMoves.Add(new Move(CurrentY, CUrrentX - 1)); }
             }
-            if (CurrentX < 7 && CurrentY > 0)
+            if (CurrentY > 0 && CUrrentX > 0)
             {
-                if (Board[CurrentX + 1, CurrentY - 1]._ImAlive == false )//Check move x+1, y-1
+                if (Board[CurrentY - 1, CUrrentX - 1]._ImAlive == false)//Check move x-1, y-1
+                { AvilibleMoves.Add(new Move(CurrentY - 1, CUrrentX - 1)); }
+            }
+            if (CurrentY < 7 && CUrrentX > 0)
+            {
+                if (Board[CurrentY + 1, CUrrentX - 1]._ImAlive == false )//Check move x+1, y-1
                 {
-                    AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY - 1));
+                    AvilibleMoves.Add(new Move(CurrentY + 1, CUrrentX - 1));
                 }          
             }
-            if (CurrentX > 0 && CurrentY < 7)
+            if (CurrentY > 0 && CUrrentX < 7)
             {
-                if (Board[CurrentX - 1, CurrentY + 1]._ImAlive == false ) //Check move x-1, y+1 
-                { AvilibleMoves.Add(new Move(CurrentX - 1, CurrentY + 1)); }
+                if (Board[CurrentY - 1, CUrrentX + 1]._ImAlive == false ) //Check move x-1, y+1 
+                { AvilibleMoves.Add(new Move(CurrentY - 1, CUrrentX + 1)); }
             }
-            if (CurrentX < 7 && CurrentY < 7)
+            if (CurrentY < 7 && CUrrentX < 7)
             {
-                if (Board[CurrentX + 1, CurrentY + 1]._ImAlive == false) //Check move x+1, y+1 
-                { AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + 1)); }
+                if (Board[CurrentY + 1, CUrrentX + 1]._ImAlive == false) //Check move x+1, y+1 
+                { AvilibleMoves.Add(new Move(CurrentY + 1, CUrrentX + 1)); }
             }
         }
 
