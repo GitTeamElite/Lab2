@@ -72,6 +72,7 @@ namespace GitChess
                     {
                         if (Board[a, b]._ImBlack && Board[a, b]._ImAlive)
                         {
+                            Board[a, b].PrintMoveList();
                             int y = 0;
                             Console.WriteLine("Test move to y");
                             int.TryParse(Console.ReadLine(), out y);
@@ -97,6 +98,8 @@ namespace GitChess
                     {
                         if (Board[a, b]._ImBlack = false && Board[a, b]._ImAlive)
                         {
+                            Board[a, b].PrintMoveList();
+
                             int y = 0;
                             Console.WriteLine("Test move to y");
                             int.TryParse(Console.ReadLine(), out y);
@@ -107,7 +110,7 @@ namespace GitChess
                             if (Board[a, b].CheckMoveTry(x, y))
                             {
                                 Board[x, y] = Board[a, b];
-                                Board[a, b] = null;
+                               
                                 Board[a, b] = new Piece(true);
                                 Board[a, b]._ImAlive = false;
                                 PieceMoved = true;

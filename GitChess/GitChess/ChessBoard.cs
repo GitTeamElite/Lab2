@@ -52,6 +52,10 @@ namespace GitChess
         {
             return Board;
         }
+        public void MovePiece(int a,int b,int x,int y)
+        {
+            Board[x, y] = Board[a, b];
+        }
       
 }
 }

@@ -52,6 +52,7 @@ namespace GitChess
                 //{
                 //    item.PrintMoveList();
                 //}
+                //Console.ReadKey();
                 Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
 
                 player.Move(BlacksTurn, chessboard.Board);
