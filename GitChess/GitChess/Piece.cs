@@ -42,10 +42,10 @@ namespace GitChess
             //-----------------------------------------------------------------------------------------------//
             while (y < 7) // Move down*
             {
-                if (Board[y + 1, CurrentX]._ImAlive == false) { AddMoveToList(y + 1, CurrentX); }
+                if (Board[y + 1, CurrentX]._ImAlive == false) { AddMoveToList( CurrentX,y + 1); }
                 else if (BlacksTurn)
                 {
-                    if (!Board[y + 1,CurrentX]._ImBlack && Board[y + 1, CurrentX]._ImAlive) //--------------------------------- Working spot
+                    if (!Board[y + 1,CurrentX]._ImBlack && Board[ CurrentX,y + 1]._ImAlive) //--------------------------------- Working spot
                     { AddMoveToList(y + 1, CurrentX); break; }
                 }
 
@@ -60,7 +60,7 @@ namespace GitChess
             while (y > 0)// move Up*
             {
                 {
-                    if (Board[y - 1, CurrentX]._ImAlive == false || Board[y - 1, CurrentX]._ImBlack != BlacksTurn) { AddMoveToList(y - 1, CurrentX); }
+                    if (Board[y - 1, CurrentX]._ImAlive == false || Board[y - 1, CurrentX]._ImBlack != BlacksTurn) { AddMoveToList(CurrentX,y - 1); }
                 }
                 if (Board[y - 1, CurrentX]._ImAlive == true && Board[y - 1, CurrentX]._ImBlack == BlacksTurn)
                 {
@@ -71,7 +71,7 @@ namespace GitChess
             //-----------------------------------------------------------------------------------------------//        
             while (x < 7) // move Right*
             {
-                if (Board[CurrentY, x + 1]._ImAlive == false || Board[CurrentY, x + 1]._ImBlack != BlacksTurn) { AddMoveToList(CurrentY, x + 1); }
+                if (Board[CurrentY, x + 1]._ImAlive == false || Board[CurrentY, x + 1]._ImBlack != BlacksTurn) { AddMoveToList( x + 1,CurrentY); }
 
                 if (Board[CurrentY, x + 1]._ImAlive == true && Board[CurrentY, x + 1]._ImBlack == BlacksTurn)
                 {
@@ -82,7 +82,7 @@ namespace GitChess
             //-----------------------------------------------------------------------------------------------//              
             while (x > 0)// move Right*
             {
-                if (Board[CurrentY, x - 1]._ImAlive == false || Board[CurrentY, x - 1]._ImBlack != BlacksTurn) { AddMoveToList(CurrentY, x - 1); }
+                if (Board[CurrentY, x - 1]._ImAlive == false || Board[CurrentY, x - 1]._ImBlack != BlacksTurn) { AddMoveToList( x - 1,CurrentY); }
 
                 if (Board[CurrentY, x - 1]._ImAlive == true && Board[CurrentY, x - 1]._ImBlack == BlacksTurn)
                 {
@@ -102,7 +102,7 @@ namespace GitChess
             while (y < 7 && x > 0) //  Down y+1/Left x-1 *
             {
 
-                if (Board[y + 1, x - 1]._ImAlive == false || Board[y + 1, x - 1 ]._ImBlack != BlacksTurn) { AddMoveToList(y + 1, x - 1); }
+                if (Board[y + 1, x - 1]._ImAlive == false || Board[y + 1, x - 1 ]._ImBlack != BlacksTurn) { AddMoveToList( x - 1,y + 1); }
 
                 if (Board[y + 1, x - 1 ]._ImAlive == true && Board[y + 1, x - 1 ]._ImBlack == BlacksTurn)
                 {
@@ -115,7 +115,7 @@ namespace GitChess
             while (y < 7 && x < 7) // Down y+1 Right x+1 *
             {
 
-                if (Board[y + 1, x + 1 ]._ImAlive == false || Board[x + 1, y + 1]._ImBlack != BlacksTurn) { AddMoveToList(y + 1, x + 1); }
+                if (Board[y + 1, x + 1 ]._ImAlive == false || Board[x + 1, y + 1]._ImBlack != BlacksTurn) { AddMoveToList(x + 1,y + 1); }
 
                 if (Board[y + 1, x + 1]._ImAlive == true && Board[y + 1, x + 1]._ImBlack == BlacksTurn)
                 {
@@ -126,7 +126,7 @@ namespace GitChess
             //-----------------------------------------------------------------------------------------------//
             while (y > 0 && x > 0) // move Up y-1 Left x-1 *
             {
-                if (Board[y - 1, x - 1]._ImAlive == false || Board[y - 1, x - 1]._ImBlack != BlacksTurn) { AddMoveToList(y - 1, x - 1);  }
+                if (Board[y - 1, x - 1]._ImAlive == false || Board[y - 1, x - 1]._ImBlack != BlacksTurn) { AddMoveToList(x - 1,y - 1);  }
 
                 if (Board[y - 1, x - 1 ]._ImAlive == true && Board[y - 1, x - 1]._ImBlack == BlacksTurn)
                 {
@@ -137,7 +137,7 @@ namespace GitChess
             //-----------------------------------------------------------------------------------------------//     
             while (y > 0 && x < 7) // move Up y-1 Right x+1 *
             {
-                if (Board[y - 1, x + 1]._ImAlive == false || Board[y - 1 , x + 1]._ImBlack != BlacksTurn) { AddMoveToList(y - 1, x + 1 ); }
+                if (Board[y - 1, x + 1]._ImAlive == false || Board[y - 1 , x + 1]._ImBlack != BlacksTurn) { AddMoveToList(x + 1, y - 1); }
 
                 if (Board[y - 1 , x + 1]._ImAlive == true && Board[y - 1, x + 1]._ImBlack == BlacksTurn)
                 {

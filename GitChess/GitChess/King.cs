@@ -18,44 +18,44 @@ namespace GitChess
             if (CUrrentX < 7)
             {
                 if (Board[CurrentY, CUrrentX + 1]._ImAlive == false) //Check move x+1, y1 ----
-                { AvilibleMoves.Add(new Move(CurrentY, CUrrentX + 1)); }
+                { AvilibleMoves.Add(new Move( CUrrentX + 1,CurrentY)); }
             }
             if (CurrentY < 7)
             {
                 if (Board[CurrentY + 1, CUrrentX]._ImAlive == false ) //Check move x+1, y
-                { AvilibleMoves.Add(new Move(CurrentY + 1, CUrrentX)); }
+                { AvilibleMoves.Add(new Move(CUrrentX,CurrentY + 1)); }
             }
             if (CurrentY > 0)
             {
                 if (Board[CurrentY - 1, CUrrentX]._ImAlive == false ) //Check move x-1, y
-                { AvilibleMoves.Add(new Move(CurrentY - 1, CUrrentX)); }
+                { AvilibleMoves.Add(new Move(CUrrentX,CurrentY - 1)); }
             }          
             if (CUrrentX > 0)
             {
                 if (Board[CurrentY, CUrrentX - 1]._ImAlive == false)   //Check move x, y-1
-                { AvilibleMoves.Add(new Move(CurrentY, CUrrentX - 1)); }
+                { AvilibleMoves.Add(new Move(CUrrentX - 1,CurrentY)); }
             }
             if (CurrentY > 0 && CUrrentX > 0)
             {
                 if (Board[CurrentY - 1, CUrrentX - 1]._ImAlive == false)//Check move x-1, y-1
-                { AvilibleMoves.Add(new Move(CurrentY - 1, CUrrentX - 1)); }
+                { AvilibleMoves.Add(new Move(CUrrentX - 1,CurrentY - 1)); }
             }
             if (CurrentY < 7 && CUrrentX > 0)
             {
                 if (Board[CurrentY + 1, CUrrentX - 1]._ImAlive == false )//Check move x+1, y-1
                 {
-                    AvilibleMoves.Add(new Move(CurrentY + 1, CUrrentX - 1));
+                    AvilibleMoves.Add(new Move(CUrrentX - 1,CurrentY + 1));
                 }          
             }
             if (CurrentY > 0 && CUrrentX < 7)
             {
                 if (Board[CurrentY - 1, CUrrentX + 1]._ImAlive == false ) //Check move x-1, y+1 
-                { AvilibleMoves.Add(new Move(CurrentY - 1, CUrrentX + 1)); }
+                { AvilibleMoves.Add(new Move(CUrrentX + 1,CurrentY - 1)); }
             }
             if (CurrentY < 7 && CUrrentX < 7)
             {
                 if (Board[CurrentY + 1, CUrrentX + 1]._ImAlive == false) //Check move x+1, y+1 
-                { AvilibleMoves.Add(new Move(CurrentY + 1, CUrrentX + 1)); }
+                { AvilibleMoves.Add(new Move(CUrrentX + 1,CurrentY + 1)); }
             }
         }
 

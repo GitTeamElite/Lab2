@@ -26,18 +26,18 @@ namespace GitChess
                 {
                     if (Board[CurrentY + 1, CurrentX + 1]._ImBlack == false && Board[CurrentY + 1, CurrentX + 1]._ImAlive == true) //Takes a enmey 
                     {
-                        this.AvilibleMoves.Add(new Move(CurrentY + 1, CurrentX + 1));
+                        this.AvilibleMoves.Add(new Move( CurrentX + 1,CurrentY + 1));
                     }
 
                     if (CurrentX > 0)
                     {
                         if (Board[CurrentY + 1, CurrentX - 1]._ImBlack == false && Board[CurrentY + 1, CurrentX - 1]._ImAlive == true)   //Takes a enmey 
                         {
-                            this.AvilibleMoves.Add(new Move(CurrentY + 1, CurrentX - 1));
+                            this.AvilibleMoves.Add(new Move( CurrentX - 1,CurrentY + 1));
                         }
                     }
                     if (Board[CurrentY + 1, CurrentX]._ImAlive == false)                  // just moves forward
-                        this.AvilibleMoves.Add(new Move(CurrentY + 1, CurrentX));
+                        this.AvilibleMoves.Add(new Move( CurrentX,CurrentY + 1));
                 }
 
                 if (Board[CurrentY, CurrentX]._ImBlack == false && CurrentY > 0)  // White pieces
@@ -47,28 +47,28 @@ namespace GitChess
                     {
                         if (Board[CurrentY - 1, CurrentX + 1]._ImBlack == true && Board[CurrentY - 1, CurrentX + 1]._ImAlive == true) //Takes a enmey 
                         {
-                            this.AvilibleMoves.Add(new Move(CurrentY - 1, CurrentX + 1));
+                            this.AvilibleMoves.Add(new Move(CurrentX + 1,CurrentY - 1));
                         }
                     }
                     if (CurrentX > 0)
                     {
                         if (Board[CurrentY - 1, CurrentX - 1]._ImBlack == true && Board[CurrentY - 1, CurrentX - 1]._ImAlive == true)   //Takes a enmey 
                         {
-                            this.AvilibleMoves.Add(new Move(CurrentY - 1, CurrentX - 1));
+                            this.AvilibleMoves.Add(new Move(CurrentX - 1,CurrentY - 1));
                         }
                     }
                     if (Board[CurrentY - 1, CurrentX]._ImAlive == false)                  // just moves forward
-                        this.AvilibleMoves.Add(new Move(CurrentY - 1, CurrentX));
+                        this.AvilibleMoves.Add(new Move(CurrentX,CurrentY - 1));
                 }
 
 
                 if (Board[CurrentY,CurrentX]._ImBlack == true && CurrentY == 1 && Board[CurrentY + 1, CurrentX]._ImAlive == false && Board[CurrentY + 2, CurrentX]._ImAlive == false)  // Black can move 2 step from start poss
                 {
-                    this.AvilibleMoves.Add(new Move(CurrentY + 2, CurrentX));
+                    this.AvilibleMoves.Add(new Move(CurrentX,CurrentY + 2));
                 }
                 if (Board[CurrentY,CurrentX]._ImBlack == false && CurrentY == 6 && Board[CurrentY - 1, CurrentX]._ImAlive == false && Board[CurrentY - 2, CurrentX]._ImAlive == false) //  White can move 2 step from start poss
                 {
-                    this.AvilibleMoves.Add(new Move(CurrentY - 2, CurrentX));
+                    this.AvilibleMoves.Add(new Move(CurrentX,CurrentY - 2));
                 }
 
 
