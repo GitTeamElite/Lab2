@@ -56,14 +56,14 @@ namespace GitChess
                         PieceMoved = player.Move(BlacksTurn, chessboard.Board);
                     
                 }
-        
+
                 //////////////////////////////////////////////////////////////////////////////////////////////////
                 //------------------------------------ TEST TEST TEST ------------------------------------------//
                 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-                // Changes turn to next player
+                //Changes turn to next player
                 //if (BlacksTurn) { BlacksTurn = false; } //Maybe change variable... a bit confusing 
                 //else { BlacksTurn = true; }
             }
