@@ -19,27 +19,27 @@ namespace GitChess
 
 
 
-            if (Board[CurrentY, CurrentX]._ImBlack == true && CurrentY < 7) /// Black Pieces
+            if (Board[CurrentX, CurrentY]._ImBlack == true && CurrentY < 7) /// Black Pieces
             {
-
-                if (CurrentX < 7)
+                //CurrentX -1 < 0 || CurrentX + 1 > 7 || CurrentY - 1 < 0 || CurrentY + 1 > 7
+                if (CurrentX < 7 && CurrentY < 7)
                 {
                     if (Board[CurrentX + 1, CurrentY + 1]._ImBlack == false && Board[CurrentX + 1, CurrentY + 1]._ImAlive == true) //Takes a enmey 
                     {
                         this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY + 1));
                     }
-
-                    if (CurrentX > 0)
-                    {
-                        if (Board[CurrentX + 1, CurrentY - 1]._ImBlack == false && Board[CurrentX - 1, CurrentY + 1]._ImAlive == true)   //Takes a enmey 
-                        {
-                            this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY - 1));
-                        }
-                    }
-                    if (Board[CurrentX + 1, CurrentY]._ImAlive == false)                  // just moves forward
-                        this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY));
                 }
+                if (CurrentX < 7 && CurrentY > 0)
+                {
+                    if (Board[CurrentX + 1, CurrentY - 1]._ImBlack == false && Board[CurrentX + 1, CurrentY - 1]._ImAlive == true)   //Takes a enmey 
+                    {
+                        this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY - 1));
+                    }
+                }
+                if (Board[CurrentX + 1, CurrentY]._ImAlive == false)                  // just moves forward
+                    this.AvilibleMoves.Add(new Move(CurrentX + 1, CurrentY));
             }
+
 
             if (Board[CurrentX, CurrentY]._ImBlack == false && CurrentY > 0)  // White pieces
             {
@@ -63,13 +63,13 @@ namespace GitChess
             }
 
 
-            if (Board[CurrentX, CurrentY]._ImBlack == true && CurrentY == 1 && Board[CurrentX, CurrentY + 1]._ImAlive == false && Board[CurrentX, CurrentY + 2]._ImAlive == false)  // Black can move 2 step from start poss
+            if (Board[CurrentX, CurrentY]._ImBlack == true && CurrentX == 1 && Board[CurrentX + 1, CurrentY]._ImAlive == false && Board[CurrentX + 2, CurrentY]._ImAlive == false)  // Black can move 2 step from start poss
             {
-                this.AvilibleMoves.Add(new Move(CurrentX, CurrentY + 2));
+                this.AvilibleMoves.Add(new Move(CurrentX + 2, CurrentY));
             }
-            if (Board[CurrentX, CurrentY]._ImBlack == false && CurrentY == 6 && Board[CurrentX, CurrentY - 1]._ImAlive == false && Board[CurrentX, CurrentY - 2]._ImAlive == false) //  White can move 2 step from start poss
+            if (Board[CurrentX, CurrentY]._ImBlack == false && CurrentX == 6 && Board[CurrentX - 1, CurrentY]._ImAlive == false && Board[CurrentX - 2, CurrentY]._ImAlive == false) //  White can move 2 step from start poss
             {
-                this.AvilibleMoves.Add(new Move(CurrentX, CurrentY - 2));
+                this.AvilibleMoves.Add(new Move(CurrentX - 2, CurrentY));
             }
 
 

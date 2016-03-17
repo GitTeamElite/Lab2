@@ -52,6 +52,7 @@ namespace GitChess
 
             else return -1;
         }
+    
     }
 }
   
