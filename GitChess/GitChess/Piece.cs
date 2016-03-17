@@ -182,7 +182,6 @@ namespace GitChess
             {
                 if (CurrentX + x < 0 || CurrentX + x > 7 || CurrentY + y < 0 || CurrentY + y > 7) break;
 
-
                 if (Board[CurrentX + x, CurrentY + y]._ImAlive == false) { AddMoveToList(CurrentX + x, CurrentY + y); } // Moves to a empty spot
 
                 if (Board[CurrentX, CurrentY]._ImBlack && !Board[CurrentX, CurrentY + y]._ImBlack && Board[CurrentX, CurrentY + 1]._ImAlive)  // Black takes a enemy and loop breaks
@@ -190,7 +189,6 @@ namespace GitChess
 
                 if (!Board[CurrentX, CurrentY]._ImBlack && Board[CurrentX + x, CurrentY + y]._ImBlack && Board[CurrentX + x, CurrentY + y]._ImAlive) // White takes a enemy and loop breaks
                 { AddMoveToList(CurrentX, CurrentY + 1); break; }
-
 
                 if (Board[CurrentX+x, CurrentY + y]._ImAlive && Board[CurrentX, CurrentY + y]._ImBlack == BlacksTurn) // Cant move threw your own pieces
                 {
@@ -202,7 +200,7 @@ namespace GitChess
         }   
         public void MovingStraight(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
-            //////////////////////////////////////////////////// X - Y
+            ///////////////////////////////////////////// X - Y
             Mover(BlacksTurn, Board, CurrentX, CurrentY, 0, 1);
             Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, 0);
             Mover(BlacksTurn, Board, CurrentX, CurrentY, 0, -1);
@@ -211,7 +209,7 @@ namespace GitChess
         }
         public void MovingDiagonaly(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
-            //////////////////////////////////////////////////// X - Y
+            //////////////////////////////////////////// X - Y
             Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, 1);
             Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, -1);
             Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, -1);
