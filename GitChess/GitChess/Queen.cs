@@ -15,8 +15,8 @@ namespace GitChess
         }
         public override void CheckMove(bool BlacksTurn , Piece[,] Board, int CurrentX, int CurrentY  )
         {
-            MoveStraight(BlacksTurn, Board, CurrentX, CurrentY );
-            MoveDiagonaly(BlacksTurn, Board, CurrentX, CurrentY);
+            MovingDiagonaly(BlacksTurn, Board, CurrentX, CurrentY );
+            MovingStraight(BlacksTurn, Board, CurrentX, CurrentY);
         
         }
     }
