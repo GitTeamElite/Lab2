@@ -15,57 +15,57 @@ namespace GitChess
         }
         public override void CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentY, int CurrentX) // Checking base move rules         
         {
-            // AllKingMoves(BlacksTurn, Board, CurrentX, CurrentY);
-            // }
-            if (CurrentX < 7)
-            {
-                if (Board[CurrentY, CurrentX + 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn) //Check move x+1, y1 ----
-                { AvilibleMoves.Add(new Move( CurrentY,CurrentX + 1)); }
-            }
-            if (CurrentY < 7)
-            {
-                if (Board[CurrentY + 1, CurrentX]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn)) //Check move x+1, y
-                { AvilibleMoves.Add(new Move( CurrentY + 1,CurrentX)); }
-            }
-            if (CurrentY > 0)
-            {
-                if (Board[CurrentY - 1, CurrentX]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn)) //Check move x-1, y
-                { AvilibleMoves.Add(new Move( CurrentY - 1,CurrentX)); }
-            }
-            if (CurrentX > 0)
-            {
-                if (Board[CurrentY, CurrentX - 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn))   //Check move x, y-1
-                { AvilibleMoves.Add(new Move(CurrentY,CurrentX - 1)); }
-            }
-            if (CurrentY > 0 && CurrentX > 0)
-            {
-                if (Board[CurrentY - 1, CurrentX - 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn))//Check move x-1, y-1
-                { AvilibleMoves.Add(new Move( CurrentY - 1,CurrentX - 1)); }
-            }
-            if (CurrentY < 7 && CurrentX > 0)
-            {
-                if (Board[CurrentY + 1, CurrentX - 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn))//Check move x+1, y-1
-                {
-                    AvilibleMoves.Add(new Move( CurrentY + 1,CurrentX - 1));
-                }
-            }
-            if (CurrentY > 0 && CurrentX < 7)
-            {
-                if (Board[CurrentY - 1, CurrentX + 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn)) //Check move x-1, y+1 
-                { AvilibleMoves.Add(new Move( CurrentY - 1,CurrentX + 1)); }
-            }
-            if (CurrentY < 7 && CurrentX < 7)
-            {
-                if (Board[CurrentY + 1, CurrentX + 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn)) //Check move x+1, y+1 
-                { AvilibleMoves.Add(new Move( CurrentY + 1,CurrentX + 1)); }
-            }
+            AllKingMoves(BlacksTurn, Board, CurrentX, CurrentY);
         }
+        //    if (CurrentX < 7)
+        //    {
+        //        if (Board[CurrentY, CurrentX + 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn) //Check move x+1, y1 ----
+        //        { AvilibleMoves.Add(new Move( CurrentY,CurrentX + 1)); }
+        //    }
+        //    if (CurrentY < 7)
+        //    {
+        //        if (Board[CurrentY + 1, CurrentX]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn) //Check move x+1, y
+        //        { AvilibleMoves.Add(new Move( CurrentY + 1,CurrentX)); }
+        //    }
+        //    if (CurrentY > 0)
+        //    {
+        //        if (Board[CurrentY - 1, CurrentX]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn) //Check move x-1, y
+        //        { AvilibleMoves.Add(new Move( CurrentY - 1,CurrentX)); }
+        //    }
+        //    if (CurrentX > 0)
+        //    {
+        //        if (Board[CurrentY, CurrentX - 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn)   //Check move x, y-1
+        //        { AvilibleMoves.Add(new Move(CurrentY,CurrentX - 1)); }
+        //    }
+        //    if (CurrentY > 0 && CurrentX > 0)
+        //    {
+        //        if (Board[CurrentY - 1, CurrentX - 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn)//Check move x-1, y-1
+        //        { AvilibleMoves.Add(new Move( CurrentY - 1,CurrentX - 1)); }
+        //    }
+        //    if (CurrentY < 7 && CurrentX > 0)
+        //    {
+        //        if (Board[CurrentY + 1, CurrentX - 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn)//Check move x+1, y-1
+        //        {
+        //            AvilibleMoves.Add(new Move( CurrentY + 1,CurrentX - 1));
+        //        }
+        //    }
+        //    if (CurrentY > 0 && CurrentX < 7)
+        //    {
+        //        if (Board[CurrentY - 1, CurrentX + 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn) //Check move x-1, y+1 
+        //        { AvilibleMoves.Add(new Move( CurrentY - 1,CurrentX + 1)); }
+        //    }
+        //    if (CurrentY < 7 && CurrentX < 7)
+        //    {
+        //        if (Board[CurrentY + 1, CurrentX + 1]._ImAlive == false || Board[CurrentY, CurrentX + 1]._ImBlack != BlacksTurn) //Check move x+1, y+1 
+        //        { AvilibleMoves.Add(new Move( CurrentY + 1,CurrentX + 1)); }
+        //    }
+        //}
         public void kingMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY, int x, int y)
         {
             if (CurrentX + x < 0 || CurrentX + x > 7 || CurrentY + y < 0 || CurrentY + y > 7) return;
             {
-                if (Board[CurrentX + x, CurrentY + y]._ImAlive == false) //Check move x+1, y+1 
-                { AvilibleMoves.Add(new Move(CurrentX + x, CurrentY + y)); }
+                if (Board[ CurrentY + y,CurrentX + x]._ImAlive == false) //Check move x+1, y+1 
+                { AvilibleMoves.Add(new Move(CurrentY + y,CurrentX + x)); }
             }
         }
 

@@ -177,44 +177,65 @@ namespace GitChess
 
         public void Mover(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY, int x, int y)
         {
-        
-            while (true) 
-            {
-                if (CurrentX + x < 0 || CurrentX + x > 7 || CurrentY + y < 0 || CurrentY + y > 7) break;
+            //while (true)
+            //{
+            //    if (Board[CurrentY + y, CurrentX + x]._ImAlive == false) { AddMoveToList(CurrentY + y, CurrentX + x); } // Moves to a empty spot
 
-                if (Board[CurrentX + x, CurrentY + y]._ImAlive == false) { AddMoveToList(CurrentX + x, CurrentY + y); } // Moves to a empty spot
+            //    if (Board[CurrentY, CurrentX]._ImBlack && !Board[CurrentY + y, CurrentX]._ImBlack && Board[CurrentY + 1, CurrentX]._ImAlive)  // Black takes a enemy and loop breaks
+            //    { AddMoveToList(CurrentY + y, CurrentX); break; }
 
-                if (Board[CurrentX, CurrentY]._ImBlack && !Board[CurrentX, CurrentY + y]._ImBlack && Board[CurrentX, CurrentY + 1]._ImAlive)  // Black takes a enemy and loop breaks
-                { AddMoveToList(CurrentX, CurrentY + y); break; }
+            //    if (!Board[CurrentY, CurrentX]._ImBlack && Board[CurrentY + y, CurrentX + x]._ImBlack && Board[CurrentY + y, CurrentX + x]._ImAlive) // White takes a enemy and loop breaks
+            //    { AddMoveToList(CurrentY + 1, CurrentX); break; }
 
-                if (!Board[CurrentX, CurrentY]._ImBlack && Board[CurrentX + x, CurrentY + y]._ImBlack && Board[CurrentX + x, CurrentY + y]._ImAlive) // White takes a enemy and loop breaks
-                { AddMoveToList(CurrentX, CurrentY + 1); break; }
-
-                if (Board[CurrentX+x, CurrentY + y]._ImAlive && Board[CurrentX, CurrentY + y]._ImBlack == BlacksTurn) // Cant move threw your own pieces
-                {
-                    break;
-                }
-                y += y;
-                x += x;
-            }
-        }   
+            //    if (Board[CurrentY + y, CurrentX + x]._ImAlive && Board[CurrentY + y, CurrentX]._ImBlack == BlacksTurn) // Cant move threw your own pieces
+            //    {
+            //        break;
+            //    }
+            //    y += y;
+            //    x += x;
+            //}
+        }
         public void MovingStraight(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
             ///////////////////////////////////////////// X - Y
-            Mover(BlacksTurn, Board, CurrentX, CurrentY, 0, 1);
-            Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, 0);
-            Mover(BlacksTurn, Board, CurrentX, CurrentY, 0, -1);
-            Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, 0);
-       
+
+            if (CurrentY + 1 < 7)
+            {
+                Mover(BlacksTurn, Board, CurrentX, CurrentY, 0, 1);
+            }
+            if (CurrentX + 1 < 7)
+            {
+                Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, 0);
+            }
+            if (CurrentY - 1 > 0)
+            {
+                Mover(BlacksTurn, Board, CurrentX, CurrentY, 0, -1);
+            }
+            if (CurrentX - 1 > 0)
+            {
+                Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, 0);
+            }
+
         }
         public void MovingDiagonaly(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
             //////////////////////////////////////////// X - Y
-            Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, 1);
-            Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, -1);
-            Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, -1);
-            Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, 1);
-         
+            if (CurrentX + 1 < 7 && CurrentY + 1 < 7)
+            {
+                Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, 1);
+            }
+            if (CurrentX - 1 > 0 && CurrentY + 1 > 0)
+            {
+                Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, -1);
+            }
+            if (CurrentX + 1 < 7 && CurrentY - 1 > 0)
+            {
+                Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, -1);
+            }
+            if (CurrentX - 1 > 0 && CurrentY + 1 < 7)
+            {
+                Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, 1);
+            }
         }
 
     }
