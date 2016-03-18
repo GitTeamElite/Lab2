@@ -187,7 +187,7 @@ namespace GitChess
 
         public void MoveDiagonaly(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
-       we
+       
             //-----------------------------------------------------------------------------------------------//
 
             while (CurrentY < 7 && CurrentX > 0) //  Down y+1/Left x-1 *
@@ -333,4 +333,5 @@ namespace GitChess
 
 }
 
+}
 }
