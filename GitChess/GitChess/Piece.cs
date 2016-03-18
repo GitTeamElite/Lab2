@@ -35,7 +35,7 @@ namespace GitChess
         {
             AvilibleMoves.Add(new Move(x, y)); //check
         }
-        #region OldMovingSystem
+
 
 
         public void MoveDown(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
@@ -108,7 +108,8 @@ namespace GitChess
             {
                 if (Board[CurrentY, CurrentX + nr]._ImAlive == false) { AddMoveToList(CurrentY, CurrentX + nr); }
 
-                if (Board[CurrentY, CurrentX]._ImBlack && !Board[CurrentY, CurrentX + nr]._ImBlack && Board[CurrentY, CurrentX + nr]._ImAlive)
+                if (Board[CurrentY, CurrentX]._ImBlack && Board[CurrentY, CurrentX]._ImAlive &&
+                    !Board[CurrentY, CurrentX + nr]._ImBlack && Board[CurrentY, CurrentX + nr]._ImAlive)
                 { AddMoveToList(CurrentY, CurrentX + nr); break; }
 
                 if (!Board[CurrentY, CurrentX]._ImBlack && Board[CurrentY, CurrentX + nr]._ImBlack && Board[CurrentY, CurrentX + nr]._ImAlive)
@@ -126,11 +127,11 @@ namespace GitChess
 
         public void MoveStraight(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
-         
+
             //-----------------------------------------------------------------------------------------------//
             while (CurrentY < 7) // Move down*
             {
-               
+
                 if (Board[CurrentY + 1, CurrentX]._ImAlive == false) { AddMoveToList(CurrentY + 1, CurrentX); }
 
                 if (Board[CurrentY, CurrentX]._ImBlack && !Board[CurrentY + 1, CurrentX]._ImBlack && Board[CurrentY + 1, CurrentX]._ImAlive)
@@ -182,12 +183,11 @@ namespace GitChess
                 CurrentX--;
             }
         }
-        //-----------------------------------    END    -------------------------------------------------//
-        //-----------------------------------------------------------------------------------------------//
+
 
         public void MoveDiagonaly(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
-       
+
             //-----------------------------------------------------------------------------------------------//
 
             while (CurrentY < 7 && CurrentX > 0) //  Down y+1/Left x-1 *
@@ -242,96 +242,97 @@ namespace GitChess
             //-----------------------------------    END    -------------------------------------------------//
             //-----------------------------------------------------------------------------------------------//
         }
-    }
-    public void PrintMoveList()
-    {
-        int nr = 1;
-        foreach (var item in AvilibleMoves)
+
+        public void PrintMoveList()
         {
-            Console.WriteLine($"Move {nr}: {item.XMove + 1} - {item.YMove + 1};");
-            nr++;
+            int nr = 1;
+            foreach (var item in AvilibleMoves)
+            {
+                Console.WriteLine($"Move {nr}: {item.XMove + 1} - {item.YMove + 1};");
+                nr++;
+            }
+        }
+        public void ClearMoveList()
+        {
+            AvilibleMoves.RemoveRange(0, AvilibleMoves.Count);
+        }
+        public bool CheckMoveTry(int x, int y)
+        {
+            foreach (var item in AvilibleMoves)
+            {
+                if (item.XMove == x && item.YMove == y) { return true; }
+            }
+            return false;
+        }
+
+        public void Mover(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY, int x, int y)
+        {
+            while (true)
+            {
+                if (x + CurrentX >= 8 || y + CurrentX >= 8 || x + CurrentX <= -1 || y + CurrentY <= -1) { break; }
+
+                if (Board[CurrentY + y, CurrentX + x]._ImAlive && Board[CurrentY + y, CurrentX]._ImBlack == BlacksTurn) // Cant move threw your own pieces
+                {
+                    break;
+                }
+                if (Board[CurrentY + y, CurrentX + x]._ImAlive == false) { AddMoveToList(CurrentY + y, CurrentX + x); } // Moves to a empty spot
+
+                if (Board[CurrentY, CurrentX]._ImBlack && !Board[CurrentY + y, CurrentX]._ImBlack && Board[CurrentY + 1, CurrentX]._ImAlive)  // Black takes a enemy and loop breaks
+                { AddMoveToList(CurrentY + y, CurrentX); break; }
+
+                if (!Board[CurrentY, CurrentX]._ImBlack && Board[CurrentY + y, CurrentX + x]._ImBlack && Board[CurrentY + y, CurrentX + x]._ImAlive) // White takes a enemy and loop breaks
+                { AddMoveToList(CurrentY + 1, CurrentX); break; }
+
+              
+                y += y;
+                x += x;
+            }
+        }
+        public void MovingStraight(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
+        {
+
+            //MoveUp(BlacksTurn, Board, CurrentX, CurrentY);
+            //MoveDown(BlacksTurn, Board, CurrentX, CurrentY);
+            //MoveLeft(BlacksTurn, Board, CurrentX, CurrentY);
+            //MoveRight(BlacksTurn, Board, CurrentX, CurrentY);
+
+
+            if (CurrentX + 1 < 7)
+            {
+                Mover(BlacksTurn, Board, CurrentY, CurrentX, 0, 1);
+            }
+            if (CurrentY + 1 < 7)
+            {
+                Mover(BlacksTurn, Board, CurrentY, CurrentX, 1, 0);
+            }
+            if (CurrentX - 1 > 0)
+            {
+                Mover(BlacksTurn, Board, CurrentY, CurrentX, 0, -1);
+            }
+            if (CurrentY - 1 > 0)
+            {
+                Mover(BlacksTurn, Board, CurrentY, CurrentX, -1, 0);
+            }
+
+        }
+        public void MovingDiagonaly(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
+        {
+            if (CurrentY + 1 < 7 && CurrentX + 1 < 7)
+            {
+                Mover(BlacksTurn, Board, CurrentY, CurrentX, 1, 1);
+            }
+            if (CurrentY - 1 > 0 && CurrentX + 1 > 0)
+            {
+                Mover(BlacksTurn, Board, CurrentY, CurrentX, -1, -1);
+            }
+            if (CurrentY + 1 < 7 && CurrentX - 1 > 0)
+            {
+                Mover(BlacksTurn, Board, CurrentY, CurrentX, 1, -1);
+            }
+            if (CurrentY - 1 > 0 && CurrentX + 1 < 7)
+            {
+                Mover(BlacksTurn, Board, CurrentY, CurrentX, -1, 1);
+            }
         }
     }
-    public void ClearMoveList()
-    {
-        AvilibleMoves.RemoveRange(0, AvilibleMoves.Count);
-    }
-    public bool CheckMoveTry(int x, int y)
-    {
-        foreach (var item in AvilibleMoves)
-        {
-            if (item.XMove == x && item.YMove == y) { return true; }
-        }
-        return false;
-    }
-
-    //public void Mover(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY, int x, int y)
-    //{
-    //    while (true)
-    //    {
-    //        if (Board[CurrentY + y, CurrentX + x]._ImAlive == false) { AddMoveToList(CurrentY + y, CurrentX + x); } // Moves to a empty spot
-
-    //        if (Board[CurrentY, CurrentX]._ImBlack && !Board[CurrentY + y, CurrentX]._ImBlack && Board[CurrentY + 1, CurrentX]._ImAlive)  // Black takes a enemy and loop breaks
-    //        { AddMoveToList(CurrentY + y, CurrentX); break; }
-
-    //        if (!Board[CurrentY, CurrentX]._ImBlack && Board[CurrentY + y, CurrentX + x]._ImBlack && Board[CurrentY + y, CurrentX + x]._ImAlive) // White takes a enemy and loop breaks
-    //        { AddMoveToList(CurrentY + 1, CurrentX); break; }
-
-    //        if (Board[CurrentY + y, CurrentX + x]._ImAlive && Board[CurrentY + y, CurrentX]._ImBlack == BlacksTurn) // Cant move threw your own pieces
-    //        {
-    //            break;
-    //        }
-    //        y += y;
-    //        x += x;
-    //    }
-    //}
-    public void MovingStraight(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
-    {
-        ///////////////////////////////////////////// X - Y
-        MoveUp(BlacksTurn, Board, CurrentX, CurrentY);
-        MoveDown(BlacksTurn, Board, CurrentX, CurrentY);
-        MoveLeft(BlacksTurn, Board, CurrentX, CurrentY);
-        MoveRight(BlacksTurn, Board, CurrentX, CurrentY);
-        //if (CurrentY + 1 < 7)
-        //{
-        //    Mover(BlacksTurn, Board, CurrentX, CurrentY, 0, 1);
-        //}
-        //if (CurrentX + 1 < 7)
-        //{
-        //    Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, 0);
-        //}
-        //if (CurrentY - 1 > 0)
-        //{
-        //    Mover(BlacksTurn, Board, CurrentX, CurrentY, 0, -1);
-        //}
-        //if (CurrentX - 1 > 0)
-        //{
-        //    Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, 0);
-        //}
-
-    }
-    public void MovingDiagonaly(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
-    {
-        //////////////////////////////////////////// X - Y
-        //if (CurrentX + 1 < 7 && CurrentY + 1 < 7)
-        //{
-        //    Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, 1);
-        //}
-        //if (CurrentX - 1 > 0 && CurrentY + 1 > 0)
-        //{
-        //    Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, -1);
-        //}
-        //if (CurrentX + 1 < 7 && CurrentY - 1 > 0)
-        //{
-        //    Mover(BlacksTurn, Board, CurrentX, CurrentY, 1, -1);
-        //}
-        //if (CurrentX - 1 > 0 && CurrentY + 1 < 7)
-        //{
-        //    Mover(BlacksTurn, Board, CurrentX, CurrentY, -1, 1);
-        //}
-    }
-
-}
-
-}
 }
