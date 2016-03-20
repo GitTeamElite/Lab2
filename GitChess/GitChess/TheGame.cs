@@ -26,29 +26,33 @@ namespace GitChess
         }
         public void StartGame()
         {
-            
-         
-         
-
             while (!ChackMate)
             {
                 chessboard.CLearPieceMoveLists();
                 chessboard.FillPiecesMoveLists(BlacksTurn);
-         
+
                 Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
-
-                if (BlacksTurn)
+             
+                try
                 {
-                    Console.WriteLine("Press a key for next Black");
-                    Console.ReadKey();
-                    aiBlack.Move(BlacksTurn, chessboard.Board);
+                    if (BlacksTurn)
+                    {
+                        Console.WriteLine("Press a key for next Black");
+                        Console.ReadKey();
+                        aiBlack.Move(BlacksTurn, chessboard.Board);
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Press a key for next White");
+                        Console.ReadKey();
+                        aiWhite.Move(BlacksTurn, chessboard.Board);
+                    }
                 }
-
-                else
+                catch (Exception)
                 {
-                    Console.WriteLine("Press a key for next White");
+                    Console.WriteLine("No move avilible for " + "BlacksTurn =" + BlacksTurn);
                     Console.ReadKey();
-                    aiWhite.Move(BlacksTurn, chessboard.Board);
                 }
                 // player.Move(BlacksTurn, chessboard.Board, WhitePiecesDied, BlackPiecesDied, logger);
 
@@ -58,6 +62,7 @@ namespace GitChess
             }
         }
     }
-    
+
 
 }
+

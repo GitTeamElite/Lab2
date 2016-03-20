@@ -14,9 +14,13 @@ namespace GitChess
             this._ImAlive = true;
             this.Points = 5;
         }
-        public override void CheckMove(bool BlacksTurn , Piece[,] Board, int CurrentX, int CurrentY)
+        public override void CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
-            MovingDiagonaly(BlacksTurn, Board, CurrentX, CurrentY );         
+            MovingDiagonaly(BlacksTurn, Board, CurrentX, CurrentY);
+        }
+        public override void ThreatStatus(Piece[,] Board, bool BlacksTurn, int y, int x) /// WORKING HERE!!!!
+        {
+            base.ThreatStatus(Board, BlacksTurn, y, x);
         }
     }
 }

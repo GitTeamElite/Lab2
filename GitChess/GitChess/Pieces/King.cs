@@ -18,17 +18,6 @@ namespace GitChess
         {
             AllKingMoves(BlacksTurn, Board, CurrentX, CurrentY);
         }
-       
-        public void kingMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY, int x, int y)
-        {
-            if (CurrentX + x < 0 || CurrentX + x > 7 || CurrentY + y < 0 || CurrentY + y > 7) return;
-            {
-                if (Board[ CurrentY + y,CurrentX + x]._ImAlive == false) //Check move x+1, y+1 
-                {
-                   AddMoveToList(CurrentY,CurrentX,CurrentY + y,CurrentX + x, Board,BlacksTurn);
-                }
-            }
-        }
         public void AllKingMoves(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY)
         {
             kingMove(BlacksTurn, Board, CurrentX, CurrentY, 1, 0);
@@ -40,5 +29,28 @@ namespace GitChess
             kingMove(BlacksTurn, Board, CurrentX, CurrentY, 0, -1);
             kingMove(BlacksTurn, Board, CurrentX, CurrentY, -1, -1);
         }
+
+
+        public void kingMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY, int x, int y)
+        {
+            if (CurrentX + x < 0 || CurrentX + x > 7 || CurrentY + y < 0 || CurrentY + y > 7) return;
+            {
+                if (Board[CurrentY + y, CurrentX + x]._ImAlive == false || Board[CurrentY + y, CurrentX + x]._ImBlack != BlacksTurn) //Check move x+1, y+1 
+                {
+                    AddMoveToList(CurrentY, CurrentX, CurrentY + y, CurrentX + x, Board, BlacksTurn);
+                }
+            }
+        }
+        public override void ThreatStatus(Piece[,] Board, bool BlacksTurn, int y, int x) /// WORKING HERE!!!!
+        {
+            for (int a = 0; a < this.AvilibleMoves.Count; a++)
+            {
+                if (CheckIfThreaten(Board, BlacksTurn, AvilibleMoves[a].YMove, AvilibleMoves[a].XMove))
+                {
+                    AvilibleMoves.RemoveAt(a);
+                }
+            }
+        }
     }
+
 }

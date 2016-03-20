@@ -8,7 +8,7 @@ namespace GitChess
 {
     class ChessBoard
     {
-       public Piece[,] Board;
+        public Piece[,] Board;
 
         public ChessBoard()
         {
@@ -49,15 +49,19 @@ namespace GitChess
             this.Board[0, 4] = new King(true);
             this.Board[7, 4] = new King(false);
 
-            //test
-            this.Board[5, 4] = new King(true);
-            this.Board[4, 5] = new King(false);
+            ////King TEST
+            //int X = 0; while (X < 8)
+            //{
+            //    this.Board[1, X] = new King(true);
+            //    this.Board[6, X] = new King(false);
+            //    X++;
+            //}
         }
         public Piece[,] GetBoard()
         {
             return Board;
         }
-        public void MovePiece(int a,int b,int x,int y)
+        public void MovePiece(int a, int b, int x, int y)
         {
             Board[x, y] = Board[a, b];
         }
@@ -73,14 +77,21 @@ namespace GitChess
         }
         public void FillPiecesMoveLists(bool BlacksTurn)
         {
-            for (int y = 0; y < 8; y++)                                                                    
-            {                                                                                            
-                for (int x = 0; x < 8; x++)                                                               
-                {                                                                                         
-                    this.Board[x, y].CheckMove(BlacksTurn, this.Board, x, y);            
-                }                                                                                         
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    this.Board[x, y].CheckMove(BlacksTurn, this.Board, x, y);
+                }
+            }
+            for (int yy = 0; yy < 8; yy++)
+            {
+                for (int xx = 0; xx < 8; xx++)
+                {
+                    this.Board[xx, yy].ThreatStatus(Board, BlacksTurn, xx, yy);
+                }
             }
         }
-      
-}
+
+    }
 }
