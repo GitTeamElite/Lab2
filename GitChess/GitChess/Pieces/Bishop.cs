@@ -8,18 +8,15 @@ namespace GitChess
 {
     class Bishop : Piece
     {
-
         public Bishop(bool _ImBlack) : base(_ImBlack)
         {
             this._MyVisualLook = " B ";
             this._ImAlive = true;
-
+            this.Points = 5;
         }
         public override void CheckMove(bool BlacksTurn , Piece[,] Board, int CurrentX, int CurrentY)
         {
-
-            MovingDiagonaly(BlacksTurn, Board, CurrentX, CurrentY );
-            
+            MovingDiagonaly(BlacksTurn, Board, CurrentX, CurrentY );         
         }
     }
 }

@@ -17,7 +17,7 @@ namespace GitChess
             {
                 for (int x = 0; x < 8; x++)
                 {
-                    this.Board[x, y] = new Piece(true);
+                    this.Board[x, y] = new Piece();
                 }
             }
             //Pawns
@@ -56,6 +56,26 @@ namespace GitChess
         public void MovePiece(int a,int b,int x,int y)
         {
             Board[x, y] = Board[a, b];
+        }
+        public void CLearPieceMoveLists()
+        {
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    this.Board[x, y].ClearMoveList();
+                }
+            }
+        }
+        public void FillPiecesMoveLists(bool BlacksTurn)
+        {
+            for (int y = 0; y < 8; y++)                                                                    
+            {                                                                                            
+                for (int x = 0; x < 8; x++)                                                               
+                {                                                                                         
+                    this.Board[x, y].CheckMove(BlacksTurn, this.Board, x, y);            
+                }                                                                                         
+            }
         }
       
 }

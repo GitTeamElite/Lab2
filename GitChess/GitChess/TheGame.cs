@@ -10,63 +10,46 @@ namespace GitChess
     {
         bool ChackMate = false;
         bool BlacksTurn = true;
-        Iplayer Iplay;
+        string WhitePiecesDied = "";
+        string BlackPiecesDied = "";
+
         Player player = new Player();
+        AI aiBlack = new AI(true);
+        AI aiWhite = new AI(false);
         public void StartGame()
         {
             ChessBoard chessboard = new ChessBoard();
-
+            Logger logger = new Logger();
          
 
             while (!ChackMate)
             {
-                for (int y = 0; y < 8; y++)
-                {
-                    for (int x = 0; x < 8; x++)
-                    {
-                        chessboard.Board[x, y].ClearMoveList();
-                    }
-                }
-
-
-                //////////////////////////////////////////////////////////////////////////////////////////////////
-                //------------------------------------ TEST TEST TEST ------------------------------------------//
-                //////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-                ////////////////////////////////////Fills Move List ////////////////////////////////////////////////
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                for (int y = 0; y < 8; y++)                                                                    /////
-                {                                                                                              /////
-                    for (int x = 0; x < 8; x++)                                                                /////
-                    {                                                                                          /////
-                        chessboard.Board[x, y].CheckMove(BlacksTurn, chessboard.GetBoard(), x, y);             /////
-                    }                                                                                          /////
-                } //////////////////////////////////////////////////////////////////////////////////////////////////
-              //////////////////////////////////////////////////////////////////////////////////////////////////////
-
+                chessboard.CLearPieceMoveLists();
+                chessboard.FillPiecesMoveLists(BlacksTurn);
+         
                 Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
-                bool PieceMoved = false;
-                while (!PieceMoved)
-                {
-                   
 
-                        Printer.PrintGame(chessboard.GetBoard(), BlacksTurn);
-                        PieceMoved = player.Move(BlacksTurn, chessboard.Board);
-                    
+                if (BlacksTurn)
+                {
+                    Console.WriteLine("Press a key for next Black");
+                    Console.ReadKey();
+                    aiBlack.Move(BlacksTurn, chessboard.Board);
                 }
 
-                //////////////////////////////////////////////////////////////////////////////////////////////////
-                //------------------------------------ TEST TEST TEST ------------------------------------------//
-                //////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+                else
+                {
+                    Console.WriteLine("Press a key for next White");
+                    Console.ReadKey();
+                    aiWhite.Move(BlacksTurn, chessboard.Board);
+                }
+                // player.Move(BlacksTurn, chessboard.Board, WhitePiecesDied, BlackPiecesDied, logger);
 
                 //Changes turn to next player
-                //if (BlacksTurn) { BlacksTurn = false; } //Maybe change variable... a bit confusing 
-                //else { BlacksTurn = true; }
+                if (BlacksTurn) { BlacksTurn = false; } //Maybe change variable... a bit confusing 
+                else { BlacksTurn = true; }
             }
         }
     }
+    
+
 }

@@ -12,6 +12,7 @@ namespace GitChess
         {
             this._MyVisualLook = " R ";
             this._ImAlive = true;
+            this.Points = 5;
         }
         public override void CheckMove(bool BlacksTurn, Piece[,] Board, int CurrentX, int CurrentY  )
         {
