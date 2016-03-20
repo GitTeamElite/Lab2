@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace GitChess
 {
-    class Rules
+   public class Rules
     {
         List<Move> MovesBlack;
         List<Move> MovesWhite;
         List<Move> UsingList;
-        List<Piece> Pieces;
-        Piece[,] Board;
+    
 
         public Rules()
         {
@@ -20,22 +19,7 @@ namespace GitChess
             this.MovesWhite = new List<Move>();
             this.UsingList = new List<Move>();
         }
-        public void ChackMatt(Piece[,]Board,bool BlacksTurn)
-        {
-            if (BlacksTurn) { UsingList = MovesWhite;  }
-            else { UsingList = MovesBlack; }
-
-            foreach (var item in UsingList)
-            {
-                if (Board[item.YMove, item.XMove]._MyVisualLook == " K " )
-                {
-                    // Då är din kung i schack och måste flyttas!
-                    // MustMoveKing!!
-
-                // if Cant... end!
-                }
-            }
-        }
+        
         public void FillListMoves(Piece[,] Board)
         {
             foreach (var item in Board)

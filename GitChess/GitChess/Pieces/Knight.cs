@@ -22,7 +22,7 @@ namespace GitChess
                 if (Board[CurrentY + 1, CurrentX + 2 ]._ImAlive == false || Board[CurrentY + 1, CurrentX + 2 ]._ImBlack != Board[CurrentY, CurrentX]._ImBlack)  //Check move x+2, y+1 
 
                 {
-                   AddMoveToList(CurrentY, CurrentX,CurrentY + 1,CurrentX + 2, Board);
+                   AddMoveToList(CurrentY, CurrentX,CurrentY + 1,CurrentX + 2, Board, BlacksTurn);
                 }
             }
 
@@ -30,49 +30,49 @@ namespace GitChess
             {
                 if (Board[CurrentY - 1, CurrentX + 2 ]._ImAlive == false || Board[CurrentY - 1, CurrentX + 2]._ImBlack != Board[CurrentY, CurrentX]._ImBlack)  //Check move x+2, y-1
                 {
-                   AddMoveToList(CurrentY, CurrentX, CurrentY - 1,CurrentX + 2, Board);
+                   AddMoveToList(CurrentY, CurrentX, CurrentY - 1,CurrentX + 2, Board, BlacksTurn);
                 }
             }
             if (CurrentX > 1 && CurrentY < 7)
             {
                 if (Board[CurrentY + 1, CurrentX - 2 ]._ImAlive == false || Board[CurrentY + 1, CurrentX - 2 ]._ImBlack != Board[CurrentY, CurrentX]._ImBlack)  //Check CurrentX  &&  CurrentY x-2, y+1
                 {
-                   AddMoveToList( CurrentY, CurrentX,CurrentY + 1,CurrentX - 2, Board);
+                   AddMoveToList( CurrentY, CurrentX,CurrentY + 1,CurrentX - 2, Board, BlacksTurn);
                 }
             }
             if (CurrentX > 1 && CurrentY > 0)
             {
                 if (Board[CurrentY - 1, CurrentX - 2 ]._ImAlive == false || Board[CurrentY - 1, CurrentX - 2 ]._ImBlack != Board[CurrentY, CurrentX]._ImBlack)  //Check move x-2, y-1
                 {
-                   AddMoveToList(CurrentY, CurrentX, CurrentY - 1,CurrentX - 2, Board);
+                   AddMoveToList(CurrentY, CurrentX, CurrentY - 1,CurrentX - 2, Board, BlacksTurn);
                 }
             }
             if (CurrentX < 7 && CurrentY < 6)
             {
                 if (Board[CurrentY + 2, CurrentX + 1 ]._ImAlive == false || Board[CurrentY + 2, CurrentX + 1 ]._ImBlack != Board[CurrentY, CurrentX]._ImBlack)   //Check move x+1, y+2
                 {
-                   AddMoveToList(CurrentY,CurrentX,CurrentY + 2, CurrentX + 1, Board);
+                   AddMoveToList(CurrentY,CurrentX,CurrentY + 2, CurrentX + 1, Board, BlacksTurn);
                 }
             }
             if (CurrentX > 0 && CurrentY < 6)
             {
                 if (Board[CurrentY + 2 , CurrentX - 1]._ImAlive == false || Board[CurrentY + 2, CurrentX - 1 ]._ImBlack != Board[CurrentY, CurrentX]._ImBlack)  //Check move x-1, y+2
                 {
-                  AddMoveToList(CurrentY, CurrentX, CurrentY + 2,CurrentX - 1, Board);
+                  AddMoveToList(CurrentY, CurrentX, CurrentY + 2,CurrentX - 1, Board, BlacksTurn);
                 }
             }
             if (CurrentX < 7 && CurrentY > 1)
             {
                 if (Board[CurrentY - 2, CurrentX + 1]._ImAlive == false || Board[CurrentY - 2, CurrentX + 1]._ImBlack != Board[CurrentY,CurrentX]._ImBlack)  //Check move x+1, y-2
                 {
-                   AddMoveToList(CurrentY, CurrentX, CurrentY - 2,CurrentX + 1, Board);
+                   AddMoveToList(CurrentY, CurrentX, CurrentY - 2,CurrentX + 1, Board, BlacksTurn);
                 }
             }
             if (CurrentX > 0 && CurrentY > 1)
             {
                 if (Board[CurrentY - 2, CurrentX - 1 ]._ImAlive == false || Board[CurrentY - 2, CurrentX - 1 ]._ImBlack != Board[CurrentY, CurrentX]._ImBlack) //Check move x-1, y-2
                 {
-                   AddMoveToList(CurrentY, CurrentX, CurrentY - 2,CurrentX - 1, Board);
+                   AddMoveToList(CurrentY, CurrentX, CurrentY - 2,CurrentX - 1, Board, BlacksTurn);
                 }
             }
         }     

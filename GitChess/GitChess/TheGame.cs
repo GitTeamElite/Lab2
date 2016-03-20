@@ -12,14 +12,22 @@ namespace GitChess
         bool BlacksTurn = true;
         string WhitePiecesDied = "";
         string BlackPiecesDied = "";
+        Rules rules;
 
         Player player = new Player();
         AI aiBlack = new AI(true);
         AI aiWhite = new AI(false);
+        ChessBoard chessboard;
+        public TheGame()
+        {
+            chessboard = new ChessBoard();
+            Logger logger = new Logger();
+            rules = new Rules();
+        }
         public void StartGame()
         {
-            ChessBoard chessboard = new ChessBoard();
-            Logger logger = new Logger();
+            
+         
          
 
             while (!ChackMate)

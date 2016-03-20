@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace GitChess
 {
+    
    public  class Move
     {
+       
         public int XPos;
         public int YPos;
         public int XMove;
@@ -16,6 +18,7 @@ namespace GitChess
 
        public Move(int XPos,int YPos,int XMove,int YMove,int MovePoints )
         {
+           
             this.XMove = XMove;
             this.YMove = YMove;
             this.MovePoints = MovePoints;

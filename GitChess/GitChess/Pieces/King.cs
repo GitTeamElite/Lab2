@@ -25,7 +25,7 @@ namespace GitChess
             {
                 if (Board[ CurrentY + y,CurrentX + x]._ImAlive == false) //Check move x+1, y+1 
                 {
-                   AddMoveToList(CurrentY,CurrentX,CurrentY + y,CurrentX + x, Board);
+                   AddMoveToList(CurrentY,CurrentX,CurrentY + y,CurrentX + x, Board,BlacksTurn);
                 }
             }
         }
