@@ -48,6 +48,10 @@ namespace GitChess
             // King
             this.Board[0, 4] = new King(true);
             this.Board[7, 4] = new King(false);
+
+            //test
+            this.Board[5, 4] = new King(true);
+            this.Board[4, 5] = new King(false);
         }
         public Piece[,] GetBoard()
         {
