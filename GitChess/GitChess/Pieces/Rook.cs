@@ -18,9 +18,6 @@ namespace GitChess
         {
             MovingStraight(BlacksTurn, Board, CurrentX, CurrentY);       
         }
-        public override void ThreatStatus(Piece[,] Board, bool BlacksTurn, int y, int x) /// WORKING HERE!!!!
-        {
-            base.ThreatStatus(Board, BlacksTurn, y, x);
-        }
+        
     }
 }

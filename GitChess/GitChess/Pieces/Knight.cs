@@ -77,9 +77,7 @@ namespace GitChess
             }
 
         }
-        public override void ThreatStatus(Piece[,] Board, bool BlacksTurn, int y, int x) /// WORKING HERE!!!!
-        {
-            base.ThreatStatus(Board, BlacksTurn, y, x);
-        }
+       
+      
     }
 }

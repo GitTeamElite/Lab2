@@ -49,11 +49,11 @@ namespace GitChess
             this.Board[0, 4] = new King(true);
             this.Board[7, 4] = new King(false);
 
-            ////King TEST
+            //King TEST
             //int X = 0; while (X < 8)
             //{
-            //    this.Board[1, X] = new King(true);
-            //    this.Board[6, X] = new King(false);
+            //    this.Board[0, X] = new King(true);
+            //    this.Board[3, X] = new King(false);
             //    X++;
             //}
         }
@@ -84,14 +84,7 @@ namespace GitChess
                     this.Board[x, y].CheckMove(BlacksTurn, this.Board, x, y);
                 }
             }
-            for (int yy = 0; yy < 8; yy++)
-            {
-                for (int xx = 0; xx < 8; xx++)
-                {
-                    this.Board[xx, yy].ThreatStatus(Board, BlacksTurn, xx, yy);
-                }
-            }
+              
         }
-
     }
 }

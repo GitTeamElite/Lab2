@@ -41,16 +41,8 @@ namespace GitChess
                 }
             }
         }
-        public override void ThreatStatus(Piece[,] Board, bool BlacksTurn, int y, int x) /// WORKING HERE!!!!
-        {
-            for (int a = 0; a < this.AvilibleMoves.Count; a++)
-            {
-                if (CheckIfThreaten(Board, BlacksTurn, AvilibleMoves[a].YMove, AvilibleMoves[a].XMove))
-                {
-                    AvilibleMoves.RemoveAt(a);
-                }
-            }
-        }
+      
+     
     }
 
 }
