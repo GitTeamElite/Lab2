@@ -83,8 +83,7 @@ namespace GitChess
                 {
                     this.Board[x, y].CheckMove(BlacksTurn, this.Board, x, y);
                 }
-            }
-              
+            }              
         }
     }
 }
